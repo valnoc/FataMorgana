@@ -7,5 +7,8 @@ let package = Package(
   	targets: [
 		Target(name: "FataMorgana", dependencies: ["FataMorganaCore"]),
         Target(name: "FataMorganaCore")
+    ],
+  	dependencies: [
+        .Package(url: "https://github.com/JohnSundell/Files.git", majorVersion: 1)
     ]
 )
