@@ -1,5 +1,5 @@
 //
-//  FileHandler.swift
+//  LexicalAnalyzer.swift
 //  FataMorgana
 //
 //  Created by Valeriy Bezuglyy on 10/10/2017.
@@ -9,10 +9,10 @@
 import Foundation
 import SourceKittenFramework
 
-class FileHandler {
+class LexicalAnalyzer {
     
-    func handleFile(_ pathToFile:String) {
-        //TODO: pass file to lexical
+    func tokens(_ sourceFile: File) -> [Token] {
+        return []
     }
     
 }
