@@ -1,8 +1,8 @@
 #!/usr/bin/swift
 
-import FataMorgana
+import FataMorganaCore
 
-let fataMorgana = FataMorgana()
+let fataMorgana = FataMorgana(args:CommandLine.arguments)
 
 do {
     try fataMorgana.run()
