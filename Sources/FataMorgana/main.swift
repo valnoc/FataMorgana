@@ -1,4 +1,11 @@
 #!/usr/bin/swift
-print("Hello, world!")
 
-print(CommandLine.arguments)
+import FataMorgana
+
+let fataMorgana = FataMorgana()
+
+do {
+    try fataMorgana.run()
+} catch {
+    print("Failed to run FataMorgana: \(error)")
+}
