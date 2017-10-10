@@ -3,5 +3,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "FataMorgana"
+    name: "FataMorgana",
+  	targets: [
+		Target(name: "FataMorgana", dependencies: ["FataMorganaCore"]),
+        Target(name: "FataMorganaCore")
+    ]
 )
