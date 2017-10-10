@@ -2,7 +2,13 @@
 
 import FataMorganaCore
 
-let fataMorgana = FataMorgana(args:CommandLine.arguments)
+//let fataMorgana = FataMorgana(args:CommandLine.arguments)
+
+let testArgs = ["FataMorgana",
+"FirstService.swift",
+"SecondService.swift",
+"MainObject.swift"]
+let fataMorgana = FataMorgana(args:testArgs)
 
 do {
     try fataMorgana.run()

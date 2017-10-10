@@ -17,6 +17,9 @@ public final class FataMorgana {
     }
     
     public func run() throws {
-        print("Hello, world!")
+        let handler = FileHandler()
+        for pathToFile in args {
+            handler.handleFile(pathToFile)
+        }
     }
 }
