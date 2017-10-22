@@ -12,7 +12,17 @@ import SourceKittenFramework
 class FileHandler {
     
     func handleFile(_ pathToFile:String) {
-        //TODO: pass file to lexical
+        print("trying to handle file \(pathToFile)")
+        
+        let lexicalAnalyzer = LexicalAnalyzer()
+        
+        if let file = File(path: pathToFile) {
+            let tokens = lexicalAnalyzer.tokens(file)
+            print("\(tokens)")
+        }
+        else {
+            print("failed with file \(pathToFile)")
+        }
     }
     
 }
