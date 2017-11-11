@@ -17,10 +17,6 @@ public final class FataMorgana {
     }
     
     public func run() throws {
-        let filePaths = Array(args.suffix(from: 1))
-        let handler = FileHandler()
-        for pathToFile in filePaths {
-            handler.handleFile(pathToFile)
-        }
+
     }
 }
