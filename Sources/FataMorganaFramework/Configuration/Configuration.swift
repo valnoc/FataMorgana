@@ -9,9 +9,11 @@ import Foundation
 
 class Configuration {
 
-    var files: [String]
+    var files: [String]?
+    var testable: [String]?
+    var output: String
     
     init() {
-        files = []
+        output = ""
     }
 }

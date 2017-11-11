@@ -1,3 +1,6 @@
 files:
   - FirstService.swift
-
+testable:
+- FataMorgana
+output:
+- tests/mocks
