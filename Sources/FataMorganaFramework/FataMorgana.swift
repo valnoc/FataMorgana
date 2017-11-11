@@ -11,17 +11,20 @@ import Foundation
 public final class FataMorgana {
     
     private let args: [String]
+    let configName = "fatamorgana.yml"
     
     private var currentDirPath: String
+    var configuration: Configuration
+    
     private var fileManager: FileManager {
         return FileManager.default
     }
     
-    let configName = "fatamorgana.yml"
-    
     public init(args: [String] = CommandLine.arguments) {
-        currentDirPath = "/"
         self.args = args
+        
+        currentDirPath = "/"
+        configuration = Configuration()
     }
     
     public func run() throws {
@@ -39,6 +42,8 @@ public final class FataMorgana {
         if fileManager.fileExists(atPath: configPath) {
             print("= found config")
             print("= loading...")
+            let content = try String(contentsOfFile: configPath)
+            configuration = YamlParser().parse(content)
             print("= config loaded")
         } else {
             print("= config not found")
