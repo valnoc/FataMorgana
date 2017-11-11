@@ -4,6 +4,11 @@ import PackageDescription
 
 let package = Package(
     name: "FataMorgana",
+    
+    dependencies: [
+        .package(url: "https://github.com/jpsim/Yams.git", from: "0.5.0")
+    ],
+    
     targets: [
         .target(
             name: "FataMorgana",
@@ -13,7 +18,7 @@ let package = Package(
         
         .target(
             name: "FataMorganaFramework",
-            dependencies: [],
+            dependencies: ["Yams"],
             exclude: ["Tests"]
         )
     ]
