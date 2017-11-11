@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Yaml",
-        "repositoryURL": "https://github.com/behrang/YamlSwift.git",
+        "package": "Yams",
+        "repositoryURL": "https://github.com/jpsim/Yams.git",
         "state": {
           "branch": null,
-          "revision": "901c4943f3206afb3b965bad2d1338e3c4fdbeba",
-          "version": "3.4.0"
+          "revision": "95f45caf07472ec78223ebada45255086a85b01a",
+          "version": "0.5.0"
         }
       }
     ]

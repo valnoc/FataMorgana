@@ -35,7 +35,7 @@ public final class FataMorgana {
         try loadConfig()
     }
     
-    func loadConfig() throws{
+    func loadConfig() throws {
         print("\n=== Configuration")
         print("= searching for \"\(configName)\"")
         let configPath = currentDirPath + "/" + configName
@@ -43,7 +43,7 @@ public final class FataMorgana {
             print("= found config")
             print("= loading...")
             let content = try String(contentsOfFile: configPath)
-            configuration = YamlParser().parse(content)
+            configuration = try YamlParser().parse(content)
             print("= config loaded")
         } else {
             print("= config not found")
@@ -54,4 +54,5 @@ public final class FataMorgana {
 
 enum FataMorganaError: Error {
     case configNotFound
+    case invalidConfig
 }

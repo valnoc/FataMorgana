@@ -6,19 +6,19 @@ let package = Package(
     name: "FataMorgana",
     
     dependencies: [
-        .package(url: "https://github.com/behrang/YamlSwift.git", from: "3.4.0")
+        .package(url: "https://github.com/jpsim/Yams.git", from: "0.5.0")
     ],
     
     targets: [
         .target(
             name: "FataMorgana",
-            dependencies: [.target(name: "FataMorganaFramework"), "Yaml"],
+            dependencies: [.target(name: "FataMorganaFramework")],
             exclude: ["Tests"]
         ),
         
         .target(
             name: "FataMorganaFramework",
-            dependencies: [],
+            dependencies: ["Yams"],
             exclude: ["Tests"]
         )
     ]
