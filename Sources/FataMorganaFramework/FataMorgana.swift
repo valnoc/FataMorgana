@@ -31,6 +31,7 @@ public final class FataMorgana {
         print("current dir = \(currentDirPath)")
         
         let config = try loadConfig()
+        Generator().generateMocks(config)
     }
     
     func loadConfig() throws -> Configuration {
