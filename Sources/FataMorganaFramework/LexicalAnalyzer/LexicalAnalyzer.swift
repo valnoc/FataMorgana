@@ -12,6 +12,8 @@ import SourceKittenFramework
 class LexicalAnalyzer {
     
     func tokens(_ sourceFile: File) -> [Token] {
+        let sourceStructure = Structure(file: sourceFile)
+        print(sourceStructure.dictionary)
         return []
     }
     

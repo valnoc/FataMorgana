@@ -1,6 +1,6 @@
 #!/usr/bin/swift
 
-import FataMorganaCore
+import FataMorganaFramework
 
 //let fataMorgana = FataMorgana(args:CommandLine.arguments)
 
