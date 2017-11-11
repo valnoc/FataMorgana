@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Yaml",
+        "repositoryURL": "https://github.com/behrang/YamlSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "901c4943f3206afb3b965bad2d1338e3c4fdbeba",
+          "version": "3.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

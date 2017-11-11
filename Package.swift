@@ -4,10 +4,15 @@ import PackageDescription
 
 let package = Package(
     name: "FataMorgana",
+    
+    dependencies: [
+        .package(url: "https://github.com/behrang/YamlSwift.git", from: "3.4.0")
+    ],
+    
     targets: [
         .target(
             name: "FataMorgana",
-            dependencies: [.target(name: "FataMorganaFramework")],
+            dependencies: [.target(name: "FataMorganaFramework"), "Yaml"],
             exclude: ["Tests"]
         ),
         
