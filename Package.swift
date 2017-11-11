@@ -30,11 +30,19 @@ let package = Package(
         ),
         
         //>>> cuckoo
-        .target(name: "CuckooGeneratorFramework", dependencies: [
-            "FileKit", "SourceKittenFramework", "Stencil", "Commandant"], exclude: ["Tests"]),
+        .target(
+            name: "CuckooGeneratorFramework",
+            dependencies: ["FileKit", "SourceKittenFramework", "Stencil", "Commandant"],
+            path: "cuckoo",
+            exclude: ["Tests"]
+        ),
         
-        .target(name: "cuckoo_generator", dependencies: [
-            .target(name: "CuckooGeneratorFramework")], exclude: ["Tests"]),
+        .target(
+            name: "cuckoo_generator",
+            dependencies: [.target(name: "CuckooGeneratorFramework")],
+            path: "cuckoo",
+            exclude: ["Tests"]
+        ),
         //<<<
     ]
 )
