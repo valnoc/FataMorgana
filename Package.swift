@@ -25,7 +25,7 @@ let package = Package(
         
         .target(
             name: "FataMorganaFramework",
-            dependencies: ["Yams", .target(name: "cuckoo_generator")],
+            dependencies: ["Yams", .target(name: "cuckoo_generator"), "Commandant"],
             exclude: ["Tests"]
         ),
         
@@ -33,14 +33,14 @@ let package = Package(
         .target(
             name: "CuckooGeneratorFramework",
             dependencies: ["FileKit", "SourceKittenFramework", "Stencil", "Commandant"],
-            path: "cuckoo",
+            path: "Sources/cuckoo/CuckooGeneratorFramework",
             exclude: ["Tests"]
         ),
         
         .target(
             name: "cuckoo_generator",
             dependencies: [.target(name: "CuckooGeneratorFramework")],
-            path: "cuckoo",
+            path: "Sources/cuckoo/cuckoo_generator",
             exclude: ["Tests"]
         ),
         //<<<
