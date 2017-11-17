@@ -6,10 +6,30 @@
 //
 
 import Foundation
+import cuckoo_generator
 
 class Generator {
     func generateMocks(_ config: Configuration) {
         print("=== Generator")
         print("generating mocks...")
+        
+        let output = config.rootPath + "/" + config.output
+        var testableFrameworks = ""
+        if let testable = config.testable {
+            testableFrameworks = testable.joined(separator: ",")
+        }
+        let files = config.files ?? []
+        
+        let options = GenerateMocksCommand.Options.init(output: output,
+                                                        testableFrameworks: testableFrameworks,
+                                                        exclude: "",
+                                                        noHeader: false,
+                                                        noTimestamp: false,
+                                                        noInheritance: false,
+                                                        filePrefix: "",
+                                                        noClassMocking: false,
+                                                        files: files)
+        
     }
 }
+
