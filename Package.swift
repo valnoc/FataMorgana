@@ -25,7 +25,7 @@ let package = Package(
         
         .target(
             name: "FataMorganaFramework",
-            dependencies: ["Yams", .target(name: "cuckoo_generator"), "Commandant"],
+            dependencies: ["Yams", .target(name: "CuckooGeneratorFramework"), "Commandant"],
             exclude: ["Tests"]
         ),
         
