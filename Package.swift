@@ -35,14 +35,7 @@ let package = Package(
             dependencies: ["FileKit", "SourceKittenFramework", "Stencil", "Commandant"],
             path: "Sources/cuckoo/CuckooGeneratorFramework",
             exclude: ["Tests"]
-        ),
-        
-        .target(
-            name: "cuckoo_generator",
-            dependencies: [.target(name: "CuckooGeneratorFramework")],
-            path: "Sources/cuckoo/cuckoo_generator",
-            exclude: ["Tests"]
-        ),
+        )
         //<<<
     ]
 )
