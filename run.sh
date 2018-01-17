@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-pushd example
-. ../run
+pushd example/
+../.build/debug/FataMorgana
 popd

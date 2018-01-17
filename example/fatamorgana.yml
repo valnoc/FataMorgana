@@ -3,4 +3,4 @@ files:
 testable:
 - FataMorgana
 output:
-- tests/mocks
+- mocks/
