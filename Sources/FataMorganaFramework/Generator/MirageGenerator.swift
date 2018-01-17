@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import cuckoo_generator
 
 class MirageGenerator {
     func generateMocks(_ config: Configuration) {
@@ -20,16 +19,17 @@ class MirageGenerator {
         }
         let files = config.files ?? []
 
-//        let options = GenerateMocksCommand.Options.init(output: output,
-//                                                        testableFrameworks: testableFrameworks,
-//                                                        exclude: "",
-//                                                        noHeader: false,
-//                                                        noTimestamp: false,
-//                                                        noInheritance: false,
-//                                                        filePrefix: "",
-//                                                        noClassMocking: false,
-//                                                        files: files)
-        
+        let options = GenerateMocksCommand.Options.init(output: output,
+                                                        testableFrameworks: testableFrameworks,
+                                                        exclude: "",
+                                                        noHeader: false,
+                                                        noTimestamp: false,
+                                                        noInheritance: false,
+                                                        filePrefix: "",
+                                                        noClassMocking: false,
+                                                        files: files)
+        let command = GenerateMocksCommand()
+        command.run(options)
     }
 }
 
