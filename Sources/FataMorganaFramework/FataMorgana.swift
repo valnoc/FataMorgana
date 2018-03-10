@@ -14,7 +14,6 @@ public final class FataMorgana {
     let configName = "fatamorgana.yml"
     
     private var currentDirPath: String
-    var configuration: Configuration
     
     private var fileManager: FileManager {
         return FileManager.default
@@ -24,7 +23,6 @@ public final class FataMorgana {
         self.args = args
         
         currentDirPath = "/"
-        configuration = Configuration()
     }
     
     public func run() throws {
@@ -32,10 +30,11 @@ public final class FataMorgana {
         currentDirPath = fileManager.currentDirectoryPath
         print("current dir = \(currentDirPath)")
         
-        try loadConfig()
+        let config = try loadConfig()
+        MirageGenerator().generateMocks(config)
     }
     
-    func loadConfig() throws {
+    func loadConfig() throws -> Configuration {
         print("\n=== Configuration")
         print("= searching for \"\(configName)\"")
         let configPath = currentDirPath + "/" + configName
@@ -43,8 +42,10 @@ public final class FataMorgana {
             print("= found config")
             print("= loading...")
             let content = try String(contentsOfFile: configPath)
-            configuration = try YamlParser().parse(content)
+            let configuration = try YamlParser().parse(content)
+            configuration.rootPath = currentDirPath
             print("= config loaded")
+            return configuration
         } else {
             print("= config not found")
             throw FataMorganaError.configNotFound
