@@ -1,6 +1,0 @@
-files:
-  - FirstService.swift
-testable:
-- FataMorgana
-output:
-- mocks/
