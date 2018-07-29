@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
+		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
+		5B668522210DF5B300FCD3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668520210DF5B300FCD3EA /* Main.storyboard */; };
+		5B668524210DF5B300FCD3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B668523210DF5B300FCD3EA /* Assets.xcassets */; };
+		5B668527210DF5B300FCD3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668525210DF5B300FCD3EA /* LaunchScreen.storyboard */; };
+		5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B668531210DF5B300FCD3EA /* FataExampleTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B66852E210DF5B300FCD3EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B668511210DF5B300FCD3EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B668518210DF5B300FCD3EA;
+			remoteInfo = FataExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B66851E210DF5B300FCD3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B668521210DF5B300FCD3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B668523210DF5B300FCD3EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B668526210DF5B300FCD3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B668528210DF5B300FCD3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B66852D210DF5B300FCD3EA /* FataExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FataExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B668531210DF5B300FCD3EA /* FataExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FataExampleTests.swift; sourceTree = "<group>"; };
+		5B668533210DF5B300FCD3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B668516210DF5B300FCD3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B66852A210DF5B300FCD3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B668510210DF5B300FCD3EA = {
+			isa = PBXGroup;
+			children = (
+				5B66851B210DF5B300FCD3EA /* FataExample */,
+				5B668530210DF5B300FCD3EA /* FataExampleTests */,
+				5B66851A210DF5B300FCD3EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B66851A210DF5B300FCD3EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B668519210DF5B300FCD3EA /* FataExample.app */,
+				5B66852D210DF5B300FCD3EA /* FataExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B66851B210DF5B300FCD3EA /* FataExample */ = {
+			isa = PBXGroup;
+			children = (
+				5B66851C210DF5B300FCD3EA /* AppDelegate.swift */,
+				5B66851E210DF5B300FCD3EA /* ViewController.swift */,
+				5B668520210DF5B300FCD3EA /* Main.storyboard */,
+				5B668523210DF5B300FCD3EA /* Assets.xcassets */,
+				5B668525210DF5B300FCD3EA /* LaunchScreen.storyboard */,
+				5B668528210DF5B300FCD3EA /* Info.plist */,
+			);
+			path = FataExample;
+			sourceTree = "<group>";
+		};
+		5B668530210DF5B300FCD3EA /* FataExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B668531210DF5B300FCD3EA /* FataExampleTests.swift */,
+				5B668533210DF5B300FCD3EA /* Info.plist */,
+			);
+			path = FataExampleTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B668518210DF5B300FCD3EA /* FataExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B668536210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExample" */;
+			buildPhases = (
+				5B668515210DF5B300FCD3EA /* Sources */,
+				5B668516210DF5B300FCD3EA /* Frameworks */,
+				5B668517210DF5B300FCD3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FataExample;
+			productName = FataExample;
+			productReference = 5B668519210DF5B300FCD3EA /* FataExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B66852C210DF5B300FCD3EA /* FataExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B668539210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExampleTests" */;
+			buildPhases = (
+				5B668529210DF5B300FCD3EA /* Sources */,
+				5B66852A210DF5B300FCD3EA /* Frameworks */,
+				5B66852B210DF5B300FCD3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B66852F210DF5B300FCD3EA /* PBXTargetDependency */,
+			);
+			name = FataExampleTests;
+			productName = FataExampleTests;
+			productReference = 5B66852D210DF5B300FCD3EA /* FataExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B668511210DF5B300FCD3EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Valeriy Bezuglyy";
+				TargetAttributes = {
+					5B668518210DF5B300FCD3EA = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					5B66852C210DF5B300FCD3EA = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5B668518210DF5B300FCD3EA;
+					};
+				};
+			};
+			buildConfigurationList = 5B668514210DF5B300FCD3EA /* Build configuration list for PBXProject "FataExample" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B668510210DF5B300FCD3EA;
+			productRefGroup = 5B66851A210DF5B300FCD3EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B668518210DF5B300FCD3EA /* FataExample */,
+				5B66852C210DF5B300FCD3EA /* FataExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B668517210DF5B300FCD3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B668527210DF5B300FCD3EA /* LaunchScreen.storyboard in Resources */,
+				5B668524210DF5B300FCD3EA /* Assets.xcassets in Resources */,
+				5B668522210DF5B300FCD3EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B66852B210DF5B300FCD3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B668515210DF5B300FCD3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */,
+				5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B668529210DF5B300FCD3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B66852F210DF5B300FCD3EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B668518210DF5B300FCD3EA /* FataExample */;
+			targetProxy = 5B66852E210DF5B300FCD3EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B668520210DF5B300FCD3EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B668521210DF5B300FCD3EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B668525210DF5B300FCD3EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B668526210DF5B300FCD3EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B668534210DF5B300FCD3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B668535210DF5B300FCD3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B668537210DF5B300FCD3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FataExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.examples.FataExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B668538210DF5B300FCD3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FataExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.examples.FataExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B66853A210DF5B300FCD3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FataExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.examples.FataExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FataExample.app/FataExample";
+			};
+			name = Debug;
+		};
+		5B66853B210DF5B300FCD3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FataExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.examples.FataExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FataExample.app/FataExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B668514210DF5B300FCD3EA /* Build configuration list for PBXProject "FataExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B668534210DF5B300FCD3EA /* Debug */,
+				5B668535210DF5B300FCD3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B668536210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B668537210DF5B300FCD3EA /* Debug */,
+				5B668538210DF5B300FCD3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B668539210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B66853A210DF5B300FCD3EA /* Debug */,
+				5B66853B210DF5B300FCD3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B668511210DF5B300FCD3EA /* Project object */;
+}
