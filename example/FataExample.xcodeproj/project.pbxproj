@@ -103,6 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B668536210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExample" */;
 			buildPhases = (
+				5B00A1AA210E0634006FA3BC /* ShellScript */,
 				5B668515210DF5B300FCD3EA /* Sources */,
 				5B668516210DF5B300FCD3EA /* Frameworks */,
 				5B668517210DF5B300FCD3EA /* Resources */,
@@ -193,6 +194,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B00A1AA210E0634006FA3BC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sourcery --config \"${SRCROOT}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B668515210DF5B300FCD3EA /* Sources */ = {

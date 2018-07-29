@@ -5,3 +5,5 @@ templates:
   - ./../Template/
 output:
   ./FataExampleTests/mocks/
+args:
+  testableModule: "FataExample"
