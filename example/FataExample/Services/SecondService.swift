@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery:mirageMock
 protocol SecondService {
     func makeRandomPositiveInt() -> Int
     

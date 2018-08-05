@@ -3,7 +3,7 @@ sources:
   - ./FataExample/Objects/
 templates:
   - ./../Template/
-output:
+output: 
   ./FataExampleTests/mocks/
 args:
   testableModule: "FataExample"
