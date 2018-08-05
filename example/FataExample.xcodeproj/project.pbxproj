@@ -10,6 +10,7 @@
 		5B00A1B0210E1BF5006FA3BC /* FirstService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AC210E1BF4006FA3BC /* FirstService.swift */; };
 		5B00A1B1210E1BF5006FA3BC /* SecondService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AD210E1BF4006FA3BC /* SecondService.swift */; };
 		5B00A1B2210E1BF5006FA3BC /* MainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AF210E1BF5006FA3BC /* MainObject.swift */; };
+		5B00A1B4210E42E1006FA3BC /* MockSecondService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */; };
 		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
 		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
 		5B668522210DF5B300FCD3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668520210DF5B300FCD3EA /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		5B00A1AC210E1BF4006FA3BC /* FirstService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstService.swift; sourceTree = "<group>"; };
 		5B00A1AD210E1BF4006FA3BC /* SecondService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondService.swift; sourceTree = "<group>"; };
 		5B00A1AF210E1BF5006FA3BC /* MainObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainObject.swift; sourceTree = "<group>"; };
+		5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSecondService.generated.swift; sourceTree = "<group>"; };
 		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B66851E210DF5B300FCD3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,8 +119,17 @@
 			children = (
 				5B668531210DF5B300FCD3EA /* FataExampleTests.swift */,
 				5B668533210DF5B300FCD3EA /* Info.plist */,
+				G_4799432611285 /* mocks */,
 			);
 			path = FataExampleTests;
+			sourceTree = "<group>";
+		};
+		G_4799432611285 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +139,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B668536210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExample" */;
 			buildPhases = (
-				5B00A1AA210E0634006FA3BC /* ShellScript */,
 				5B668515210DF5B300FCD3EA /* Sources */,
 				5B668516210DF5B300FCD3EA /* Frameworks */,
 				5B668517210DF5B300FCD3EA /* Resources */,
@@ -146,6 +156,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B668539210DF5B300FCD3EA /* Build configuration list for PBXNativeTarget "FataExampleTests" */;
 			buildPhases = (
+				5BEFC2122117375D002E07BF /* ShellScript */,
 				5B668529210DF5B300FCD3EA /* Sources */,
 				5B66852A210DF5B300FCD3EA /* Frameworks */,
 				5B66852B210DF5B300FCD3EA /* Resources */,
@@ -221,7 +232,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5B00A1AA210E0634006FA3BC /* ShellScript */ = {
+		5BEFC2122117375D002E07BF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B00A1B4210E42E1006FA3BC /* MockSecondService.generated.swift in Sources */,
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
