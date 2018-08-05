@@ -17,6 +17,7 @@
 		5B668524210DF5B300FCD3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B668523210DF5B300FCD3EA /* Assets.xcassets */; };
 		5B668527210DF5B300FCD3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668525210DF5B300FCD3EA /* LaunchScreen.storyboard */; };
 		5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B668531210DF5B300FCD3EA /* FataExampleTests.swift */; };
+		5BEFC21421173D04002E07BF /* MockFirstService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFC21321173D04002E07BF /* MockFirstService.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5B66852D210DF5B300FCD3EA /* FataExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FataExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B668531210DF5B300FCD3EA /* FataExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FataExampleTests.swift; sourceTree = "<group>"; };
 		5B668533210DF5B300FCD3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BEFC21321173D04002E07BF /* MockFirstService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirstService.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		G_4799432611285 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
+				5BEFC21321173D04002E07BF /* MockFirstService.generated.swift */,
 				5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */,
 			);
 			path = mocks;
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B00A1B4210E42E1006FA3BC /* MockSecondService.generated.swift in Sources */,
+				5BEFC21421173D04002E07BF /* MockFirstService.generated.swift in Sources */,
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
