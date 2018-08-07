@@ -1,0 +1,59 @@
+{% macro params_values method %}{% if method.parameters.count > 0 %}{% for param in method.parameters %} {{ param.name }}{% if not forloop.last %},{% endif %}{% endfor %}{% else %} nil{% endif %}{% endmacro %}
+
+{% macro params_call method %}{% for param in method.parameters %}{{ param.argumentLabel }}: args![{{forloop.counter0}}] as! {{ param.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
+
+{% macro generate type %}
+// sourcery:file:Mock{{ type.name }}
+import Foundation
+import XCTest
+import Mirage
+
+// @testable import {{ argument.name.testableModule }}
+// import additional modules
+
+class Mock{{ type.name }}: {{ type.name }}, Mock {
+    
+    lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
+        guard let __self = self else { return nil }
+    {% if type.kind == "class" %}
+        return __self.callRealFunc(funcName, args)
+    }
+    fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
+        switch funcName {
+        {% for method in type.allMethods %} 
+        case sel_{{ method.callName }}:
+            return super.{{ method.callName }}({% call params_call method %})
+        {% endfor %}
+        default:
+            return nil
+        }
+    }
+    {% else %}
+        return nil
+    }
+    {% endif%}
+    
+    //MARK: - Mock{{ type.name }}
+
+    {% for method in type.allMethods %}    
+    let sel_{{ method.callName }} = "sel_{{ method.callName }}"
+    func {{ method.name|replace:"  ","" }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+        {% if method.actualReturnTypeName.isVoid %}
+        mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: nil, withArgs:{% call params_values method %})
+        {% else %}
+        return mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: any{{ method.actualReturnTypeName }}(), withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
+        {% endif %}
+    }
+
+    {% endfor %}    
+}
+// sourcery:end
+{% endmacro %}
+
+{% for type in types.classes|annotated:"mirageMock" %}
+{% call generate type %}
+{% endfor %}
+
+{% for type in types.protocols|annotated:"mirageMock" %}
+{% call generate type %}
+{% endfor %}
