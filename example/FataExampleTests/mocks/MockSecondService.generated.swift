@@ -5,14 +5,15 @@ import Foundation
 import XCTest
 import Mirage
 
-// @testable import 
-// import additional modules
+@testable import FataExample
+import CoreLocation
+import CoreData
 
 class MockSecondService: SecondService, Mock {
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
         guard let __self = self else { return nil }
         return nil
-    }
+    })
     //MARK: - MockSecondService
 
     let sel_makeRandomPositiveInt = "sel_makeRandomPositiveInt"

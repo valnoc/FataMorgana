@@ -8,8 +8,8 @@ import Foundation
 import XCTest
 import Mirage
 
-// @testable import {{ argument.name.testableModule }}
-// import additional modules
+@testable import {{ argument.testableModule }}
+{{ argument.imports }}
 
 class Mock{{ type.name }}: {{ type.name }}, Mock {
     
@@ -17,7 +17,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         guard let __self = self else { return nil }
     {% if type.kind == "class" %}
         return __self.callRealFunc(funcName, args)
-    }
+    })
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
         {% for method in type.allMethods %} 
@@ -30,7 +30,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     }
     {% else %}
         return nil
-    }
+    })
     {% endif%}
     
     //MARK: - Mock{{ type.name }}

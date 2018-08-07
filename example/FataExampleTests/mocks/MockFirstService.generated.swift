@@ -5,14 +5,15 @@ import Foundation
 import XCTest
 import Mirage
 
-// @testable import 
-// import additional modules
+@testable import FataExample
+import CoreLocation
+import CoreData
 
 class MockFirstService: FirstService, Mock {
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
         guard let __self = self else { return nil }
         return __self.callRealFunc(funcName, args)
-    }
+    })
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
         case sel_performCalculation:

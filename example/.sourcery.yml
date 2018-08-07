@@ -7,3 +7,4 @@ output:
   ./FataExampleTests/mocks/
 args:
   testableModule: "FataExample"
+  imports: "import CoreLocation\nimport CoreData"
