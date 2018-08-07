@@ -1,0 +1,22 @@
+{% extends "Mock.stencil" %}
+
+{% block generator %}
+
+{% for type in types.classes|annotated:"miragePartial" %}
+{% call generate type %}
+
+// sourcery:file:PartialMock{{ type.name }}
+import Foundation
+import XCTest
+import Mirage
+
+@testable import {{ argument.testableModule }}
+{{ argument.imports }}
+
+class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
+// sourcery:end
+
+{% endfor %}
+
+{% endblock %}
+

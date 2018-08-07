@@ -50,6 +50,8 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 // sourcery:end
 {% endmacro %}
 
+{% block generator %}
+
 {% for type in types.classes|annotated:"mirageMock" %}
 {% call generate type %}
 {% endfor %}
@@ -57,3 +59,5 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 {% for type in types.protocols|annotated:"mirageMock" %}
 {% call generate type %}
 {% endfor %}
+
+{% endblock %}
