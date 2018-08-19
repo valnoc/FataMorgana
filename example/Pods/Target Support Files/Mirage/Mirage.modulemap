@@ -1,0 +1,6 @@
+framework module Mirage {
+  umbrella header "Mirage-umbrella.h"
+
+  export *
+  module * { export * }
+}

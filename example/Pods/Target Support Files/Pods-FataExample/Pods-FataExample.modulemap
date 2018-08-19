@@ -1,0 +1,6 @@
+framework module Pods_FataExample {
+  umbrella header "Pods-FataExample-umbrella.h"
+
+  export *
+  module * { export * }
+}
