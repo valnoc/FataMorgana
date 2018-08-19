@@ -17,6 +17,10 @@ class FirstService {
     func performCalculation2(arg1:Int, arg2: Int, arg333 arg3: Double) -> Int {
         return arg1 + arg2
     }
+
+    //sourcery: mirageSkip
+    func skipMe() {
+    }
 }
 
 extension FirstService {

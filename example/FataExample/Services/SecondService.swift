@@ -26,15 +26,12 @@ protocol SecondService {
 
     func foo5(withArray array: [NSNumber]) -> [String]
     func foo6(withDict dict: [String: NSNumber]) -> [String: String]
-    
-    //sourcery: mirageSkip
-    func foo7(withDict dict: [String: NSNumber]) -> [String: String]
    
-    func foo8(string: String) -> String
+    func foo7(string: String) -> String
 }
 
 extension SecondService {
-    func foo8(string: String) -> String {
-        return "foo8"
+    func foo7(string: String) -> String {
+        return "foo7"
     }
 }

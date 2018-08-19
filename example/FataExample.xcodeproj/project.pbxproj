@@ -13,6 +13,7 @@
 		5B00A1B1210E1BF5006FA3BC /* SecondService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AD210E1BF4006FA3BC /* SecondService.swift */; };
 		5B00A1B2210E1BF5006FA3BC /* MainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AF210E1BF5006FA3BC /* MainObject.swift */; };
 		5B00A1B4210E42E1006FA3BC /* MockSecondService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */; };
+		5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AD91C2129CA4D0016AB46 /* Any.swift */; };
 		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
 		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
 		5B668522210DF5B300FCD3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668520210DF5B300FCD3EA /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		5B00A1AD210E1BF4006FA3BC /* SecondService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondService.swift; sourceTree = "<group>"; };
 		5B00A1AF210E1BF5006FA3BC /* MainObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainObject.swift; sourceTree = "<group>"; };
 		5B00A1B3210E42E1006FA3BC /* MockSecondService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSecondService.generated.swift; sourceTree = "<group>"; };
+		5B5AD91C2129CA4D0016AB46 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B66851E210DF5B300FCD3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5B668531210DF5B300FCD3EA /* FataExampleTests.swift */,
+				5B5AD91C2129CA4D0016AB46 /* Any.swift */,
 				5B668533210DF5B300FCD3EA /* Info.plist */,
 				G_4799432611285 /* mocks */,
 			);
@@ -278,15 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FataExampleTests/Pods-FataExampleTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Mirage/Mirage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mirage.framework",
 			);
@@ -300,15 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FataExampleTests-checkManifestLockResult.txt",
 			);
@@ -335,15 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FataExample-checkManifestLockResult.txt",
 			);
@@ -374,6 +365,7 @@
 				5B00A1B4210E42E1006FA3BC /* MockSecondService.generated.swift in Sources */,
 				5BEFC21421173D04002E07BF /* MockFirstService.generated.swift in Sources */,
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
+				5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */,
 				5B80E322211A3460003B48F1 /* PartialMockFirstService.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
