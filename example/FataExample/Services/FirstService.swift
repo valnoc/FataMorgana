@@ -18,3 +18,9 @@ class FirstService {
         return arg1 + arg2
     }
 }
+
+extension FirstService {
+    func performCalculation3(arg1:Double) -> Double {
+        return arg1 * 2
+    }
+}

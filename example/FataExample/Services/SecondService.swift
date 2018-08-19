@@ -30,4 +30,11 @@ protocol SecondService {
     //sourcery: mirageSkip
     func foo7(withDict dict: [String: NSNumber]) -> [String: String]
    
+    func foo8(string: String) -> String
+}
+
+extension SecondService {
+    func foo8(string: String) -> String {
+        return "foo8"
+    }
 }
