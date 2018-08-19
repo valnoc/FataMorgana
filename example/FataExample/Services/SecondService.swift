@@ -8,9 +8,21 @@
 
 import Foundation
 
+typealias Closure1 = () -> Void
+
 //sourcery:mirageMock
 protocol SecondService {
     func makeRandomPositiveInt() -> Int
     
-    func foo()
+    func foo1()
+
+    func foo2(array: [NSNumber], _ closure: @escaping Closure1) -> String
+    
+    func foo3(number: NSNumber, closure: @escaping Closure1)
+    
+    func foo4(closure: @escaping Closure1)
+
+    func foo5(withArray array: [NSNumber]) -> [String]
+    func foo6(withDict dict: [String: NSNumber]) -> [String: String]
+   
 }

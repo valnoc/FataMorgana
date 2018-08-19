@@ -23,7 +23,7 @@ class MainObject {
         let sum = firstService.performCalculation(arg1: secondService.makeRandomPositiveInt(), arg2: secondService.makeRandomPositiveInt())
         
         if sum > 0 {
-            secondService.foo()
+            secondService.foo1()
         }
         else {
             postFailedNotification("sum < 0")
