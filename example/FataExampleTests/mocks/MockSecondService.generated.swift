@@ -48,7 +48,7 @@ class MockSecondService: SecondService, Mock {
 
     let sel_foo6 = "sel_foo6"
     func foo6(withDict dict: [String: NSNumber]) -> [String: String] {
-        return mockManager.handle(sel_foo6, withDefaultReturnValue: anyStringStringDict(), withArgs: dict) as! [String: String]
+        return mockManager.handle(sel_foo6, withDefaultReturnValue: [:], withArgs: dict) as! [String: String]
     }
 
 }

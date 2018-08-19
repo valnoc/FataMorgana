@@ -2,10 +2,15 @@
 
 {% macro params_call method %}{% for param in method.parameters %}{{ param.argumentLabel }}: args![{{forloop.counter0}}] as! {{ param.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
 
-{% macro any_call_general type %}any{{ type }}{% endmacro %}
-{% macro any_call_array type %}any{{ type|replace:"[",""|replace:"]","" }}Array{% endmacro %}
-{% macro any_call_dict type %}any{{ type|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict{% endmacro %}
+
+{% macro any_call_general type %}any{{ type }}(){% endmacro %}
+
+{% macro any_call_array type %}{% if argument.returnEmptyArray %}[]{% else %}any{{ type|replace:"[",""|replace:"]","" }}Array(){% endif %}{% endmacro %}
+
+{% macro any_call_dict type %}{% if argument.returnEmptyDict %}[:]{% else %}any{{ type|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){% endif %}{% endmacro %}
+
 {% macro any_call type %}{% if type|contains:":" %}{% call any_call_dict type %}{% else %}{% if type|contains:"[" %}{% call any_call_array type %}{% else %}{% call any_call_general type %}{% endif %}{% endif %}{% endmacro %}
+
 
 {% macro generate type %}
 // sourcery:file:Mock{{ type.name }}
@@ -46,7 +51,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         {% if method.actualReturnTypeName.isVoid %}
         mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: nil, withArgs:{% call params_values method %})
         {% else %}
-        return mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}(), withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
+        return mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
         {% endif %}
     }
 
