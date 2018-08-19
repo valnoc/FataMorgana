@@ -31,8 +31,10 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
         {% for method in type.allMethods %} 
+        {% if method|!annotated:"mirageSkip" %}
         case sel_{{ method.callName }}:
             return super.{{ method.callName }}({% call params_call method %})
+        {% endif %}
         {% endfor %}
         default:
             return nil
