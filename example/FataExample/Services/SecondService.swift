@@ -26,5 +26,8 @@ protocol SecondService {
 
     func foo5(withArray array: [NSNumber]) -> [String]
     func foo6(withDict dict: [String: NSNumber]) -> [String: String]
+    
+    //sourcery: mirageSkip
+    func foo7(withDict dict: [String: NSNumber]) -> [String: String]
    
 }

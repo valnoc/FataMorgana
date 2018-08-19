@@ -46,6 +46,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     //MARK: - Mock{{ type.name }}
 
     {% for method in type.allMethods %}   
+    {% if method|!annotated:"mirageSkip" %} 
     {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
     let {{ method_sel }} = "{{ method_sel }}"
     func {{ method.name|replace:"  ","" }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
@@ -55,7 +56,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         return mockManager.handle({{ method_sel }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
         {% endif %}
     }
-
+    {% endif %}
     {% endfor %}    
 }
 // sourcery:end
