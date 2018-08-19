@@ -30,10 +30,8 @@ class MockFirstService: FirstService, Mock {
     func performCalculation(arg1:Int, arg2: Int) -> Int {
         return mockManager.handle(sel_performCalculation, withDefaultReturnValue: anyInt(), withArgs: arg1, arg2) as! Int
     }
-
     let sel_performCalculation2 = "sel_performCalculation2"
     func performCalculation2(arg1:Int, arg2: Int, arg333 arg3: Double) -> Int {
         return mockManager.handle(sel_performCalculation2, withDefaultReturnValue: anyInt(), withArgs: arg1, arg2, arg3) as! Int
     }
-
 }

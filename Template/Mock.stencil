@@ -45,13 +45,14 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     
     //MARK: - Mock{{ type.name }}
 
-    {% for method in type.allMethods %}    
-    let sel_{{ method.callName }} = "sel_{{ method.callName }}"
+    {% for method in type.allMethods %}   
+    {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
+    let {{ method_sel }} = "{{ method_sel }}"
     func {{ method.name|replace:"  ","" }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
         {% if method.actualReturnTypeName.isVoid %}
-        mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: nil, withArgs:{% call params_values method %})
+        mockManager.handle({{ method_sel }}, withDefaultReturnValue: nil, withArgs:{% call params_values method %})
         {% else %}
-        return mockManager.handle(sel_{{ method.callName }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
+        return mockManager.handle({{ method_sel }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
         {% endif %}
     }
 

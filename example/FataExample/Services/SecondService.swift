@@ -10,7 +10,7 @@ import Foundation
 
 typealias Closure1 = () -> Void
 
-//sourcery:mirageMock
+//sourcery: mirageMock
 protocol SecondService {
     func makeRandomPositiveInt() -> Int
     
@@ -19,6 +19,8 @@ protocol SecondService {
     func foo2(array: [NSNumber], _ closure: @escaping Closure1) -> String
     
     func foo3(number: NSNumber, closure: @escaping Closure1)
+    //sourcery: mirageSel=foo3str
+    func foo3(string: String, closure: @escaping Closure1)
     
     func foo4(closure: @escaping Closure1)
 
