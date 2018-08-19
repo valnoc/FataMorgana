@@ -12,6 +12,8 @@
 {% macro any_call type %}{% if type|contains:":" %}{% call any_call_dict type %}{% else %}{% if type|contains:"[" %}{% call any_call_array type %}{% else %}{% call any_call_general type %}{% endif %}{% endif %}{% endmacro %}
 
 
+{% macro print_override method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+
 {% macro generate type %}
 // sourcery:file:Mock{{ type.name }}
 import Foundation
@@ -32,8 +34,10 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         switch funcName {
         {% for method in type.allMethods %} 
         {% if method|!annotated:"mirageSkip" %}
+        {% if method.definedInType.kind != "extension" %}
         case sel_{{ method.callName }}:
             return super.{{ method.callName }}({% call params_call method %})
+        {% endif %}
         {% endif %}
         {% endfor %}
         default:
@@ -49,15 +53,17 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 
     {% for method in type.allMethods %}   
     {% if method|!annotated:"mirageSkip" %} 
+    {% if method.definedInType.kind != "extension" %}
     {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
     let {{ method_sel }} = "{{ method_sel }}"
-    func {{ method.name|replace:"  ","" }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+    {% call print_override method %}func {{ method.name|replace:"  ","" }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
         {% if method.actualReturnTypeName.isVoid %}
         mockManager.handle({{ method_sel }}, withDefaultReturnValue: nil, withArgs:{% call params_values method %})
         {% else %}
         return mockManager.handle({{ method_sel }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
         {% endif %}
     }
+    {% endif %}
     {% endif %}
     {% endfor %}    
 }

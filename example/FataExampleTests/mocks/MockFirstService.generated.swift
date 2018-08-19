@@ -20,8 +20,6 @@ class MockFirstService: FirstService, Mock {
             return super.performCalculation(arg1: args![0] as! Int, arg2: args![1] as! Int)
         case sel_performCalculation2:
             return super.performCalculation2(arg1: args![0] as! Int, arg2: args![1] as! Int, arg333: args![2] as! Double)
-        case sel_performCalculation3:
-            return super.performCalculation3(arg1: args![0] as! Double)
         default:
             return nil
         }
@@ -29,15 +27,11 @@ class MockFirstService: FirstService, Mock {
     //MARK: - MockFirstService
 
     let sel_performCalculation = "sel_performCalculation"
-    func performCalculation(arg1:Int, arg2: Int) -> Int {
+    override func performCalculation(arg1:Int, arg2: Int) -> Int {
         return mockManager.handle(sel_performCalculation, withDefaultReturnValue: anyInt(), withArgs: arg1, arg2) as! Int
     }
     let sel_performCalculation2 = "sel_performCalculation2"
-    func performCalculation2(arg1:Int, arg2: Int, arg333 arg3: Double) -> Int {
+    override func performCalculation2(arg1:Int, arg2: Int, arg333 arg3: Double) -> Int {
         return mockManager.handle(sel_performCalculation2, withDefaultReturnValue: anyInt(), withArgs: arg1, arg2, arg3) as! Int
-    }
-    let sel_performCalculation3 = "sel_performCalculation3"
-    func performCalculation3(arg1:Double) -> Double {
-        return mockManager.handle(sel_performCalculation3, withDefaultReturnValue: anyDouble(), withArgs: arg1) as! Double
     }
 }
