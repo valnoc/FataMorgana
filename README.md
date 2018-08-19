@@ -1,7 +1,7 @@
 # FataMorgana
 [![](https://img.shields.io/cocoapods/v/FataMorgana.svg)]()
 
-This project generates mocks using [Mirage](https://github.com/valnoc/Mirage) library.
+FataMorgana generates mocks using [Mirage](https://github.com/valnoc/Mirage) library.
 
 It uses [Sourcery](https://github.com/krzysztofzablocki/Sourcery) as a code generator and provides several templates and annotations.
 
