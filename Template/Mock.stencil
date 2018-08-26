@@ -48,7 +48,7 @@ import Mirage
 {% macro printMethodReturnType method %}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %}{% endmacro %}
 
 {% macro printMethodDeclaration method %}{#
-    #}{% call printOverride method %}func {% call printMethodName method %}{% call printMethodReturnType method %}{#
+    #}{% call printOverride method %}func {% call printMethodName method %}{% if method.throws %} throws {% endif %}{% call printMethodReturnType method %}{#
 #}{% endmacro %}
 
 {# args #}
@@ -112,7 +112,7 @@ import Mirage
             {% if not method.isInitializer %}
                 {% set methodSel %}{% call getMethodSel method %}{% endset %}
         case {{ methodSel }}:
-            return super.{% call printCallRealMethod method %}
+            return {% if method.throws %}try? {% endif %}super.{% call printCallRealMethod method %}
             {% endif %}
         {% endfor %}
         default:
