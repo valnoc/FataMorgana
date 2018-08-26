@@ -9,12 +9,19 @@
 
 Pod::Spec.new do |s|
   s.name             = "FataMorgana"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "FataMorgana generates mocks using Mirage library."
   s.description      = <<-DESC
 FataMorgana generates mocks using Mirage library.
 
 It uses Sourcery as a code generator and provides several templates and annotations.
+
+v0.2.0
+  - refactored template
+  - fixed several bugs with callRealFunc generation
+  - both mirageMock and miragePartial generate now one file Mock{...}
+  - avoid initializers generation
+  - added temporary throws workaround
 
 v0.1.0
 	-	initial
