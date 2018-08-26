@@ -35,7 +35,8 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         {% for method in type.allMethods %} 
         {% if method|!annotated:"mirageSkip" %}
         {% if method.definedInType.kind != "extension" %}
-        case sel_{{ method.callName }}:
+        {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
+        case {{ method_sel }}:
             return super.{{ method.callName }}({% call params_call method %})
         {% endif %}
         {% endif %}
