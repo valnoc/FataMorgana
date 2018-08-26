@@ -35,10 +35,12 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         switch funcName {
         {% for method in type.allMethods %} 
         {% if method|!annotated:"mirageSkip" %}
+        {% if method.name|!hasPrefix:"init(" %}
         {% if method.definedInType.kind != "extension" %}
         {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
         case {{ method_sel }}:
             return super.{{ method.callName }}({% call params_call method %})
+        {% endif %}
         {% endif %}
         {% endif %}
         {% endfor %}
@@ -55,6 +57,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 
     {% for method in type.allMethods %}   
     {% if method|!annotated:"mirageSkip" %} 
+    {% if method.name|!hasPrefix:"init(" %}
     {% if method.definedInType.kind != "extension" %}
     {% set method_sel %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endset %}
     let {{ method_sel }} = "{{ method_sel }}"
@@ -65,6 +68,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         return mockManager.handle({{ method_sel }}, withDefaultReturnValue: {% call any_call method.actualReturnTypeName %}, withArgs:{% call params_values method %}) as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
         {% endif %}
     }
+    {% endif %}
     {% endif %}
     {% endif %}
 
