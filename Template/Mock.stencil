@@ -67,6 +67,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     }
     {% endif %}
     {% endif %}
+
     {% endfor %}    
 }
 {% endmacro %}
