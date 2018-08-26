@@ -1,6 +1,6 @@
 {% macro params_values method %}{% if method.parameters.count > 0 %}{% for param in method.parameters %} {{ param.name }}{% if not forloop.last %},{% endif %}{% endfor %}{% else %} nil{% endif %}{% endmacro %}
 
-{% macro params_call method %}{% for param in method.parameters %}{{ param.argumentLabel }}: args![{{forloop.counter0}}] as! {{ param.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
+{% macro params_call method %}{% for param in method.parameters %}{{ param.argumentLabel }}{% if param.argumentLabel.length > 0 %}:{% endif %} args![{{forloop.counter0}}] as! {{ param.typeName.unwrappedTypeName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
 
 
 {% macro any_call_general type %}any{{ type }}(){% endmacro %}
