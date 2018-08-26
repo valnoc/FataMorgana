@@ -5,11 +5,11 @@
 {% for type in types.classes|annotated:"miragePartial" %}
 
 // sourcery:file:Mock{{ type.name }}
-{% call generate_imports %}
+{% call generateImports %}
 
 class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
 
-{% call generate type %}
+{% call generateMockType type %}
 // sourcery:end
 
 {% endfor %}

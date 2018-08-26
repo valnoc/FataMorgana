@@ -14,7 +14,7 @@
 
 {% macro print_override method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
 
-{% macro generate_imports %}
+{% macro generateImports %}
 import Foundation
 import XCTest
 import Mirage
@@ -23,9 +23,8 @@ import Mirage
 {{ argument.imports }}
 {% endmacro %}
 
-{% macro generate type %}
-class Mock{{ type.name }}: {{ type.name }}, Mock {
-    
+{# TYPE #}
+{% macro generateMockTypeHeader type %}
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
         guard let __self = self else { return nil }
     {% if type.kind == "class" %}
@@ -52,9 +51,14 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         return nil
     })
     {% endif%}
+{% endmacro %}
+
+{% macro generateMockType type %}
+class Mock{{ type.name }}: {{ type.name }}, Mock {
+    
+    {% call generateMockTypeHeader type %}
     
     //MARK: - Mock{{ type.name }}
-
     {% for method in type.allMethods %}   
     {% if method|!annotated:"mirageSkip" %} 
     {% if method.name|!hasPrefix:"init(" %}
@@ -76,21 +80,22 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 }
 {% endmacro %}
 
+{# GENERATE MOCKS #}
 {% block generator %}
 
 {% for type in types.classes|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
-{% call generate_imports %}
+{% call generateImports %}
 
-{% call generate type %}
+{% call generateMockType type %}
 // sourcery:end
 {% endfor %}
 
 {% for type in types.protocols|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
-{% call generate_imports %}
+{% call generateImports %}
 
-{% call generate type %}
+{% call generateMockType type %}
 // sourcery:end
 {% endfor %}
 
