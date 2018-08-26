@@ -14,15 +14,16 @@
 
 {% macro print_override method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
 
-{% macro generate type %}
-// sourcery:file:Mock{{ type.name }}
+{% macro generate_imports %}
 import Foundation
 import XCTest
 import Mirage
 
 @testable import {{ argument.testableModule }}
 {{ argument.imports }}
+{% endmacro %}
 
+{% macro generate type %}
 class Mock{{ type.name }}: {{ type.name }}, Mock {
     
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
@@ -68,17 +69,24 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     {% endif %}
     {% endfor %}    
 }
-// sourcery:end
 {% endmacro %}
 
 {% block generator %}
 
 {% for type in types.classes|annotated:"mirageMock" %}
+// sourcery:file:Mock{{ type.name }}
+{% call generate_imports %}
+
 {% call generate type %}
+// sourcery:end
 {% endfor %}
 
 {% for type in types.protocols|annotated:"mirageMock" %}
+// sourcery:file:Mock{{ type.name }}
+{% call generate_imports %}
+
 {% call generate type %}
+// sourcery:end
 {% endfor %}
 
 {% endblock %}

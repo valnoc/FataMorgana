@@ -3,17 +3,13 @@
 {% block generator %}
 
 {% for type in types.classes|annotated:"miragePartial" %}
-{% call generate type %}
 
 // sourcery:file:PartialMock{{ type.name }}
-import Foundation
-import XCTest
-import Mirage
-
-@testable import {{ argument.testableModule }}
-{{ argument.imports }}
+{% call generate_imports %}
 
 class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
+
+{% call generate type %}
 // sourcery:end
 
 {% endfor %}
