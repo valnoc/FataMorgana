@@ -1,0 +1,30 @@
+
+{% macro callAnyOther type %}any{{ type|replace:"?","" }}(){% endmacro %}
+
+{% macro callAnyArray type %}{#
+    #}{% if argument.returnEmptyArray %}{#
+        #}[]{#
+    #}{% else %}{#
+        #}any{{ type|replace:"[",""|replace:"]","" }}Array(){#
+    #}{% endif %}{#
+#}{% endmacro %}
+
+{% macro callAnyDict type %}{#
+    #}{% if argument.returnEmptyDict %}{#
+        #}[:]{#
+    #}{% else %}{#
+        #}any{{ type|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
+    #}{% endif %}{#
+#}{% endmacro %}
+
+{% macro callAny type %}{#
+    #}{% if type|contains:":" %}{#
+        #}{% call callAnyDict type %}{#
+    #}{% else %}{#
+        #}{% if type|contains:"[" %}{#
+            #}{% call callAnyArray type %}{#
+        #}{% else %}{#
+            #}{% call callAnyOther type %}{#
+        #}{% endif %}{#
+    #}{% endif %}{#
+#}{% endmacro %}
