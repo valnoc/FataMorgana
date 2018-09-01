@@ -143,8 +143,6 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 {% endmacro %}
 
 {# === GENERATE MOCKS === #}
-{% block generator %}
-
 {% for type in types.classes|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
 {% call generateImports %}
@@ -161,4 +159,14 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 // sourcery:end
 {% endfor %}
 
-{% endblock %}
+{% for type in types.classes|annotated:"miragePartial" %}
+
+// sourcery:file:Mock{{ type.name }}
+{% call generateImports %}
+
+class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
+
+{% call generateMockType type %}
+// sourcery:end
+
+{% endfor %}
