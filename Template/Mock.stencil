@@ -91,7 +91,9 @@ import Mirage
     #}{% for param in method.parameters %}{#
         #}{{ param.argumentLabel }}{#
         #}{% if param.argumentLabel.length > 0 %}:{% endif %}{#
-        #} args![{{forloop.counter0}}] as! {{ param.typeName.unwrappedTypeName }}{#
+        #} args![{{forloop.counter0}}]{#
+        #} as{% if param.isOptional %}?{% else %}!{% endif %}{#
+        #} {{ param.typeName.unwrappedTypeName }}{#
         #}{% if not forloop.last %}, {% endif %}{#
     #}{% endfor %}{#
 #}{% endmacro %}
