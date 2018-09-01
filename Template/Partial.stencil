@@ -1,0 +1,18 @@
+{% extends "Mock.stencil" %}
+
+{% block generator %}
+
+{% for type in types.classes|annotated:"miragePartial" %}
+
+// sourcery:file:Mock{{ type.name }}
+{% call generateImports %}
+
+class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
+
+{% call generateMockType type %}
+// sourcery:end
+
+{% endfor %}
+
+{% endblock %}
+
