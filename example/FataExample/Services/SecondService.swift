@@ -12,6 +12,15 @@ typealias Closure1 = () -> Void
 
 //sourcery: mirageMock
 protocol SecondService {
+    
+    var commonVar: String {get set}
+    var commonVarOpt: String? {get set}
+    var commonVarArr: [String] {get set}
+    var commonVarArrOpt: [String]? {get set}
+    var commonVarDict: [String: String] {get set}
+    var commonVarDictOpt: [String: String]? {get set}    
+    
+    
     func makeRandomPositiveInt() -> Int
     
     func foo1()

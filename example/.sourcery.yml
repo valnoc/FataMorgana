@@ -9,4 +9,4 @@ args:
   testableModule: "FataExample"
   imports: "import CoreLocation\nimport CoreData"
   returnEmptyArray: false
-  returnEmptyDict: true
+  returnEmptyDict: false

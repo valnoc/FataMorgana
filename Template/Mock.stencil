@@ -86,6 +86,35 @@ import Mirage
     }
 {% endmacro %}
 
+{# === VAR === #}
+{% macro getVarSelGet var %}{% if var|annotated:"mirageSel" %}sel_get_{{ var.annotations.mirageSel }}{% else %}sel_get_{{ var.name }}{% endif %}{% endmacro %}
+{% macro getVarSelSet var %}{% if var|annotated:"mirageSel" %}sel_set_{{ var.annotations.mirageSel }}{% else %}sel_set_{{ var.name }}{% endif %}{% endmacro %}
+
+{% macro getVarType var %}{{ var.actualTypeName|replace:"?","" }}{% endmacro %}
+
+{# handler #}
+{% macro printMockVarManagerHandle var varSel %}{#
+    #}mockManager.handle({{ varSel }}{#
+    #}, withDefaultReturnValue: {#
+    #}{% if method.actualReturnTypeName.isVoid %}nil{#
+    #}{% else %}{% call callAny method.actualReturnTypeName %}{#
+    #}{% endif %}{#   
+    #}, withArgs:nil){#
+#}{% endmacro %}
+
+{# mock #}
+{% macro generateMockVar var %}
+    {% set varSelGet %}{% call getVarSelGet var %}{% endset %}
+    {% set varSelSet %}{% call getVarSelSet var %}{% endset %}
+    {##}
+    let {{ varSelGet }} = "{{ varSelGet }}"
+    let {{ varSelSet }} = "{{ varSelSet }}"
+    var {{ var.name}}: {{ var.typeName }} {
+        get { return mockManager.handle({{ varSelGet }}, withDefaultReturnValue: {% call callAny var.actualTypeName %}, withArgs:nil) as{%if var.isOptional%}?{%else%}!{%endif%} {{ var.actualTypeName|replace:"?","" }}  }
+        set(value) { mockManager.handle({{ varSelSet }}, withDefaultReturnValue: nil, withArgs:value) }
+    }
+{% endmacro %}
+
 {# === TYPE === #}
 {% macro printCallRealMethodArgs method %}{#
     #}{% for param in method.parameters %}{#
@@ -111,6 +140,11 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     })
     
     //MARK: - Mock{{ type.name }}
+    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
+            {% call generateMockVar var %}
+
+    {% endfor %}
+
     {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
             {% call generateMockMethod method %}

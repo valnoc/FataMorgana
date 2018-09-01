@@ -14,6 +14,49 @@ class MockSecondService: SecondService, Mock {
         return nil
     })
     //MARK: - MockSecondService
+    let sel_get_commonVar = "sel_get_commonVar"
+    let sel_set_commonVar = "sel_set_commonVar"
+    var commonVar: String {
+        get { return mockManager.handle(sel_get_commonVar, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
+        set(value) { mockManager.handle(sel_set_commonVar, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_commonVarOpt = "sel_get_commonVarOpt"
+    let sel_set_commonVarOpt = "sel_set_commonVarOpt"
+    var commonVarOpt: String? {
+        get { return mockManager.handle(sel_get_commonVarOpt, withDefaultReturnValue: anyString(), withArgs:nil) as? String  }
+        set(value) { mockManager.handle(sel_set_commonVarOpt, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_commonVarArr = "sel_get_commonVarArr"
+    let sel_set_commonVarArr = "sel_set_commonVarArr"
+    var commonVarArr: [String] {
+        get { return mockManager.handle(sel_get_commonVarArr, withDefaultReturnValue: anyStringArray(), withArgs:nil) as! [String]  }
+        set(value) { mockManager.handle(sel_set_commonVarArr, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_commonVarArrOpt = "sel_get_commonVarArrOpt"
+    let sel_set_commonVarArrOpt = "sel_set_commonVarArrOpt"
+    var commonVarArrOpt: [String]? {
+        get { return mockManager.handle(sel_get_commonVarArrOpt, withDefaultReturnValue: anyString?Array(), withArgs:nil) as? [String]  }
+        set(value) { mockManager.handle(sel_set_commonVarArrOpt, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_commonVarDict = "sel_get_commonVarDict"
+    let sel_set_commonVarDict = "sel_set_commonVarDict"
+    var commonVarDict: [String: String] {
+        get { return mockManager.handle(sel_get_commonVarDict, withDefaultReturnValue: anyStringStringDict(), withArgs:nil) as! [String: String]  }
+        set(value) { mockManager.handle(sel_set_commonVarDict, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_commonVarDictOpt = "sel_get_commonVarDictOpt"
+    let sel_set_commonVarDictOpt = "sel_set_commonVarDictOpt"
+    var commonVarDictOpt: [String: String]? {
+        get { return mockManager.handle(sel_get_commonVarDictOpt, withDefaultReturnValue: anyStringString?Dict(), withArgs:nil) as? [String: String]  }
+        set(value) { mockManager.handle(sel_set_commonVarDictOpt, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+
     let sel_makeRandomPositiveInt = "sel_makeRandomPositiveInt"
     func makeRandomPositiveInt() -> Int {
         return mockManager.handle(sel_makeRandomPositiveInt, withDefaultReturnValue: anyInt(), withArgs: nil) as! Int
@@ -51,7 +94,7 @@ class MockSecondService: SecondService, Mock {
 
     let sel_foo6 = "sel_foo6"
     func foo6(withDict dict: [String: NSNumber]) -> [String: String] {
-        return mockManager.handle(sel_foo6, withDefaultReturnValue: [:], withArgs: dict) as! [String: String]
+        return mockManager.handle(sel_foo6, withDefaultReturnValue: anyStringStringDict(), withArgs: dict) as! [String: String]
     }
 
     let sel_foo7 = "sel_foo7"
