@@ -1,5 +1,3 @@
-
-{# === TYPE === #}
 {% macro printCallRealMethodArgs method %}{#
     #}{% for param in method.parameters %}{#
         #}{{ param.argumentLabel }}{#
@@ -15,10 +13,29 @@
     #}{{ method.callName }}({% call printCallRealMethodArgs method %}){#
 #}{% endmacro %}
 
-{% macro generateMockTypeHeader type %}
+{% macro generateMockProtocol type %}
+class Mock{{ type.name }}: {{ type.name }}, Mock {
+    
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
         guard let __self = self else { return nil }
-    {% if type.kind == "class" %}
+        return nil
+    })
+    
+    //MARK: - Mock{{ type.name }}
+    {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
+        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
+            {% call generateMockMethod method %}
+
+        {% endif %}
+    {% endfor %}    
+}
+{% endmacro %}
+
+{% macro generateMockClass type %}
+class Mock{{ type.name }}: {{ type.name }}, Mock {
+    
+    lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
+        guard let __self = self else { return nil }
         return __self.callRealFunc(funcName, args)
     })
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
@@ -34,16 +51,6 @@
             return nil
         }
     }
-    {% else %}
-        return nil
-    })
-    {% endif%}
-{% endmacro %}
-
-{% macro generateMockType type %}
-class Mock{{ type.name }}: {{ type.name }}, Mock {
-    
-    {% call generateMockTypeHeader type %}
     
     //MARK: - Mock{{ type.name }}
     {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
@@ -53,4 +60,12 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         {% endif %}
     {% endfor %}    
 }
+{% endmacro %}
+
+{% macro generateMockType type %}
+{% if type.kind == "class" %}
+    {% call generateMockClass type %}
+{% else %}
+    {% call generateMockProtocol type %}
+{% endif %}
 {% endmacro %}
