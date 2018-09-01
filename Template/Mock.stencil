@@ -9,7 +9,7 @@ import Mirage
 {% endmacro %}
 
 {# ANY #}
-{% macro callAnyOther type %}any{{ type }}(){% endmacro %}
+{% macro callAnyOther type %}any{{ type|replace:"?","" }}(){% endmacro %}
 
 {% macro callAnyArray type %}{#
     #}{% if argument.returnEmptyArray %}{#
