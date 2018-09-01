@@ -1,5 +1,5 @@
 
-{# IMPORTS #}
+{# === IMPORTS === #}
 {% macro generateImports %}
 import Foundation
 import Mirage
@@ -8,7 +8,7 @@ import Mirage
 {{ argument.imports }}
 {% endmacro %}
 
-{# ANY #}
+{# === ANY === #}
 {% macro callAnyOther type %}any{{ type|replace:"?","" }}(){% endmacro %}
 
 {% macro callAnyArray type %}{#
@@ -39,7 +39,7 @@ import Mirage
     #}{% endif %}{#
 #}{% endmacro %}
 
-{# METHOD #}
+{# === METHOD === #}
 {# declaration #}
 {% macro getMethodSel method %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endmacro %}
 
@@ -86,7 +86,7 @@ import Mirage
     }
 {% endmacro %}
 
-{# TYPE #}
+{# === TYPE === #}
 {% macro printCallRealMethodArgs method %}{#
     #}{% for param in method.parameters %}{#
         #}{{ param.argumentLabel }}{#
