@@ -111,7 +111,7 @@ import Mirage
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
         {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
-            {% if not method.isInitializer and not method.isDeinitializer %}
+            {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
                 {% set methodSel %}{% call getMethodSel method %}{% endset %}
         case {{ methodSel }}:
             return {% if method.throws %}try? {% endif %}super.{% call printCallRealMethod method %}
@@ -134,7 +134,7 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     
     //MARK: - Mock{{ type.name }}
     {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
-        {% if not method.isInitializer and not method.isDeinitializer %}
+        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
             {% call generateMockMethod method %}
 
         {% endif %}
