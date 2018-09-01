@@ -38,7 +38,7 @@ class MockSecondService: SecondService, Mock {
     let sel_get_commonVarArrOpt = "sel_get_commonVarArrOpt"
     let sel_set_commonVarArrOpt = "sel_set_commonVarArrOpt"
     var commonVarArrOpt: [String]? {
-        get { return mockManager.handle(sel_get_commonVarArrOpt, withDefaultReturnValue: anyString?Array(), withArgs:nil) as? [String]  }
+        get { return mockManager.handle(sel_get_commonVarArrOpt, withDefaultReturnValue: anyStringArray(), withArgs:nil) as? [String]  }
         set(value) { mockManager.handle(sel_set_commonVarArrOpt, withDefaultReturnValue: nil, withArgs:value) }
     }
 
@@ -52,7 +52,7 @@ class MockSecondService: SecondService, Mock {
     let sel_get_commonVarDictOpt = "sel_get_commonVarDictOpt"
     let sel_set_commonVarDictOpt = "sel_set_commonVarDictOpt"
     var commonVarDictOpt: [String: String]? {
-        get { return mockManager.handle(sel_get_commonVarDictOpt, withDefaultReturnValue: anyStringString?Dict(), withArgs:nil) as? [String: String]  }
+        get { return mockManager.handle(sel_get_commonVarDictOpt, withDefaultReturnValue: anyStringStringDict(), withArgs:nil) as? [String: String]  }
         set(value) { mockManager.handle(sel_set_commonVarDictOpt, withDefaultReturnValue: nil, withArgs:value) }
     }
 

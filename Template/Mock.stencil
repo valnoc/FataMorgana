@@ -15,7 +15,7 @@ import Mirage
     #}{% if argument.returnEmptyArray %}{#
         #}[]{#
     #}{% else %}{#
-        #}any{{ type|replace:"[",""|replace:"]","" }}Array(){#
+        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]","" }}Array(){#
     #}{% endif %}{#
 #}{% endmacro %}
 
@@ -23,7 +23,7 @@ import Mirage
     #}{% if argument.returnEmptyDict %}{#
         #}[:]{#
     #}{% else %}{#
-        #}any{{ type|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
+        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
     #}{% endif %}{#
 #}{% endmacro %}
 
