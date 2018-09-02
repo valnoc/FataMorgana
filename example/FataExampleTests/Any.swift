@@ -1,16 +1,16 @@
 
-func anyString() -> String {
-    return "any"
-}
-
 func anyInt() -> Int {
-    return 4
+    return 1
 }
 
-func anyDouble() -> Double {
-    return 1.0
+func anyString() -> String {
+    return "str"
 }
 
 func anyStringArray() -> [String] {
-    return ["any_array"]
+    return ["asd"]
+}
+
+func anyStringStringDict() -> [String: String] {
+    return ["str": "str"]
 }
