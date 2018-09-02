@@ -8,9 +8,9 @@ import Mirage
 import CoreLocation
 import CoreData
 
-class PartialMockServiceImpl: MockServiceImpl, PartialMock { }
+class PartialMockServiceInheritedImpl: MockServiceInheritedImpl, PartialMock { }
 
-class MockServiceImpl: ServiceImpl, Mock {
+class MockServiceInheritedImpl: ServiceInheritedImpl, Mock {
     lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
         guard let __self = self else { return nil }
         return __self.callRealFunc(funcName, args)
@@ -61,7 +61,7 @@ class MockServiceImpl: ServiceImpl, Mock {
             return nil
         }
     }
-    //MARK: - MockServiceImpl
+    //MARK: - MockServiceInheritedImpl
     let sel_methodVoid = "sel_methodVoid"
     override func methodVoid() {
         mockManager.handle(sel_methodVoid, withDefaultReturnValue: nil, withArgs: nil)

@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: miragePartial
-class ServiceImpl: Service {
+class ServiceInheritedImpl: Service {
 
     var varOne: String
     
@@ -108,6 +108,6 @@ class ServiceImpl: Service {
     func baseMethod() { }
 }
 
-extension ServiceImpl {
+extension ServiceInheritedImpl {
     func methodInExtOfServiceImpl() {  }
 }

@@ -11,10 +11,14 @@
 		4516873A9A137369EC598124 /* Pods_FataExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095D8AFFE6069409C11DFA72 /* Pods_FataExample.framework */; };
 		5B00A1B0210E1BF5006FA3BC /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */; };
 		5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AD210E1BF4006FA3BC /* Service.swift */; };
-		5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */; };
 		5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C6213BEB8300DA09B5 /* Service2.swift */; };
-		5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */; };
-		5B0A86CB213BED1B00DA09B5 /* MockServiceImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */; };
+		5B0A86CE213BF31400DA09B5 /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86CC213BF31400DA09B5 /* ServiceInheritedImpl.swift */; };
+		5B0A86CF213BF31400DA09B5 /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86CD213BF31400DA09B5 /* Service2Impl.swift */; };
+		5B0A86D9213BF37600DA09B5 /* MockService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86D4213BF37500DA09B5 /* MockService.generated.swift */; };
+		5B0A86DA213BF37600DA09B5 /* MockService2.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86D5213BF37500DA09B5 /* MockService2.generated.swift */; };
+		5B0A86DB213BF37600DA09B5 /* MockService2Impl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86D6213BF37600DA09B5 /* MockService2Impl.generated.swift */; };
+		5B0A86DC213BF37600DA09B5 /* MockServiceImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86D7213BF37600DA09B5 /* MockServiceImpl.generated.swift */; };
+		5B0A86DD213BF37600DA09B5 /* MockServiceInheritedImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86D8213BF37600DA09B5 /* MockServiceInheritedImpl.generated.swift */; };
 		5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AD91C2129CA4D0016AB46 /* Any.swift */; };
 		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
 		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
@@ -39,10 +43,14 @@
 		5075458E9FB39CB09282FEC0 /* Pods-FataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-FataExample/Pods-FataExample.release.xcconfig"; sourceTree = "<group>"; };
 		5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
 		5B00A1AD210E1BF4006FA3BC /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.generated.swift; sourceTree = "<group>"; };
 		5B0A86C6213BEB8300DA09B5 /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
-		5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService2.generated.swift; sourceTree = "<group>"; };
-		5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceImpl.generated.swift; sourceTree = "<group>"; };
+		5B0A86CC213BF31400DA09B5 /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
+		5B0A86CD213BF31400DA09B5 /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
+		5B0A86D4213BF37500DA09B5 /* MockService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.generated.swift; sourceTree = "<group>"; };
+		5B0A86D5213BF37500DA09B5 /* MockService2.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService2.generated.swift; sourceTree = "<group>"; };
+		5B0A86D6213BF37600DA09B5 /* MockService2Impl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService2Impl.generated.swift; sourceTree = "<group>"; };
+		5B0A86D7213BF37600DA09B5 /* MockServiceImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceImpl.generated.swift; sourceTree = "<group>"; };
+		5B0A86D8213BF37600DA09B5 /* MockServiceInheritedImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceInheritedImpl.generated.swift; sourceTree = "<group>"; };
 		5B5AD91C2129CA4D0016AB46 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +91,11 @@
 		5B00A1AB210E1BF4006FA3BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */,
 				5B00A1AD210E1BF4006FA3BC /* Service.swift */,
+				5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */,
+				5B0A86CC213BF31400DA09B5 /* ServiceInheritedImpl.swift */,
 				5B0A86C6213BEB8300DA09B5 /* Service2.swift */,
+				5B0A86CD213BF31400DA09B5 /* Service2Impl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -158,9 +168,11 @@
 		G_4799432611285 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
-				5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */,
-				5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */,
-				5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */,
+				5B0A86D4213BF37500DA09B5 /* MockService.generated.swift */,
+				5B0A86D7213BF37600DA09B5 /* MockServiceImpl.generated.swift */,
+				5B0A86D8213BF37600DA09B5 /* MockServiceInheritedImpl.generated.swift */,
+				5B0A86D5213BF37500DA09B5 /* MockService2.generated.swift */,
+				5B0A86D6213BF37600DA09B5 /* MockService2Impl.generated.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -342,11 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B0A86CF213BF31400DA09B5 /* Service2Impl.swift in Sources */,
 				5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */,
 				5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */,
 				5B00A1B0210E1BF5006FA3BC /* ServiceImpl.swift in Sources */,
 				5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */,
 				5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */,
+				5B0A86CE213BF31400DA09B5 /* ServiceInheritedImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B0A86DC213BF37600DA09B5 /* MockServiceImpl.generated.swift in Sources */,
+				5B0A86D9213BF37600DA09B5 /* MockService.generated.swift in Sources */,
+				5B0A86DA213BF37600DA09B5 /* MockService2.generated.swift in Sources */,
+				5B0A86DD213BF37600DA09B5 /* MockServiceInheritedImpl.generated.swift in Sources */,
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
-				5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */,
-				5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */,
-				5B0A86CB213BED1B00DA09B5 /* MockServiceImpl.generated.swift in Sources */,
+				5B0A86DB213BF37600DA09B5 /* MockService2Impl.generated.swift in Sources */,
 				5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
