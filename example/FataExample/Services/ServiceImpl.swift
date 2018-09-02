@@ -102,7 +102,7 @@ class ServiceImpl: Service {
     func methodCanNotBeSkipped() {    }
     
     func methodSameName() {    }
-    
+    //sourcery: mirageSel=methodSameNameString
     func methodSameName(string: String) {    }
     
 
