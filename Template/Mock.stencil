@@ -90,8 +90,6 @@ import Mirage
 {% macro getVarSelGet var %}{% if var|annotated:"mirageSel" %}sel_get_{{ var.annotations.mirageSel }}{% else %}sel_get_{{ var.name }}{% endif %}{% endmacro %}
 {% macro getVarSelSet var %}{% if var|annotated:"mirageSel" %}sel_set_{{ var.annotations.mirageSel }}{% else %}sel_set_{{ var.name }}{% endif %}{% endmacro %}
 
-{% macro getVarType var %}{{ var.actualTypeName|replace:"?","" }}{% endmacro %}
-
 {# handler #}
 {% macro printMockVarManagerHandle var varSel %}{#
     #}mockManager.handle({{ varSel }}{#
@@ -110,8 +108,10 @@ import Mirage
     let {{ varSelGet }} = "{{ varSelGet }}"
     let {{ varSelSet }} = "{{ varSelSet }}"
     var {{ var.name}}: {{ var.typeName }} {
-        get { return mockManager.handle({{ varSelGet }}, withDefaultReturnValue: {% call callAny var.actualTypeName %}, withArgs:nil) as{%if var.isOptional%}?{%else%}!{%endif%} {{ var.actualTypeName|replace:"?","" }}  }
+        get { return mockManager.handle({{ varSelGet }}, withDefaultReturnValue: {% call callAny var.typeName %}, withArgs:nil) as{%if var.isOptional%}?{%else%}!{%endif%} {{ var.typeName|replace:"?","" }}  }
+    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}
         set(value) { mockManager.handle({{ varSelSet }}, withDefaultReturnValue: nil, withArgs:value) }
+    {% endif %}
     }
 {% endmacro %}
 

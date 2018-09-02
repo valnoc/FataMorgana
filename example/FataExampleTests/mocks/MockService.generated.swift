@@ -60,14 +60,32 @@ class MockService: Service, Mock {
     let sel_set_varGetter = "sel_set_varGetter"
     var varGetter: String {
         get { return mockManager.handle(sel_get_varGetter, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
-        set(value) { mockManager.handle(sel_set_varGetter, withDefaultReturnValue: nil, withArgs:value) }
     }
 
     let sel_get_varGetterOpt = "sel_get_varGetterOpt"
     let sel_set_varGetterOpt = "sel_set_varGetterOpt"
     var varGetterOpt: String {
         get { return mockManager.handle(sel_get_varGetterOpt, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
-        set(value) { mockManager.handle(sel_set_varGetterOpt, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_varClosure = "sel_get_varClosure"
+    let sel_set_varClosure = "sel_set_varClosure"
+    var varClosure: Closure1 {
+        get { return mockManager.handle(sel_get_varClosure, withDefaultReturnValue: anyClosure1(), withArgs:nil) as! Closure1  }
+        set(value) { mockManager.handle(sel_set_varClosure, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_varClosureOpt = "sel_get_varClosureOpt"
+    let sel_set_varClosureOpt = "sel_set_varClosureOpt"
+    var varClosureOpt: Closure1? {
+        get { return mockManager.handle(sel_get_varClosureOpt, withDefaultReturnValue: anyClosure1(), withArgs:nil) as? Closure1  }
+        set(value) { mockManager.handle(sel_set_varClosureOpt, withDefaultReturnValue: nil, withArgs:value) }
+    }
+
+    let sel_get_varClosureOptGetter = "sel_get_varClosureOptGetter"
+    let sel_set_varClosureOptGetter = "sel_set_varClosureOptGetter"
+    var varClosureOptGetter: Closure1? {
+        get { return mockManager.handle(sel_get_varClosureOptGetter, withDefaultReturnValue: anyClosure1(), withArgs:nil) as? Closure1  }
     }
 
 
