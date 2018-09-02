@@ -26,8 +26,6 @@ protocol Service {
     var varClosure: Closure1 {get set}
     var varClosureOpt: Closure1? {get set}
     var varClosureOptGetter: Closure1? {get}
-
-//    let letOne: String {get set}
     
     func methodVoid()
     func methodReturnsOne() -> String

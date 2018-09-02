@@ -12,6 +12,8 @@
 		5B00A1B0210E1BF5006FA3BC /* FirstService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AC210E1BF4006FA3BC /* FirstService.swift */; };
 		5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AD210E1BF4006FA3BC /* Service.swift */; };
 		5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */; };
+		5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C6213BEB8300DA09B5 /* Service2.swift */; };
+		5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */; };
 		5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AD91C2129CA4D0016AB46 /* Any.swift */; };
 		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
 		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		5B00A1AC210E1BF4006FA3BC /* FirstService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstService.swift; sourceTree = "<group>"; };
 		5B00A1AD210E1BF4006FA3BC /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.generated.swift; sourceTree = "<group>"; };
+		5B0A86C6213BEB8300DA09B5 /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
+		5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService2.generated.swift; sourceTree = "<group>"; };
 		5B5AD91C2129CA4D0016AB46 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			children = (
 				5B00A1AC210E1BF4006FA3BC /* FirstService.swift */,
 				5B00A1AD210E1BF4006FA3BC /* Service.swift */,
+				5B0A86C6213BEB8300DA09B5 /* Service2.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			children = (
 				5BCA84FE213AF2D30073D8D4 /* MockFirstService.generated.swift */,
 				5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */,
+				5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */,
 				5B00A1B0210E1BF5006FA3BC /* FirstService.swift in Sources */,
 				5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */,
+				5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +356,7 @@
 			files = (
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
 				5BCA8500213AF2D30073D8D4 /* MockFirstService.generated.swift in Sources */,
+				5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */,
 				5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */,
 				5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */,
 			);
