@@ -21,6 +21,8 @@ protocol Service {
     var varDictOpt: [String: String]? {get set}
     
     var varGetter: String { get }
+    var varGetter2: String { get }
+    var varGetter3: String { get }
     var varGetterOpt: String { get }
     
     var varClosure: Closure1 {get set}

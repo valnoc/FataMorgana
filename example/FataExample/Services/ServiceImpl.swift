@@ -25,6 +25,14 @@ class ServiceImpl: Service {
     
     var varGetter: String
     
+    var varGetter2: String {
+        return "123"
+    }
+    
+    var varGetter3: String {
+        get { return "456" }
+    }
+    
     var varGetterOpt: String
     
     var varClosure: Closure1
@@ -43,9 +51,7 @@ class ServiceImpl: Service {
     }
     
     
-    func methodVoid() {
-        
-    }
+    func methodVoid() { }
     
     func methodReturnsOne() -> String {
         return ""
@@ -71,52 +77,33 @@ class ServiceImpl: Service {
         return ["": ""]
     }
     
-    func methodOneArg(arg: String) {
-    }
+    func methodOneArg(arg: String) { }
     
     func methodOneArgReturnsOne(arg: String) -> String {
         return ""
     }
     
-    func methodTwoArgs(arg1: String, arg2: String) {
-        
-    }
+    func methodTwoArgs(arg1: String, arg2: String) { }
     
-    func methodTwoArgsOpt(arg1: String?, arg2: String?) {
-        
-    }
+    func methodTwoArgsOpt(arg1: String?, arg2: String?) { }
     
-    func methodTwoArgsArrDict(arg1: [String], arg2: [String : String]) {
-        
-    }
+    func methodTwoArgsArrDict(arg1: [String], arg2: [String : String]) { }
     
-    func methodTwoArgsArrDictOpt(arg1: [String]?, arg2: [String : String]?) {
-        
-    }
+    func methodTwoArgsArrDictOpt(arg1: [String]?, arg2: [String : String]?) { }
     
-    func methodClosureNamed(closure: () -> Void) {
-        
-    }
+    func methodClosureNamed(closure: () -> Void) { }
     
-    func methodClosureNoName(_ closure: @escaping Closure1) {
-        
-    }
+    func methodClosureNoName(_ closure: @escaping Closure1) { }
     
     func methodClosureLabel(bestClosure closure: @escaping Closure1) -> Closure1 {
         return {}
     }
     
-    func methodCanNotBeSkipped() {
-        
-    }
+    func methodCanNotBeSkipped() {    }
     
-    func methodSameName() {
-        
-    }
+    func methodSameName() {    }
     
-    func methodSameName(string: String) {
-        
-    }
+    func methodSameName(string: String) {    }
     
 
 }
