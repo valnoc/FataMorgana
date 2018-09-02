@@ -69,6 +69,18 @@ class MockService2: Service2, Mock {
         get { return mockManager.handle(sel_get_varGetter, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
     }
 
+    let sel_get_varGetter2 = "sel_get_varGetter2"
+    let sel_set_varGetter2 = "sel_set_varGetter2"
+    var varGetter2: String {
+        get { return mockManager.handle(sel_get_varGetter2, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
+    }
+
+    let sel_get_varGetter3 = "sel_get_varGetter3"
+    let sel_set_varGetter3 = "sel_set_varGetter3"
+    var varGetter3: String {
+        get { return mockManager.handle(sel_get_varGetter3, withDefaultReturnValue: anyString(), withArgs:nil) as! String  }
+    }
+
     let sel_get_varGetterOpt = "sel_get_varGetterOpt"
     let sel_set_varGetterOpt = "sel_set_varGetterOpt"
     var varGetterOpt: String {
