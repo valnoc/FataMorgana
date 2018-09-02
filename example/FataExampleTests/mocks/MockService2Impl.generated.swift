@@ -17,6 +17,8 @@ class MockService2Impl: Service2Impl, Mock {
     })
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
+        case sel_methodVoidVoid:
+            return super.methodVoidVoid()
         case sel_methodVoid:
             return super.methodVoid()
         case sel_methodReturnsOne:
@@ -55,13 +57,16 @@ class MockService2Impl: Service2Impl, Mock {
             return super.methodSameName()
         case sel_methodSameNameString:
             return super.methodSameName(string: args![0] as! String)
-        case sel_baseMethod:
-            return super.baseMethod()
         default:
             return nil
         }
     }
     //MARK: - MockService2Impl
+    let sel_methodVoidVoid = "sel_methodVoidVoid"
+    override func methodVoidVoid() {
+        mockManager.handle(sel_methodVoidVoid, withDefaultReturnValue: nil, withArgs: nil)
+    }
+
     let sel_methodVoid = "sel_methodVoid"
     override func methodVoid() {
         mockManager.handle(sel_methodVoid, withDefaultReturnValue: nil, withArgs: nil)
@@ -155,11 +160,6 @@ class MockService2Impl: Service2Impl, Mock {
     let sel_methodSameNameString = "sel_methodSameNameString"
     override func methodSameName(string: String) {
         mockManager.handle(sel_methodSameNameString, withDefaultReturnValue: nil, withArgs: string)
-    }
-
-    let sel_baseMethod = "sel_baseMethod"
-    override func baseMethod() {
-        mockManager.handle(sel_baseMethod, withDefaultReturnValue: nil, withArgs: nil)
     }
 
 }

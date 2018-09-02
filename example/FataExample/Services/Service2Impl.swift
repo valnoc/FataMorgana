@@ -9,8 +9,13 @@
 import Foundation
 
 //sourcery: miragePartial
-class Service2Impl: Service {
+class Service2Impl: Service2 {
 
+    var varvarOne: String
+    
+    func methodVoidVoid() { }
+    
+    //===
     var varOne: String
     
     var varOpt: String?
@@ -42,6 +47,7 @@ class Service2Impl: Service {
     var varClosureOptGetter: Closure1?
     
     init() {
+        varvarOne = ""
         varOne = ""
         varArr = []
         varDict = [:]
@@ -104,10 +110,5 @@ class Service2Impl: Service {
     func methodSameName() {    }
     //sourcery: mirageSel=methodSameNameString
     func methodSameName(string: String) {    }
-    
-    func baseMethod() { }
 }
 
-extension Service2Impl {
-    func methodInExtOfServiceImpl() {  }
-}
