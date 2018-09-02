@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		3E3A7AD947D6B14C5AC444D5 /* Pods_FataExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EF57BBE9AB81AF031B7FFF /* Pods_FataExampleTests.framework */; };
 		4516873A9A137369EC598124 /* Pods_FataExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095D8AFFE6069409C11DFA72 /* Pods_FataExample.framework */; };
-		5B00A1B0210E1BF5006FA3BC /* FirstService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AC210E1BF4006FA3BC /* FirstService.swift */; };
+		5B00A1B0210E1BF5006FA3BC /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */; };
 		5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00A1AD210E1BF4006FA3BC /* Service.swift */; };
 		5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */; };
 		5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C6213BEB8300DA09B5 /* Service2.swift */; };
 		5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */; };
+		5B0A86CB213BED1B00DA09B5 /* MockServiceImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */; };
 		5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AD91C2129CA4D0016AB46 /* Any.swift */; };
 		5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851C210DF5B300FCD3EA /* AppDelegate.swift */; };
 		5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66851E210DF5B300FCD3EA /* ViewController.swift */; };
@@ -21,7 +22,6 @@
 		5B668524210DF5B300FCD3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B668523210DF5B300FCD3EA /* Assets.xcassets */; };
 		5B668527210DF5B300FCD3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B668525210DF5B300FCD3EA /* LaunchScreen.storyboard */; };
 		5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B668531210DF5B300FCD3EA /* FataExampleTests.swift */; };
-		5BCA8500213AF2D30073D8D4 /* MockFirstService.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA84FE213AF2D30073D8D4 /* MockFirstService.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,12 @@
 /* Begin PBXFileReference section */
 		095D8AFFE6069409C11DFA72 /* Pods_FataExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FataExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5075458E9FB39CB09282FEC0 /* Pods-FataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-FataExample/Pods-FataExample.release.xcconfig"; sourceTree = "<group>"; };
-		5B00A1AC210E1BF4006FA3BC /* FirstService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstService.swift; sourceTree = "<group>"; };
+		5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
 		5B00A1AD210E1BF4006FA3BC /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.generated.swift; sourceTree = "<group>"; };
 		5B0A86C6213BEB8300DA09B5 /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
 		5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService2.generated.swift; sourceTree = "<group>"; };
+		5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceImpl.generated.swift; sourceTree = "<group>"; };
 		5B5AD91C2129CA4D0016AB46 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B668519210DF5B300FCD3EA /* FataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B66851C210DF5B300FCD3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		5B66852D210DF5B300FCD3EA /* FataExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FataExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B668531210DF5B300FCD3EA /* FataExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FataExampleTests.swift; sourceTree = "<group>"; };
 		5B668533210DF5B300FCD3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BCA84FE213AF2D30073D8D4 /* MockFirstService.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirstService.generated.swift; sourceTree = "<group>"; };
 		72EF57BBE9AB81AF031B7FFF /* Pods_FataExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FataExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C96F9FD4977D9BE0FE2815F /* Pods-FataExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FataExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FataExample/Pods-FataExample.debug.xcconfig"; sourceTree = "<group>"; };
 		7EEB5F8D2411342090DA5C67 /* Pods-FataExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FataExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FataExampleTests/Pods-FataExampleTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		5B00A1AB210E1BF4006FA3BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5B00A1AC210E1BF4006FA3BC /* FirstService.swift */,
+				5B00A1AC210E1BF4006FA3BC /* ServiceImpl.swift */,
 				5B00A1AD210E1BF4006FA3BC /* Service.swift */,
 				5B0A86C6213BEB8300DA09B5 /* Service2.swift */,
 			);
@@ -158,7 +158,7 @@
 		G_4799432611285 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
-				5BCA84FE213AF2D30073D8D4 /* MockFirstService.generated.swift */,
+				5B0A86CA213BED1A00DA09B5 /* MockServiceImpl.generated.swift */,
 				5B0A86C4213BE19F00DA09B5 /* MockService.generated.swift */,
 				5B0A86C8213BEBE600DA09B5 /* MockService2.generated.swift */,
 			);
@@ -344,7 +344,7 @@
 			files = (
 				5B66851F210DF5B300FCD3EA /* ViewController.swift in Sources */,
 				5B66851D210DF5B300FCD3EA /* AppDelegate.swift in Sources */,
-				5B00A1B0210E1BF5006FA3BC /* FirstService.swift in Sources */,
+				5B00A1B0210E1BF5006FA3BC /* ServiceImpl.swift in Sources */,
 				5B00A1B1210E1BF5006FA3BC /* Service.swift in Sources */,
 				5B0A86C7213BEB8400DA09B5 /* Service2.swift in Sources */,
 			);
@@ -355,9 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B668532210DF5B300FCD3EA /* FataExampleTests.swift in Sources */,
-				5BCA8500213AF2D30073D8D4 /* MockFirstService.generated.swift in Sources */,
 				5B0A86C9213BEBE600DA09B5 /* MockService2.generated.swift in Sources */,
 				5B0A86C5213BE19F00DA09B5 /* MockService.generated.swift in Sources */,
+				5B0A86CB213BED1B00DA09B5 /* MockServiceImpl.generated.swift in Sources */,
 				5B5AD91D2129CA4D0016AB46 /* Any.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
