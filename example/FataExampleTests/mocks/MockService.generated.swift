@@ -136,6 +136,21 @@ class MockService: Service, Mock {
         mockManager.handle(sel_methodTwoArgsArrDictOpt, withDefaultReturnValue: nil, withArgs: arg1, arg2)
     }
 
+    let sel_methodClosureNamed = "sel_methodClosureNamed"
+    func methodClosureNamed(closure: Closure1) {
+        mockManager.handle(sel_methodClosureNamed, withDefaultReturnValue: nil, withArgs: closure)
+    }
+
+    let sel_methodClosureNoName = "sel_methodClosureNoName"
+    func methodClosureNoName(_ closure: @escaping Closure1) {
+        mockManager.handle(sel_methodClosureNoName, withDefaultReturnValue: nil, withArgs: closure)
+    }
+
+    let sel_methodClosureLabel = "sel_methodClosureLabel"
+    func methodClosureLabel(bestClosure closure: @escaping Closure1) -> Closure1 {
+        return mockManager.handle(sel_methodClosureLabel, withDefaultReturnValue: anyClosure1(), withArgs: closure) as! Closure1
+    }
+
     let sel_methodCanNotBeSkipped = "sel_methodCanNotBeSkipped"
     func methodCanNotBeSkipped() {
         mockManager.handle(sel_methodCanNotBeSkipped, withDefaultReturnValue: nil, withArgs: nil)

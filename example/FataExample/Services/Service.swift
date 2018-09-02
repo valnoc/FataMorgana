@@ -40,9 +40,9 @@ protocol Service {
     func methodTwoArgsArrDict(arg1: [String], arg2: [String: String])
     func methodTwoArgsArrDictOpt(arg1: [String]?, arg2: [String: String]?)
     
-//    func methodClosureNamed(closure: Closure1)
-//    func methodClosureNoName(_ closure: @escaping Closure1)
-//    func methodClosureLabel(bestClosure closure: @escaping Closure1) -> Closure1
+    func methodClosureNamed(closure: Closure1)
+    func methodClosureNoName(_ closure: @escaping Closure1)
+    func methodClosureLabel(bestClosure closure: @escaping Closure1) -> Closure1
     
     func methodCanNotBeSkipped()
     

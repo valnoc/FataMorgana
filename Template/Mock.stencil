@@ -66,8 +66,8 @@ import Mirage
 {# handler #}
 {% macro printMockManagerHandle method methodSel %}{#
     #}mockManager.handle({{ methodSel }}, withDefaultReturnValue: {#
-    #}{% if method.actualReturnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.actualReturnTypeName %}{#
+    #}{% if method.returnTypeName.isVoid %}nil{#
+    #}{% else %}{% call callAny method.returnTypeName %}{#
     #}{% endif %}{#   
     #}, withArgs:{% call printMethodArgs method %}){#
 #}{% endmacro %}
@@ -78,10 +78,10 @@ import Mirage
     {##}
     let {{ methodSel }} = "{{ methodSel }}"
     {% call printMethodDeclaration method %} {
-        {% if method.actualReturnTypeName.isVoid %}
+        {% if method.returnTypeName.isVoid %}
         {% call printMockManagerHandle method methodSel %}
         {% else %}
-        return {% call printMockManagerHandle method methodSel %} as{%if method.actualReturnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.actualReturnTypeName|replace:"?","" }}
+        return {% call printMockManagerHandle method methodSel %} as{%if method.returnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.returnTypeName|replace:"?","" }}
         {% endif %}
     }
 {% endmacro %}
@@ -96,8 +96,8 @@ import Mirage
 {% macro printMockVarManagerHandle var varSel %}{#
     #}mockManager.handle({{ varSel }}{#
     #}, withDefaultReturnValue: {#
-    #}{% if method.actualReturnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.actualReturnTypeName %}{#
+    #}{% if method.returnTypeName.isVoid %}nil{#
+    #}{% else %}{% call callAny method.returnTypeName %}{#
     #}{% endif %}{#   
     #}, withArgs:nil){#
 #}{% endmacro %}

@@ -1,4 +1,6 @@
 
+@testable import FataExample
+
 func anyInt() -> Int {
     return 1
 }
@@ -13,4 +15,8 @@ func anyStringArray() -> [String] {
 
 func anyStringStringDict() -> [String: String] {
     return ["str": "str"]
+}
+
+func anyClosure1() -> Closure1 {
+    return { }
 }
