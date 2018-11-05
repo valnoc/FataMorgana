@@ -9,13 +9,13 @@ import Mirage
 {% endmacro %}
 
 {# === ANY === #}
-{% macro callAnyOther type %}any{{ type|replace:"?","" }}(){% endmacro %}
+{% macro callAnyOther type %}any{{ type|replace:"?",""|replace:"<",""|replace:">","" |replace:".","" }}(){% endmacro %}
 
 {% macro callAnyArray type %}{#
     #}{% if argument.returnEmptyArray %}{#
         #}[]{#
     #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]","" }}Array(){#
+        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:"<",""|replace:">","" |replace:".","" }}Array(){#
     #}{% endif %}{#
 #}{% endmacro %}
 
@@ -23,7 +23,7 @@ import Mirage
     #}{% if argument.returnEmptyDict %}{#
         #}[:]{#
     #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
+        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" |replace:"<",""|replace:">","" |replace:".","" }}Dict(){#
     #}{% endif %}{#
 #}{% endmacro %}
 
