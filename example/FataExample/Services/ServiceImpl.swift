@@ -91,7 +91,7 @@ class ServiceImpl: Service {
     
     func methodTwoArgsArrDictOpt(arg1: [String]?, arg2: [String : String]?) { }
     
-    func methodClosureNamed(closure: () -> Void) { }
+    func methodClosureNamed(closure: @escaping Closure1) { }
     
     func methodClosureNoName(_ closure: @escaping Closure1) { }
     

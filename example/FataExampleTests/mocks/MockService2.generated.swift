@@ -179,7 +179,7 @@ class MockService2: Service2, Mock {
     }
 
     let sel_methodClosureNamed = "sel_methodClosureNamed"
-    func methodClosureNamed(closure: Closure1) {
+    func methodClosureNamed(closure: @escaping Closure1) {
         mockManager.handle(sel_methodClosureNamed, withDefaultReturnValue: nil, withArgs: closure)
     }
 
