@@ -1,6 +1,5 @@
 sources:
   - ./FataExample/Services/
-  - ./FataExample/Objects/
 templates:
   - ./../Template/
 output: 
