@@ -101,13 +101,15 @@ import Mirage
 #}{% endmacro %}
 
 {# mock #}
+{% macro printOverride method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+
 {% macro generateMockVar var %}
     {% set varSelGet %}{% call getVarSelGet var %}{% endset %}
     {% set varSelSet %}{% call getVarSelSet var %}{% endset %}
     {##}
     let {{ varSelGet }} = "{{ varSelGet }}"
     let {{ varSelSet }} = "{{ varSelSet }}"
-    var {{ var.name}}: {{ var.typeName }} {
+    {% call printOverride var %}var {{ var.name}}: {{ var.typeName }} {
         get { return mockManager.handle({{ varSelGet }}, withDefaultReturnValue: {% call callAny var.typeName %}, withArgs:nil) as{%if var.isOptional%}?{%else%}!{%endif%} {{ var.typeName|replace:"?","" }}  }
     {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}
         set(value) { mockManager.handle({{ varSelSet }}, withDefaultReturnValue: nil, withArgs:value) }
@@ -176,10 +178,13 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     }
     
     //MARK: - Mock{{ type.name }}
+    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
+        {% call generateMockVar var %}
+    {% endfor %}
+
     {% for method in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
             {% call generateMockMethod method %}
-
         {% endif %}
     {% endfor %}    
 }
