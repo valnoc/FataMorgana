@@ -1,9 +1,9 @@
 sources:
-  - ./Example
+  - ./../Example
 templates:
   - ./../Template/
 output: 
-  ./ExampleTests/mocks/
+  ./../Example/ExampleTests/mocks/
 args:
   testableModule: "Example"
   imports: "import Foundation"

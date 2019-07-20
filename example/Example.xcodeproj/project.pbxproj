@@ -19,6 +19,11 @@
 		5B9E429E22E3B49600A6FACE /* MethodsSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429422E3B49600A6FACE /* MethodsSpecial.swift */; };
 		5B9E429F22E3B49600A6FACE /* MethodsClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429522E3B49600A6FACE /* MethodsClosures.swift */; };
 		5B9E42A022E3B49600A6FACE /* PropertiesGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */; };
+		5B9E42B322E3BFFC00A6FACE /* MockMethods.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */; };
+		5B9E42B922E3C01300A6FACE /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B522E3C01300A6FACE /* Service2.swift */; };
+		5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */; };
+		5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B722E3C01300A6FACE /* Service2Impl.swift */; };
+		5B9E42BC22E3C01300A6FACE /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		5B9E429422E3B49600A6FACE /* MethodsSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodsSpecial.swift; sourceTree = "<group>"; };
 		5B9E429522E3B49600A6FACE /* MethodsClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodsClosures.swift; sourceTree = "<group>"; };
 		5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesGenerics.swift; sourceTree = "<group>"; };
+		5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMethods.generated.swift; sourceTree = "<group>"; };
+		5B9E42B522E3C01300A6FACE /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
+		5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
+		5B9E42B722E3C01300A6FACE /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
+		5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 		5B9E425B22E3A20F00A6FACE /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B9E42AA22E3BDAD00A6FACE /* mocks */,
 				5B9E425C22E3A20F00A6FACE /* ExampleTests.swift */,
 				5B9E425E22E3A20F00A6FACE /* Info.plist */,
 			);
@@ -113,6 +124,10 @@
 		5B9E428B22E3B49600A6FACE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				5B9E42B522E3C01300A6FACE /* Service2.swift */,
+				5B9E42B722E3C01300A6FACE /* Service2Impl.swift */,
+				5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */,
+				5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -128,6 +143,14 @@
 				5B9E429522E3B49600A6FACE /* MethodsClosures.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5B9E42AA22E3BDAD00A6FACE /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +177,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B9E426422E3A20F00A6FACE /* Build configuration list for PBXNativeTarget "ExampleTests" */;
 			buildPhases = (
+				5B9E42A922E3BC3300A6FACE /* Run Script. Generate Mocks */,
 				5B9E425422E3A20F00A6FACE /* Sources */,
 				5B9E425522E3A20F00A6FACE /* Frameworks */,
 				5B9E425622E3A20F00A6FACE /* Resources */,
@@ -226,18 +250,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B9E42A922E3BC3300A6FACE /* Run Script. Generate Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script. Generate Mocks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsourcery --config \"${SRCROOT}/../Template/sourcery-mocks.yml\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B9E424022E3A20D00A6FACE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */,
 				5B9E429D22E3B49600A6FACE /* Methods.swift in Sources */,
 				5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */,
 				5B9E429F22E3B49600A6FACE /* MethodsClosures.swift in Sources */,
+				5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */,
 				5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */,
 				5B9E42A022E3B49600A6FACE /* PropertiesGenerics.swift in Sources */,
+				5B9E42BC22E3C01300A6FACE /* ServiceImpl.swift in Sources */,
 				5B9E429C22E3B49600A6FACE /* PropertiesAssociated.swift in Sources */,
 				5B9E429E22E3B49600A6FACE /* MethodsSpecial.swift in Sources */,
+				5B9E42B922E3C01300A6FACE /* Service2.swift in Sources */,
 				5B9E429B22E3B49600A6FACE /* Properties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9E42B322E3BFFC00A6FACE /* MockMethods.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

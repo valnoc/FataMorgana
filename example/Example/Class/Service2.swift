@@ -1,21 +1,21 @@
+////
+////  Service2.swift
+////  Example
+////
+////  Created by Valeriy Bezuglyy on 20/07/2019.
+////  Copyright © 2019 Valeriy Bezuglyy. All rights reserved.
+////
 //
-//  Service2.swift
-//  Example
+//import Foundation
 //
-//  Created by Valeriy Bezuglyy on 20/07/2019.
-//  Copyright © 2019 Valeriy Bezuglyy. All rights reserved.
+////sourcery: mirageMock
+//protocol Service2: Service {
+//    
+//    var varvarOne: String {get set}
+//    
+//    func methodVoidVoid()
+//}
 //
-
-import Foundation
-
-//sourcery: mirageMock
-protocol Service2: Service {
-    
-    var varvarOne: String {get set}
-    
-    func methodVoidVoid()
-}
-
-extension Service2 {
-    func method2InExt() {    }
-}
+//extension Service2 {
+//    func method2InExt() {    }
+//}
