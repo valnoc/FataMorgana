@@ -1,0 +1,11 @@
+sources:
+  - ./Example
+templates:
+  - ./../Template/
+output: 
+  ./ExampleTests/mocks/
+args:
+  testableModule: "Example"
+  imports: "import Foundation"
+  returnEmptyArray: false
+  returnEmptyDict: false
