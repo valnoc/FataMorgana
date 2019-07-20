@@ -13,6 +13,11 @@
 		5B9E424F22E3A20F00A6FACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E424E22E3A20F00A6FACE /* Assets.xcassets */; };
 		5B9E425222E3A20F00A6FACE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E425022E3A20F00A6FACE /* LaunchScreen.storyboard */; };
 		5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E425C22E3A20F00A6FACE /* ExampleTests.swift */; };
+		5B9E426D22E3A2A300A6FACE /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E426822E3A2A300A6FACE /* ServiceImpl.swift */; };
+		5B9E426E22E3A2A300A6FACE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E426922E3A2A300A6FACE /* Service.swift */; };
+		5B9E426F22E3A2A300A6FACE /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E426A22E3A2A300A6FACE /* Service2.swift */; };
+		5B9E427022E3A2A300A6FACE /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E426B22E3A2A300A6FACE /* Service2Impl.swift */; };
+		5B9E427122E3A2A300A6FACE /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E426C22E3A2A300A6FACE /* ServiceInheritedImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		5B9E425822E3A20F00A6FACE /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E425C22E3A20F00A6FACE /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		5B9E425E22E3A20F00A6FACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9E426822E3A2A300A6FACE /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
+		5B9E426922E3A2A300A6FACE /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5B9E426A22E3A2A300A6FACE /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
+		5B9E426B22E3A2A300A6FACE /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
+		5B9E426C22E3A2A300A6FACE /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 		5B9E424622E3A20E00A6FACE /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				5B9E426722E3A2A300A6FACE /* Services */,
 				5B9E424722E3A20E00A6FACE /* AppDelegate.swift */,
 				5B9E424922E3A20E00A6FACE /* ViewController.swift */,
 				5B9E424B22E3A20E00A6FACE /* Main.storyboard */,
@@ -94,6 +105,18 @@
 				5B9E425E22E3A20F00A6FACE /* Info.plist */,
 			);
 			path = ExampleTests;
+			sourceTree = "<group>";
+		};
+		5B9E426722E3A2A300A6FACE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B9E426822E3A2A300A6FACE /* ServiceImpl.swift */,
+				5B9E426922E3A2A300A6FACE /* Service.swift */,
+				5B9E426A22E3A2A300A6FACE /* Service2.swift */,
+				5B9E426B22E3A2A300A6FACE /* Service2Impl.swift */,
+				5B9E426C22E3A2A300A6FACE /* ServiceInheritedImpl.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9E427022E3A2A300A6FACE /* Service2Impl.swift in Sources */,
+				5B9E426F22E3A2A300A6FACE /* Service2.swift in Sources */,
 				5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */,
+				5B9E427122E3A2A300A6FACE /* ServiceInheritedImpl.swift in Sources */,
+				5B9E426E22E3A2A300A6FACE /* Service.swift in Sources */,
+				5B9E426D22E3A2A300A6FACE /* ServiceImpl.swift in Sources */,
 				5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
