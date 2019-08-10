@@ -1,32 +1,12 @@
-
 {# === IMPORTS === #}
 {% macro generateImports %}
 import Foundation
 import Mirage
-
 @testable import {{ argument.testableModule }}
 {{ argument.imports }}
 {% endmacro %}
 
 {# === ANY === #}
-{% macro callAnyOther type %}any{{ type|replace:"?",""|replace:"<",""|replace:">","" |replace:".","" }}(){% endmacro %}
-
-{% macro callAnyArray type %}{#
-    #}{% if argument.returnEmptyArray %}{#
-        #}[]{#
-    #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:"<",""|replace:">","" |replace:".","" }}Array(){#
-    #}{% endif %}{#
-#}{% endmacro %}
-
-{% macro callAnyDict type %}{#
-    #}{% if argument.returnEmptyDict %}{#
-        #}[:]{#
-    #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" |replace:"<",""|replace:">","" |replace:".","" }}Dict(){#
-    #}{% endif %}{#
-#}{% endmacro %}
-
 {% macro callAny type %}{#
     #}{% if type|contains:":" %}{#
         #}{% call callAnyDict type %}{#
@@ -34,24 +14,40 @@ import Mirage
         #}{% if type|contains:"[" %}{#
             #}{% call callAnyArray type %}{#
         #}{% else %}{#
-            #}{% call callAnyOther type %}{#
+            #}{% call callAnyType type %}{#
         #}{% endif %}{#
     #}{% endif %}{#
 #}{% endmacro %}
 
-{# === METHOD === #}
-{# declaration #}
-{% macro getMethodSel method %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endmacro %}
-
-{% macro printOverride method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
-{% macro printMethodName method %}{{ method.name|replace:"  ","" }}{% endmacro %}
-{% macro printMethodReturnType method %}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %}{% endmacro %}
-
-{% macro printMethodDeclaration method %}{#
-    #}{% call printOverride method %}func {% call printMethodName method %}{% if method.throws %} throws {% endif %}{% call printMethodReturnType method %}{#
+{% macro callAnyDict type %}{#
+    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":","" }}Dict(){#
 #}{% endmacro %}
 
-{# args #}
+{% macro callAnyArray type %}{#
+    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]","" }}Array(){#
+#}{% endmacro %}
+
+{% macro callAnyType type %}{#
+    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".","" }}(){#
+#}{% endmacro %}
+
+{# === FUNC === #}
+{## FUNC DECLARATION ##}
+{% macro getFuncSel func %}{#
+    {% if func|annotated:"mirageSel" %}{{ func.annotations.mirageSel }}{#
+    #}{% else %}{{ func.callName }}{% endif %}{#
+#}{% endmacro %}
+
+{% macro printFuncDeclaration func %}{#
+    #}{% call printFuncOverride func %}func {% call printFuncName func %}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
+#}{% endmacro %}
+
+{% macro printFuncOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+{% macro printFuncName func %}{{ func.name|replace:" ","" }}{% endmacro %}
+{% macro printFuncReturnType func %}{% if not func.returnTypeName.isVoid %} -> {{ func.returnTypeName }}{% endif %}{% endmacro %}
+{% macro printFuncThrows func %}{% if func.throws %} throws {% endif %}{% endmacro %}
+
+{## FUNC ARGS ##}
 {% macro printMethodArgs method %}{#
     #}{% if method.parameters.count > 0 %}{#
         #}{% for param in method.parameters %}{#
@@ -226,3 +222,4 @@ class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
 // sourcery:end
 
 {% endfor %}
+</stencil>
