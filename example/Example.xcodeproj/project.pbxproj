@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B6DE03C22FEC96E00FCB1CC /* FuncGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */; };
 		5B6DE03D22FEC96E00FCB1CC /* FuncTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */; };
+		5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
 		5B9E424D22E3A20E00A6FACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E424B22E3A20E00A6FACE /* Main.storyboard */; };
@@ -21,7 +22,6 @@
 		5B9E429E22E3B49600A6FACE /* FuncSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429422E3B49600A6FACE /* FuncSpecial.swift */; };
 		5B9E429F22E3B49600A6FACE /* FuncClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429522E3B49600A6FACE /* FuncClosures.swift */; };
 		5B9E42A022E3B49600A6FACE /* PropertiesGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */; };
-		5B9E42B322E3BFFC00A6FACE /* MockMethods.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */; };
 		5B9E42B922E3C01300A6FACE /* Service2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B522E3C01300A6FACE /* Service2.swift */; };
 		5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */; };
 		5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B722E3C01300A6FACE /* Service2Impl.swift */; };
@@ -41,6 +41,7 @@
 /* Begin PBXFileReference section */
 		5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGenerics.swift; sourceTree = "<group>"; };
 		5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuples.swift; sourceTree = "<group>"; };
+		5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypes.generated.swift; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B9E424922E3A20E00A6FACE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		5B9E429422E3B49600A6FACE /* FuncSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSpecial.swift; sourceTree = "<group>"; };
 		5B9E429522E3B49600A6FACE /* FuncClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncClosures.swift; sourceTree = "<group>"; };
 		5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesGenerics.swift; sourceTree = "<group>"; };
-		5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMethods.generated.swift; sourceTree = "<group>"; };
 		5B9E42B522E3C01300A6FACE /* Service2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2.swift; sourceTree = "<group>"; };
 		5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
 		5B9E42B722E3C01300A6FACE /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		5B9E42AA22E3BDAD00A6FACE /* mocks */ = {
 			isa = PBXGroup;
 			children = (
-				5B9E42AE22E3BFFC00A6FACE /* MockMethods.generated.swift */,
+				5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B9E42B322E3BFFC00A6FACE /* MockMethods.generated.swift in Sources */,
+				5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

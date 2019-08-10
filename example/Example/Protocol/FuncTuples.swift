@@ -8,7 +8,6 @@
 
 import Foundation
 
-//sourcery: mirageMock
 protocol FuncTuples {
     func funcArgTuple(tuple: (String, Int))
     func funcArgTupleNamed(tuple: (str: String, value: Int))
