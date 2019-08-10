@@ -33,17 +33,11 @@ import Mirage
 
 {# === FUNC === #}
 {## FUNC DECLARATION ##}
-{% macro getFuncSel func %}{#
-    #}{% if func|annotated:"mirageSel" %}{{ func.annotations.mirageSel }}{#
-    #}{% else %}{{ func.callName }}{% endif %}{#
-#}{% endmacro %}
-
 {% macro printFuncDeclaration func %}{#
-    #}{% call printFuncOverride func %}func {% call printFuncName func %}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
+    #}{% call printFuncOverride func %}func {{ func.name }}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
 #}{% endmacro %}
 
 {% macro printFuncOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
-{% macro printFuncName func %}{{ func.name|replace:" ","" }}{% endmacro %}
 {% macro printFuncReturnType func %}{% if not func.returnTypeName.isVoid %} -> {{ func.returnTypeName }}{% endif %}{% endmacro %}
 {% macro printFuncThrows func %}{% if func.throws %} throws {% endif %}{% endmacro %}
 
@@ -60,20 +54,51 @@ import Mirage
 #}{% endmacro %}
 
 {## FUNC MOCK ##}
+{% macro getFuncSel func %}{#
+    #}{% if func|annotated:"mirageSel" %}{{ func.annotations.mirageSel }}{#
+    #}{% else %}{{ func.callName }}{% endif %}{#
+#}{% endmacro %}
+
 {% macro generateMockFunc func %}
     {% set funcSel %}{% call getFuncSel func %}{% endset %}
+    {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
+    //MARK: - {{ funcSel }}
+    class {{ funcArgsClass }} {
+        {% for param in func.parameters %}{#
+            #}var {{ param.name }}: {{ param.typeName }}
+        {#
+        #}{% endfor %}
+        
+        init({#
+        #}{% for param in func.parameters %}{#
+            #}{{ param.name }}: {{ param.typeName }}{#
+            #}{% if not forloop.last %}, {% endif %}{#
+        #}{% endfor %}{#
+        #}) {
+            {% for param in func.parameters %}{#
+                #}self.{{ param.name }} = {{ param.name }}
+            {#
+            #}{% endfor %}
+        }
+    }
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ funcArgsClass }}, {{ func.returnTypeName }}>(returnValue: ())    
     {% call printFuncDeclaration func %} {
-        return mock_{{ funcSel }}.handle({% call printFuncArgs func %})
+        return mock_{{ funcSel }}.handle({{ funcArgsClass }}({#
+            #}{% for param in func.parameters %}{#
+                #}{{ param.name }}: {{ param.name }}{#
+                #}{% if not forloop.last %},{% endif %}{#
+            #}{% endfor %}{#
+        #}))
     }
 {% endmacro %}
 
 {# === GENERATE MOCKS === #}
 {% macro generateMockProtocol type %}
 class Mock{{ type.name }}: {{ type.name }} {
-    //MARK: - Mock{{ type.name }}
     {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
             {% call generateMockFunc func %}
+
         {% endif %}
     {% endfor %}    
 }
