@@ -68,7 +68,7 @@ import Mirage
         {% if func.parameters.count > 0 %}
             {% call generateFuncMockWithOneArg func %}
         {% else %}
-            {#{% call generateFuncMockWithZeroArgs func %}#}
+            {% call generateFuncMockWithZeroArgs func %}
         {% endif %}    
     {% endif %}
 {% endmacro %}
@@ -108,6 +108,13 @@ import Mirage
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ func.parameters.first.typeName }}, {{ func.returnTypeName }}>(returnValue: ())    
     {% call printFuncDeclaration func %} {
         return mock_{{ funcSel }}.handle({{ func.parameters.first.name }})
+    }
+{% endmacro %}
+
+{% macro generateFuncMockWithZeroArgs func %}
+    lazy var mock_{{ funcSel }} = FuncCallHandler<Void, {{ func.returnTypeName }}>(returnValue: ())    
+    {% call printFuncDeclaration func %} {
+        return mock_{{ funcSel }}.handle(())
     }
 {% endmacro %}
 

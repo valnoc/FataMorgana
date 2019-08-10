@@ -8,6 +8,10 @@ import Foundation
 
 class MockFuncTypes: FuncTypes {
     //MARK: - funcVoid
+    lazy var mock_funcVoid = FuncCallHandler<Void, Void>(returnValue: ())    
+    func funcVoid() {
+        return mock_funcVoid.handle(())
+    }
 
     //MARK: - funcArgVoid
     lazy var mock_funcArgVoid = FuncCallHandler<Void, Void>(returnValue: ())    
@@ -16,6 +20,10 @@ class MockFuncTypes: FuncTypes {
     }
 
     //MARK: - funcReturnsVoid
+    lazy var mock_funcReturnsVoid = FuncCallHandler<Void, Void>(returnValue: ())    
+    func funcReturnsVoid() {
+        return mock_funcReturnsVoid.handle(())
+    }
 
     //MARK: - funcOneArg
     lazy var mock_funcOneArg = FuncCallHandler<String, Void>(returnValue: ())    
@@ -112,18 +120,46 @@ class MockFuncTypes: FuncTypes {
     }
 
     //MARK: - funcReturnsOne
+    lazy var mock_funcReturnsOne = FuncCallHandler<Void, String>(returnValue: ())    
+    func funcReturnsOne() -> String {
+        return mock_funcReturnsOne.handle(())
+    }
 
     //MARK: - funcReturnsOneOptional
+    lazy var mock_funcReturnsOneOptional = FuncCallHandler<Void, String?>(returnValue: ())    
+    func funcReturnsOneOptional() -> String? {
+        return mock_funcReturnsOneOptional.handle(())
+    }
 
     //MARK: - funcReturnsArray
+    lazy var mock_funcReturnsArray = FuncCallHandler<Void, [String]>(returnValue: ())    
+    func funcReturnsArray() -> [String] {
+        return mock_funcReturnsArray.handle(())
+    }
 
     //MARK: - funcReturnsArrayOptional
+    lazy var mock_funcReturnsArrayOptional = FuncCallHandler<Void, [Int]?>(returnValue: ())    
+    func funcReturnsArrayOptional() -> [Int]? {
+        return mock_funcReturnsArrayOptional.handle(())
+    }
 
     //MARK: - funcReturnsArrayOptionalOfOptional
+    lazy var mock_funcReturnsArrayOptionalOfOptional = FuncCallHandler<Void, [Int?]?>(returnValue: ())    
+    func funcReturnsArrayOptionalOfOptional() -> [Int?]? {
+        return mock_funcReturnsArrayOptionalOfOptional.handle(())
+    }
 
     //MARK: - funcReturnsDictionary
+    lazy var mock_funcReturnsDictionary = FuncCallHandler<Void, [String: String]>(returnValue: ())    
+    func funcReturnsDictionary() -> [String: String] {
+        return mock_funcReturnsDictionary.handle(())
+    }
 
     //MARK: - funcReturnsDictionaryOptional
+    lazy var mock_funcReturnsDictionaryOptional = FuncCallHandler<Void, [String: Int]?>(returnValue: ())    
+    func funcReturnsDictionaryOptional() -> [String: Int]? {
+        return mock_funcReturnsDictionaryOptional.handle(())
+    }
 
     //MARK: - funcMixed
     class FuncMixedArgs {
