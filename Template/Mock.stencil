@@ -48,9 +48,9 @@ import Mirage
 {% macro printFuncThrows func %}{% if func.throws %} throws {% endif %}{% endmacro %}
 
 {## FUNC ARGS ##}
-{% macro printMethodArgs method %}{#
-    #}{% if method.parameters.count > 0 %}{#
-        #}{% for param in method.parameters %}{#
+{% macro printFuncArgs func %}{#
+    #}{% if func.parameters.count > 0 %}{#
+        #}{% for param in func.parameters %}{#
             #} {{ param.name }}{#
             #}{% if not forloop.last %},{% endif %}{#
         #}{% endfor %}{#
@@ -60,24 +60,24 @@ import Mirage
 #}{% endmacro %}
 
 {# handler #}
-{% macro printMockManagerHandle method methodSel %}{#
-    #}mockManager.handle({{ methodSel }}, withDefaultReturnValue: {#
-    #}{% if method.returnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.returnTypeName %}{#
+{% macro printMockManagerHandle func funcSel %}{#
+    #}mockManager.handle({{ funcSel }}, withDefaultReturnValue: {#
+    #}{% if func.returnTypeName.isVoid %}nil{#
+    #}{% else %}{% call callAny func.returnTypeName %}{#
     #}{% endif %}{#   
-    #}, withArgs:{% call printMethodArgs method %}){#
+    #}, withArgs:{% call printFuncArgs func %}){#
 #}{% endmacro %}
 
 {# mock #}
-{% macro generateMockMethod method %}
-    {% set methodSel %}{% call getMethodSel method %}{% endset %}
+{% macro generateMockFunc func %}
+    {% set funcSel %}{% call getFuncSel func %}{% endset %}
     {##}
-    let {{ methodSel }} = "{{ methodSel }}"
-    {% call printMethodDeclaration method %} {
-        {% if method.returnTypeName.isVoid %}
-        {% call printMockManagerHandle method methodSel %}
+    let {{ funcSel }} = "{{ funcSel }}"
+    {% call printFuncDeclaration func %} {
+        {% if func.returnTypeName.isVoid %}
+        {% call printMockManagerHandle func funcSel %}
         {% else %}
-        return {% call printMockManagerHandle method methodSel %} as{%if method.returnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.returnTypeName|replace:"?","" }}
+        return {% call printMockManagerHandle func funcSel %} as{%if func.returnTypeName.isOptional%}?{%else%}!{%endif%} {{ func.returnTypeName|replace:"?","" }}
         {% endif %}
     }
 {% endmacro %}
@@ -90,14 +90,14 @@ import Mirage
 {% macro printMockVarManagerHandle var varSel %}{#
     #}mockManager.handle({{ varSel }}{#
     #}, withDefaultReturnValue: {#
-    #}{% if method.returnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.returnTypeName %}{#
+    #}{% if func.returnTypeName.isVoid %}nil{#
+    #}{% else %}{% call callAny func.returnTypeName %}{#
     #}{% endif %}{#   
     #}, withArgs:nil){#
 #}{% endmacro %}
 
 {# mock #}
-{% macro printOverride method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+{% macro printOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
 
 {% macro generateMockVar var %}
     {% set varSelGet %}{% call getVarSelGet var %}{% endset %}
@@ -114,8 +114,8 @@ import Mirage
 {% endmacro %}
 
 {# === TYPE === #}
-{% macro printCallRealMethodArgs method %}{#
-    #}{% for param in method.parameters %}{#
+{% macro printCallRealFuncArgs func %}{#
+    #}{% for param in func.parameters %}{#
         #}{{ param.argumentLabel }}{#
         #}{% if param.argumentLabel.length > 0 %}:{% endif %}{#
         #} args![{{forloop.counter0}}]{#
@@ -125,8 +125,8 @@ import Mirage
     #}{% endfor %}{#
 #}{% endmacro %}
 
-{% macro printCallRealMethod method %}{#
-    #}{{ method.callName }}({% call printCallRealMethodArgs method %}){#
+{% macro printCallRealFunc func %}{#
+    #}{{ func.callName }}({% call printCallRealFuncArgs func %}){#
 #}{% endmacro %}
 
 {% macro generateMockProtocol type %}
@@ -143,9 +143,9 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
 
     {% endfor %}
 
-    {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
-        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-            {% call generateMockMethod method %}
+    {% for func in type.allFuncs|!definedInExtension|!annotated:"mirageSkip" %}
+        {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
+            {% call generateMockFunc func %}
 
         {% endif %}
     {% endfor %}    
@@ -161,11 +161,11 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
     })
     fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
         switch funcName {
-        {% for method in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
-            {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-                {% set methodSel %}{% call getMethodSel method %}{% endset %}
-        case {{ methodSel }}:
-            return {% if method.throws %}try? {% endif %}super.{% call printCallRealMethod method %}
+        {% for func in type.funcs|!definedInExtension|!annotated:"mirageSkip" %}
+            {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
+                {% set funcSel %}{% call getFuncSel func %}{% endset %}
+        case {{ funcSel }}:
+            return {% if func.throws %}try? {% endif %}super.{% call printCallRealFunc func %}
             {% endif %}
         {% endfor %}
         default:
@@ -178,9 +178,9 @@ class Mock{{ type.name }}: {{ type.name }}, Mock {
         {% call generateMockVar var %}
     {% endfor %}
 
-    {% for method in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
-        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-            {% call generateMockMethod method %}
+    {% for func in type.funcs|!definedInExtension|!annotated:"mirageSkip" %}
+        {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
+            {% call generateMockFunc func %}
         {% endif %}
     {% endfor %}    
 }
