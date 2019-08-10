@@ -8,7 +8,8 @@
 
 import Foundation
 
+//sourcery: mirageMock
 protocol FuncGenerics {
-    func funcT<T>(arg: T)
-    func funcTR<T, R>(_ arg: T) -> R
+    associatedtype TTType
+    func funcWithTTType(_ a: TTType) -> TTType
 }
