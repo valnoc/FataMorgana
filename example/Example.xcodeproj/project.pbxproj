@@ -11,6 +11,7 @@
 		5B6DE03D22FEC96E00FCB1CC /* FuncTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */; };
 		5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */; };
 		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
+		5B6DE04422FF0D6200FCB1CC /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE04322FF0D6200FCB1CC /* Any.swift */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
 		5B9E424D22E3A20E00A6FACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E424B22E3A20E00A6FACE /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuples.swift; sourceTree = "<group>"; };
 		5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypes.generated.swift; sourceTree = "<group>"; };
 		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
+		5B6DE04322FF0D6200FCB1CC /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B9E424922E3A20E00A6FACE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */,
+				5B6DE04322FF0D6200FCB1CC /* Any.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6DE04422FF0D6200FCB1CC /* Any.swift in Sources */,
 				5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
 			);

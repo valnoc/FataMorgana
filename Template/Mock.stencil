@@ -20,7 +20,7 @@ import Mirage
 #}{% endmacro %}
 
 {% macro callAnyDict type %}{#
-    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":","" }}Dict(){#
+    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
 #}{% endmacro %}
 
 {% macro callAnyArray type %}{#
@@ -113,7 +113,11 @@ import Mirage
 {% endmacro %}
 
 {% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
-    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: ())    
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: {#
+    #}{% if func.returnTypeName.isVoid %}(){#
+    #}{% else %}{% call callAny func.returnTypeName %}{#
+    #}{% endif %}{#
+    #})    
     {% call printFuncDeclaration func %} {
         return mock_{{ funcSel }}.handle({{ handleValue }})
     }
