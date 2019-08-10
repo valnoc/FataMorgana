@@ -93,28 +93,29 @@ import Mirage
             #}{% endfor %}
         }
     }
-    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ funcArgsClass }}, {{ func.returnTypeName }}>(returnValue: ())    
-    {% call printFuncDeclaration func %} {
-        return mock_{{ funcSel }}.handle({{ funcArgsClass }}({#
+
+    {% set handleValue %}{#
+    #}{{ funcArgsClass }}({#
             #}{% for param in func.parameters %}{#
                 #}{{ param.name }}{#
                 #}{% if not forloop.last %}, {% endif %}{#
             #}{% endfor %}{#
-        #}))
-    }
+    #}){% endset %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue %}
 {% endmacro %}
 
 {% macro generateFuncMockWithOneArg func %}
-    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ func.parameters.first.typeName }}, {{ func.returnTypeName }}>(returnValue: ())    
-    {% call printFuncDeclaration func %} {
-        return mock_{{ funcSel }}.handle({{ func.parameters.first.name }})
-    }
+    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name %}
 {% endmacro %}
 
 {% macro generateFuncMockWithZeroArgs func %}
-    lazy var mock_{{ funcSel }} = FuncCallHandler<Void, {{ func.returnTypeName }}>(returnValue: ())    
+    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" %}
+{% endmacro %}
+
+{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: ())    
     {% call printFuncDeclaration func %} {
-        return mock_{{ funcSel }}.handle(())
+        return mock_{{ funcSel }}.handle({{ handleValue }})
     }
 {% endmacro %}
 
