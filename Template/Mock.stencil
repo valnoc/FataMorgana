@@ -64,11 +64,17 @@ import Mirage
     //MARK: - {{ funcSel }}
     {% if func.parameters.count > 1 %}
         {% call generateFuncMockWithManyArgs func %}
+    {% else %}
+        {% if func.parameters.count > 0 %}
+            {% call generateFuncMockWithOneArg func %}
+        {% else %}
+            {#{% call generateFuncMockWithZeroArgs func %}#}
+        {% endif %}    
     {% endif %}
 {% endmacro %}
 
-{% macro generateFuncMockWithManyArgs func %}{#
-    #}{% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
+{% macro generateFuncMockWithManyArgs func %}
+    {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
     class {{ funcArgsClass }} {
         {% for param in func.parameters %}{#
             #}var {{ param.name }}: {{ param.typeName }}
@@ -95,6 +101,13 @@ import Mirage
                 #}{% if not forloop.last %}, {% endif %}{#
             #}{% endfor %}{#
         #}))
+    }
+{% endmacro %}
+
+{% macro generateFuncMockWithOneArg func %}
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ func.parameters.first.typeName }}, {{ func.returnTypeName }}>(returnValue: ())    
+    {% call printFuncDeclaration func %} {
+        return mock_{{ funcSel }}.handle({{ func.parameters.first.name }})
     }
 {% endmacro %}
 

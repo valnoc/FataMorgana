@@ -21,15 +21,10 @@ protocol FuncTypes {
     
     func funcTwoArgs(arg1: String, arg2: String)
     func funcTwoArgsOptional(arg1Label arg1: String?, _ arg2: String?)
-
+    
     func funcTwoArgsArrayDictionary(arg1: [String], arg2: [String: String])
     func funcTwoArgsArrayDictionaryOptional(arg1: [String]?, arg2: [String: String]?)
     func funcTwoArgsArrayDictionaryOptionalOfOptional(arg1: [String?]?, arg2: [String: String?]?)
-    
-    func funcArgMixed(arg1Label arg1: String,
-                      _ arg2: Int,
-                      arg3: [String],
-                      arg4Label arg4: [String: Int]) -> [Int?]?
     
     func funcReturnsOne() -> String
     func funcReturnsOneOptional() -> String?
@@ -39,4 +34,9 @@ protocol FuncTypes {
     func funcReturnsArrayOptionalOfOptional() -> [Int?]?
     func funcReturnsDictionary() -> [String: String]
     func funcReturnsDictionaryOptional() -> [String: Int]?
+    
+    func funcMixed(arg1Label arg1: String,
+                   _ arg2: Int,
+                   arg3: [String],
+                   arg4Label arg4: [String: Int]) -> [Int?]?
 }
