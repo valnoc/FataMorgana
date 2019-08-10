@@ -59,10 +59,16 @@ import Mirage
     #}{% else %}{{ func.callName }}{% endif %}{#
 #}{% endmacro %}
 
-{% macro generateMockFunc func %}
+{% macro generateFuncMock func %}
     {% set funcSel %}{% call getFuncSel func %}{% endset %}
-    {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
     //MARK: - {{ funcSel }}
+    {% if func.parameters.count > 1 %}
+        {% call generateFuncMockWithManyArgs func %}
+    {% endif %}
+{% endmacro %}
+
+{% macro generateFuncMockWithManyArgs func %}{#
+    #}{% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
     class {{ funcArgsClass }} {
         {% for param in func.parameters %}{#
             #}var {{ param.name }}: {{ param.typeName }}
@@ -71,7 +77,7 @@ import Mirage
         
         init({#
         #}{% for param in func.parameters %}{#
-            #}{{ param.name }}: {{ param.typeName }}{#
+            #}_ {{ param.name }}: {{ param.typeName }}{#
             #}{% if not forloop.last %}, {% endif %}{#
         #}{% endfor %}{#
         #}) {
@@ -85,8 +91,8 @@ import Mirage
     {% call printFuncDeclaration func %} {
         return mock_{{ funcSel }}.handle({{ funcArgsClass }}({#
             #}{% for param in func.parameters %}{#
-                #}{{ param.name }}: {{ param.name }}{#
-                #}{% if not forloop.last %},{% endif %}{#
+                #}{{ param.name }}{#
+                #}{% if not forloop.last %}, {% endif %}{#
             #}{% endfor %}{#
         #}))
     }
@@ -97,7 +103,7 @@ import Mirage
 class Mock{{ type.name }}: {{ type.name }} {
     {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
-            {% call generateMockFunc func %}
+            {% call generateFuncMock func %}
 
         {% endif %}
     {% endfor %}    
