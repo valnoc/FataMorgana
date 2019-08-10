@@ -10,6 +10,7 @@
 		5B6DE03C22FEC96E00FCB1CC /* FuncGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */; };
 		5B6DE03D22FEC96E00FCB1CC /* FuncTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */; };
 		5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */; };
+		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
 		5B9E424D22E3A20E00A6FACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E424B22E3A20E00A6FACE /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGenerics.swift; sourceTree = "<group>"; };
 		5B6DE03B22FEC96D00FCB1CC /* FuncTuples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuples.swift; sourceTree = "<group>"; };
 		5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypes.generated.swift; sourceTree = "<group>"; };
+		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B9E424922E3A20E00A6FACE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,18 +78,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B6DE04022FEF35700FCB1CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B6DE04122FEF35700FCB1CC /* Mirage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5B9E423B22E3A20D00A6FACE = {
 			isa = PBXGroup;
 			children = (
 				5B9E424622E3A20E00A6FACE /* Example */,
 				5B9E425B22E3A20F00A6FACE /* ExampleTests */,
 				5B9E424522E3A20E00A6FACE /* Products */,
+				5B6DE04022FEF35700FCB1CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -494,6 +506,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +530,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
