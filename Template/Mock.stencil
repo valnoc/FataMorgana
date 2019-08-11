@@ -19,15 +19,23 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyNameForType type %}{#
+    {% call printType type %}
     #}{% if type.dictionary %}{#
         #}{% call getAnyDictName type %}{#
     #}{% elif type.array %}{#
         #}{% call getAnyArrayName type %}{#
     #}{% elif type.tuple %}{#
-        #}{% call getAnyTupleName type %}{#        
+        #}{% call getAnyTupleName type %}{#
+    #}{% elif type.isGeneric and type|contains:"<" %}{#
+        #}{% call getAnyGenericName type %}{#        
     #}{% else %}{#
         #}{% call getAnyTypeName type %}{#
     #}{% endif %}{#
+#}{% endmacro %}
+
+{% macro getAnyGenericName type %}{#
+    #}{{ type.generic.name }}Of{#
+    #}{% call getAnyNameForType type.generic.typeParameters.first.typeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyTupleName type %}{#

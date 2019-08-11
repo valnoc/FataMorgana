@@ -8,8 +8,6 @@
 
 import Foundation
 
-class Template<T> { }
-
 protocol PropertiesGenerics {
     var varOne: Template<String> {get set}
     var varOneOptional: Template<String>? {get set}
