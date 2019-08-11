@@ -6,6 +6,13 @@ import Mirage
 {{ argument.imports }}
 {% endmacro %}
 
+{% macro printType type %}
+    {{ type }}
+    {% for key in type %}
+        {{key}} = {{type[key]}}
+    {% endfor %}
+{% endmacro %}
+
 {# === ANY === #}
 {% macro callAnyForType type %}{#
     #}any{% call getAnyNameForType type %}(){#
@@ -24,7 +31,7 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyTupleName type %}{#
-    #}TupleOf{#
+    #}Tuple{% if type.isOptional %}Opt{% endif %}Of{#
     #}{% for subtype in type.tuple.elements %}{#
         #}{% call getAnyNameForType subtype.typeName %}{#
         #}{% if not forloop.last %}And{% endif %}{#
@@ -32,11 +39,13 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyDictName type %}{#
-    #}DictOf{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
+    #}Dict{% if type.isOptional %}Opt{% endif %}Of{#
+    #}{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyArrayName type %}{#
-    #}ArrayOf{% call getAnyNameForType type.array.elementTypeName %}{#
+    #}Array{% if type.isOptional %}Opt{% endif %}Of{#
+    #}{% call getAnyNameForType type.array.elementTypeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyTypeName type %}{#
@@ -124,6 +133,7 @@ import Mirage
 {% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
+    #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
     #}{% else %}{% call callAnyForType func.returnTypeName %}{#
     #}{% endif %}{#
     #})    

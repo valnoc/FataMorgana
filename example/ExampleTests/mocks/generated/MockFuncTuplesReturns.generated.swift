@@ -14,7 +14,7 @@ class MockFuncTuplesReturns: FuncTuplesReturns {
     }
 
     //MARK: - funcReturnsTupleOptional
-    lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: anyTupleOfStringAndInt())    
+    lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: anyTupleOptOfStringAndInt())    
     func funcReturnsTupleOptional() -> (String, Int)? {
         return mock_funcReturnsTupleOptional.handle(())
     }
@@ -38,7 +38,7 @@ class MockFuncTuplesReturns: FuncTuplesReturns {
     }
 
     //MARK: - funcReturnsTupleWithOptSequence
-    lazy var mock_funcReturnsTupleWithOptSequence = FuncCallHandler<Void, ([String]?, [String: Double]?)>(returnValue: anyTupleOfArrayOfStringAndDictOfStringToDouble())    
+    lazy var mock_funcReturnsTupleWithOptSequence = FuncCallHandler<Void, ([String]?, [String: Double]?)>(returnValue: anyTupleOfArrayOptOfStringAndDictOptOfStringToDouble())    
     func funcReturnsTupleWithOptSequence() -> ([String]?, [String: Double]?) {
         return mock_funcReturnsTupleWithOptSequence.handle(())
     }

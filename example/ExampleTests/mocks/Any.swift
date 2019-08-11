@@ -12,8 +12,20 @@ func anyString() -> String {
     return ""
 }
 
+func anyStringOpt() -> String? {
+    return anyString()
+}
+
 func anyArrayOfString() -> [String] {
     return ["123", "qwe"]
+}
+
+func anyArrayOptOfInt() -> [Int]? {
+    return [1,2]
+}
+
+func anyArrayOptOfIntOpt() -> [Int?]? {
+    return [1,2]
 }
 
 func anyArrayOfInt() -> [Int] {
@@ -26,6 +38,13 @@ func anyDictOfStringToString() -> [String: String] {
 
 func anyDictOfStringToInt() -> [String: Int] {
     return ["123": 1]
+}
+func anyDictOptOfStringToInt() -> [String: Int]? {
+    return anyDictOfStringToInt()
+}
+
+func anyDictOptOfStringToIntOpt() -> [String: Int?]? {
+    return anyDictOfStringToInt()
 }
 
 func anyArrayOfArrayOfString() -> [[String]] {
@@ -60,8 +79,13 @@ func anyArrayOfDictOfStringToArrayOfDictOfStringToArrayOfArrayOfInt() -> [[Strin
     return [["123": [["234": [[456]]]]]]
 }
 
+//MARK: - tuples
 func anyTupleOfStringAndInt() -> (String, Int) {
     return ("123", 234)
+}
+
+func anyTupleOptOfStringAndInt() -> (String, Int) {
+    return anyTupleOfStringAndInt()
 }
 
 func anyTupleOfStringOptAndIntOpt() -> (String? , Int?) {
@@ -69,6 +93,10 @@ func anyTupleOfStringOptAndIntOpt() -> (String? , Int?) {
 }
 
 func anyTupleOfArrayOfStringAndDictOfStringToDouble() -> ([String], [String: Double]) {
+    return (["123"], ["234": 345.0])
+}
+
+func anyTupleOfArrayOptOfStringAndDictOptOfStringToDouble() -> ([String]?, [String: Double]?) {
     return (["123"], ["234": 345.0])
 }
 
