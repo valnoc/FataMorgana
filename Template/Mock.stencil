@@ -27,10 +27,20 @@ import Mirage
     #}{% elif type.tuple %}{#
         #}{% call getAnyTupleName type %}{#
     #}{% elif type.isGeneric and type|contains:"<" %}{#
-        #}{% call getAnyGenericName type %}{#        
+        #}{% call getAnyGenericName type %}{#
+    #}{% elif type.closure %}{#
+        #}{% call getAnyClosureName type %}{#        
     #}{% else %}{#
         #}{% call getAnyTypeName type %}{#
     #}{% endif %}{#
+#}{% endmacro %}
+
+{% macro getAnyClosureName type %}{#
+    #}Closure{% if type.isOptional %}Opt{% endif %}Getting{#
+    #}{% for argtype in type.closure.parameters %}{#
+        #}{% call getAnyNameForType argtype.typeName %}{#
+    #}{% endfor %}{#
+    #}Returning{% call getAnyNameForType type.closure.returnTypeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyGenericName type %}{#

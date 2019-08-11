@@ -129,3 +129,14 @@ func anyTemplateOfDictOfStringToInt() -> Template<[String: Int]> {
 func anyTemplateOfArrayOfDictOfStringToInt() -> Template<[[String: Int]]> {
     return Template<[[String: Int]]>()
 }
+
+//MARK: - closures
+func anyClosureGettingStringReturningInt() -> (String) -> Int {
+    return { (str) in
+        return 3
+    }
+}
+
+func anyClosureOptGettingStringReturningInt() -> ((String) -> Int)? {
+    return anyClosureGettingStringReturningInt()
+}
