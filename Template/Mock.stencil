@@ -16,9 +16,18 @@ import Mirage
         #}{% call getAnyDictName type %}{#
     #}{% elif type.array %}{#
         #}{% call getAnyArrayName type %}{#
+    #}{% elif type.tuple %}{#
+        #}{% call getAnyTupleName type %}{#        
     #}{% else %}{#
         #}{% call getAnyTypeName type %}{#
     #}{% endif %}{#
+#}{% endmacro %}
+
+{% macro getAnyTupleName type %}{#
+    #}{{type}}
+    {% for char in type %}
+        {{char}} = {{type[char]}}
+    {%endfor%}{#
 #}{% endmacro %}
 
 {% macro getAnyDictName type %}{#

@@ -27,4 +27,12 @@ protocol FuncTuples {
     func funcReturnsTupleOptional() -> (String, Int)?
     func funcReturnsTupleOfOptional() -> (String?, Int?)
     func funcReturnsNamedTuple() -> (str: String, value: Int)
+    
+    func funcReturnsTupleWithSequence() -> ([String], [String: Double])
+    func funcReturnsTupleWithNamedSequence() -> (a: [String], b: [String: Double])
+    
+    func funcReturnsTupleWithComplexArray() -> ([[String]], Int)
+    func funcReturnsTupleWithComplexDict() -> (Int, [String: [String: Double]])
+    
+    func funcReturnsTupleMixed() -> (Int, [[String: [String: [Double]]]])
 }
