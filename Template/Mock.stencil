@@ -139,7 +139,7 @@ import Mirage
 {% endmacro %}
 
 {% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
-    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: {#
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType|replace:"@escaping ","" }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
     #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
     #}{% elif func|annotated:"mirageReturn" %}{{ func.annotations.mirageReturn }}{#
