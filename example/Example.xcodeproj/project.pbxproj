@@ -14,6 +14,7 @@
 		5B6DE04422FF0D6200FCB1CC /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE04322FF0D6200FCB1CC /* Any.swift */; };
 		5B6DE04822FF179900FCB1CC /* MockFuncGenerics.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE04722FF179900FCB1CC /* MockFuncGenerics.generated.swift */; };
 		5B6DE04A22FF1C5500FCB1CC /* MockFuncGenericsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE04922FF1C5500FCB1CC /* MockFuncGenericsExt.swift */; };
+		5B6DE04C22FF1CAC00FCB1CC /* MockFuncTuples.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE04B22FF1CAC00FCB1CC /* MockFuncTuples.generated.swift */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
 		5B9E424D22E3A20E00A6FACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E424B22E3A20E00A6FACE /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		5B6DE04322FF0D6200FCB1CC /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5B6DE04722FF179900FCB1CC /* MockFuncGenerics.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncGenerics.generated.swift; sourceTree = "<group>"; };
 		5B6DE04922FF1C5500FCB1CC /* MockFuncGenericsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFuncGenericsExt.swift; sourceTree = "<group>"; };
+		5B6DE04B22FF1CAC00FCB1CC /* MockFuncTuples.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuples.generated.swift; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B9E424922E3A20E00A6FACE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		5B9E42AA22E3BDAD00A6FACE /* mocks */ = {
 			isa = PBXGroup;
 			children = (
+				5B6DE04B22FF1CAC00FCB1CC /* MockFuncTuples.generated.swift */,
 				5B6DE04722FF179900FCB1CC /* MockFuncGenerics.generated.swift */,
 				5B6DE04922FF1C5500FCB1CC /* MockFuncGenericsExt.swift */,
 				5B6DE03E22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift */,
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6DE04822FF179900FCB1CC /* MockFuncGenerics.generated.swift in Sources */,
+				5B6DE04C22FF1CAC00FCB1CC /* MockFuncTuples.generated.swift in Sources */,
 				5B6DE04A22FF1C5500FCB1CC /* MockFuncGenericsExt.swift in Sources */,
 				5B6DE04422FF0D6200FCB1CC /* Any.swift in Sources */,
 				5B6DE03F22FEEF1F00FCB1CC /* MockFuncTypes.generated.swift in Sources */,
