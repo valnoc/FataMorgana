@@ -14,7 +14,7 @@ class MockFuncGenerics: FuncGenerics {
     }
 
     //MARK: - funcTemplateTTType
-    lazy var mock_funcTemplateTTType = FuncCallHandler<Template<TTType>, Template<TTType>>(returnValue: anyTemplateOfTTType())    
+    lazy var mock_funcTemplateTTType = FuncCallHandler<Template<TTType>, Template<TTType>>(returnValue: anyTemplateOfString())    
     func funcTemplateTTType(_ a: Template<TTType>) -> Template<TTType> {
         return mock_funcTemplateTTType.handle(a)
     }

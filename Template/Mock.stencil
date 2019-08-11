@@ -142,6 +142,7 @@ import Mirage
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
     #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
+    #}{% elif func|annotated:"mirageReturn" %}{{ func.annotations.mirageReturn }}{#
     #}{% else %}{% call callAnyForType func.returnTypeName %}{#
     #}{% endif %}{#
     #})    

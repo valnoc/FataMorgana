@@ -15,6 +15,7 @@ protocol FuncGenerics {
     associatedtype TTType
     func funcWithTTType(_ a: TTType) -> TTType
     
+    //sourcery: mirageReturn=anyTemplateOfString()
     func funcTemplateTTType(_ a: Template<TTType>) -> Template<TTType>
     func funcTemplateString(qwe a: Template<String>) -> Template<String>
     func funcTemplateArray(a: Template<[String]>) -> Template<[String]>

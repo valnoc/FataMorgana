@@ -111,3 +111,21 @@ func anyTupleOfIntAndDictOfStringToDictOfStringToDouble() -> (Int, [String: [Str
 func anyTupleOfIntAndArrayOfDictOfStringToDictOfStringToArrayOfDouble() -> (Int, [[String: [String: [Double]]]]) {
     return (123, [["123": ["345": [12.0, 45.0]]]])
 }
+
+//MARK: - generics
+@testable import Example
+func anyTemplateOfString() -> Template<String> {
+    return Template<String>()
+}
+
+func anyTemplateOfArrayOfString() -> Template<[String]> {
+    return Template<[String]>()
+}
+
+func anyTemplateOfDictOfStringToInt() -> Template<[String: Int]> {
+    return Template<[String: Int]>()
+}
+
+func anyTemplateOfArrayOfDictOfStringToInt() -> Template<[[String: Int]]> {
+    return Template<[[String: Int]]>()
+}
