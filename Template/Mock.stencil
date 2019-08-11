@@ -14,21 +14,27 @@ import Mirage
 {% macro getAnyNameForType type %}{#
     #}{% if type|contains:":" %}{#
         #}{% call getAnyDictName type %}{#
+    #}{% elif type|contains:"[" %}{#
+        #}{% call getAnyArrayName type %}{#
     #}{% else %}{#
-        #}{% if type|contains:"[" %}{#
-            #}{% call getAnyArrayName type %}{#
-        #}{% else %}{#
-            #}{% call getAnyTypeName type %}{#
-        #}{% endif %}{#
+        #}{% call getAnyTypeName type %}{#
     #}{% endif %}{#
 #}{% endmacro %}
 
 {% macro getAnyDictName type %}{#
-    #}DictOf{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}{#
+    #}{% if type.dictionary %}{#
+        #}DictOf{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
+    #}{% else %}{#
+        #}{% call getAnyNameForType type|replace:"[","DictOf"|replace:"]",""|replace:":","To"|replace:" ","" %}{#
+    #}{% endif %}{#
 #}{% endmacro %}
 
 {% macro getAnyArrayName type %}{#
-    #}ArrayOf{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]","" }}{#
+    #}{% if type.array %}{#
+        #}ArrayOf{% call getAnyNameForType type.array.elementTypeName %}{#
+    #}{% else %}{#
+        #}{% call getAnyNameForType type|replace:"[","ArrayOf"|replace:"]","" %}{#
+    #}{% endif %}{#
 #}{% endmacro %}
 
 {% macro getAnyTypeName type %}{#
@@ -68,12 +74,10 @@ import Mirage
     //MARK: - {{ funcSel }}
     {% if func.parameters.count > 1 %}
         {% call generateFuncMockWithManyArgs func %}
+    {% elif func.parameters.count > 0 %}
+        {% call generateFuncMockWithOneArg func %}
     {% else %}
-        {% if func.parameters.count > 0 %}
-            {% call generateFuncMockWithOneArg func %}
-        {% else %}
-            {% call generateFuncMockWithZeroArgs func %}
-        {% endif %}    
+        {% call generateFuncMockWithZeroArgs func %}
     {% endif %}
 {% endmacro %}
 

@@ -22,9 +22,17 @@ protocol FuncTypes {
     func funcTwoArgs(arg1: String, arg2: String)
     func funcTwoArgsOptional(arg1Label arg1: String?, _ arg2: String?)
     
-    func funcTwoArgsArrayDictionary(arg1: [String], arg2: [String: String])
-    func funcTwoArgsArrayDictionaryOptional(arg1: [String]?, arg2: [String: String]?)
-    func funcTwoArgsArrayDictionaryOptionalOfOptional(arg1: [String?]?, arg2: [String: String?]?)
+    func funcTwoArgsArrayDict(arg1: [String], arg2: [String: String])
+    func funcTwoArgsArrayDictOptional(arg1: [String]?, arg2: [String: String]?)
+    func funcTwoArgsArrayDictOptionalOfOptional(arg1: [String?]?, arg2: [String: String?]?)
+    
+    func funcArrayOfArrayArg(_ arg: [[String]], _ arg2: [[Int]])
+    func funcArrayOfDictArg(_ arg: [[String: Int]])
+    func funcArrayOfDictOfArrayArg(_ arg: [[String: [Int]]])
+    
+    func funcDictOfDictArg(_ arg: [String: [String: Int]], _ arg2: [String: [String: Double]])
+    func funcDictOfArrayArg(_ arg: [String: [Int]])
+    func funcDictOfArrayOfDictArg(_ arg: [String: [[String: Int]]])
     
     func funcReturnsOne() -> String
     func funcReturnsOneOptional() -> String?
@@ -32,8 +40,17 @@ protocol FuncTypes {
     func funcReturnsArray() -> [String]
     func funcReturnsArrayOptional() -> [Int]?
     func funcReturnsArrayOptionalOfOptional() -> [Int?]?
-    func funcReturnsDictionary() -> [String: String]
-    func funcReturnsDictionaryOptional() -> [String: Int]?
+    func funcReturnsArrayOfArray() -> [[String]]
+    func funcReturnsArrayOfDict() -> [[String: Int]]
+    func funcReturnsArrayOfDictOfArray() -> [[String: [Int]]]
+    
+    func funcReturnsDict() -> [String: String]
+    func funcReturnsDictOptional() -> [String: Int]?
+    func funcReturnsDictOptionalOfOptional() -> [String: Int?]?
+    func funcReturnsDictOfDict() -> [String: [String: Int]]
+    func funcReturnsDictOfArray() -> [String: [Int]]
+    func funcReturnsDictOfArrayOfArray() -> [String: [[Int]]]
+    func funcReturnsDictOfArrayOfDict() -> [String: [[String: Int]]]
     
     func funcMixed(arg1Label arg1: String,
                    _ arg2: Int,

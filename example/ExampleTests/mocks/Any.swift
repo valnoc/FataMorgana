@@ -20,10 +20,26 @@ func anyArrayOfInt() -> [Int] {
     return [0, 1, 2]
 }
 
-func anyDictOfStringString() -> [String: String] {
+func anyDictOfStringToString() -> [String: String] {
     return ["123": "qwe"]
 }
 
-func anyDictOfStringInt() -> [String: Int] {
+func anyDictOfStringToInt() -> [String: Int] {
     return ["123": 1]
+}
+
+func anyArrayOfArrayOfString() -> [[String]] {
+    return [["123"]]
+}
+
+func anyDictOfStringToDictOfStringToInt() -> [String: [String: Int]] {
+    return ["123": ["qwe": 234]]
+}
+
+func anyDictOfStringToArrayOfInt() -> [String: [Int]] {
+    return ["123": [234, 345]]
+}
+
+func anyDictOfStringToArrayOfArrayOfInt() -> [String: [[Int]]] {
+    return ["123": [[234, 345]]]
 }
