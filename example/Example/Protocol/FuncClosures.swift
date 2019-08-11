@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: mirageMock
 protocol FuncClosures {
     func funcArgClosure(handler: (String) -> Int)
     func funcArgClosureNoName(_ handler: (String) -> Int)

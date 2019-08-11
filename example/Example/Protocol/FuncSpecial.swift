@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: mirageMock
 protocol FuncSpecial {
     //sourcery: mirageSkip
     func funcToSkip()

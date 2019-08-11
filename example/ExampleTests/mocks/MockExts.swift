@@ -14,3 +14,7 @@ extension MockFuncGenerics {
         return anyString()
     }
 }
+
+extension MockFuncSpecial {
+    func funcToSkip() {  }
+}

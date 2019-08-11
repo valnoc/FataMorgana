@@ -26,6 +26,7 @@
 		5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */; };
 		5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B722E3C01300A6FACE /* Service2Impl.swift */; };
 		5B9E42BC22E3C01300A6FACE /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */; };
+		5BA6E49C230084170023F0B1 /* MockFuncSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */; };
 		5BFED21523002ECF0014B452 /* FuncTypesReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21323002ECE0014B452 /* FuncTypesReturns.swift */; };
 		5BFED21623002ECF0014B452 /* FuncTuplesReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21423002ECE0014B452 /* FuncTuplesReturns.swift */; };
 		5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */; };
@@ -34,7 +35,7 @@
 		5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */; };
 		5BFED22423002F740014B452 /* MockFuncTypesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */; };
 		5BFED22523002F740014B452 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21E23002F740014B452 /* Any.swift */; };
-		5BFED22623002F740014B452 /* MockFuncGenericsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21F23002F740014B452 /* MockFuncGenericsExt.swift */; };
+		5BFED22623002F740014B452 /* MockExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21F23002F740014B452 /* MockExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
 		5B9E42B722E3C01300A6FACE /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
 		5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
+		5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncSpecial.generated.swift; sourceTree = "<group>"; };
 		5BFED21323002ECE0014B452 /* FuncTypesReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTypesReturns.swift; sourceTree = "<group>"; };
 		5BFED21423002ECE0014B452 /* FuncTuplesReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesReturns.swift; sourceTree = "<group>"; };
 		5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesArgs.generated.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncGenerics.generated.swift; sourceTree = "<group>"; };
 		5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesReturns.generated.swift; sourceTree = "<group>"; };
 		5BFED21E23002F740014B452 /* Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
-		5BFED21F23002F740014B452 /* MockFuncGenericsExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncGenericsExt.swift; sourceTree = "<group>"; };
+		5BFED21F23002F740014B452 /* MockExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,7 @@
 			children = (
 				5BFED21823002F740014B452 /* generated */,
 				5BFED21E23002F740014B452 /* Any.swift */,
-				5BFED21F23002F740014B452 /* MockFuncGenericsExt.swift */,
+				5BFED21F23002F740014B452 /* MockExts.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -199,6 +201,7 @@
 				5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */,
 				5BFED21B23002F740014B452 /* MockFuncTuplesReturns.generated.swift */,
 				5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */,
+				5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -349,10 +352,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA6E49C230084170023F0B1 /* MockFuncSpecial.generated.swift in Sources */,
 				5BFED22523002F740014B452 /* Any.swift in Sources */,
 				5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */,
 				5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */,
-				5BFED22623002F740014B452 /* MockFuncGenericsExt.swift in Sources */,
+				5BFED22623002F740014B452 /* MockExts.swift in Sources */,
 				5BFED22423002F740014B452 /* MockFuncTypesReturns.generated.swift in Sources */,
 				5BFED22123002F740014B452 /* MockFuncTypesArgs.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
