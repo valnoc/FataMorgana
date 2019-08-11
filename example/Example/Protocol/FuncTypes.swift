@@ -52,6 +52,8 @@ protocol FuncTypes {
     func funcReturnsDictOfArrayOfArray() -> [String: [[Int]]]
     func funcReturnsDictOfArrayOfDict() -> [String: [[String: Int]]]
     
+    func funcReturnsMixed() -> [[String: [[String: [[Int]]]]]]
+    
     func funcMixed(arg1Label arg1: String,
                    _ arg2: Int,
                    arg3: [String],

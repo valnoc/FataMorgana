@@ -43,3 +43,19 @@ func anyDictOfStringToArrayOfInt() -> [String: [Int]] {
 func anyDictOfStringToArrayOfArrayOfInt() -> [String: [[Int]]] {
     return ["123": [[234, 345]]]
 }
+
+func anyArrayOfDictOfStringToInt() -> [[String: Int]] {
+    return [["123": 345]]
+}
+
+func anyArrayOfDictOfStringToArrayOfInt() -> [[String: [Int]]] {
+    return [["123": [234, 345]]]
+}
+
+func anyDictOfStringToArrayOfDictOfStringToInt() -> [String: [[String: Int]]]{
+    return ["123": [["234": 345]]]
+}
+
+func anyArrayOfDictOfStringToArrayOfDictOfStringToArrayOfArrayOfInt() -> [[String: [[String: [[Int]]]]]] {
+    return [["123": [["234": [[456]]]]]]
+}

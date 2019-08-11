@@ -208,13 +208,13 @@ class MockFuncTypes: FuncTypes {
     }
 
     //MARK: - funcReturnsArrayOfDict
-    lazy var mock_funcReturnsArrayOfDict = FuncCallHandler<Void, [[String: Int]]>(returnValue: anyDictOfDictOfStringToInt())    
+    lazy var mock_funcReturnsArrayOfDict = FuncCallHandler<Void, [[String: Int]]>(returnValue: anyArrayOfDictOfStringToInt())    
     func funcReturnsArrayOfDict() -> [[String: Int]] {
         return mock_funcReturnsArrayOfDict.handle(())
     }
 
     //MARK: - funcReturnsArrayOfDictOfArray
-    lazy var mock_funcReturnsArrayOfDictOfArray = FuncCallHandler<Void, [[String: [Int]]]>(returnValue: anyDictOfDictOfStringToDictOfInt())    
+    lazy var mock_funcReturnsArrayOfDictOfArray = FuncCallHandler<Void, [[String: [Int]]]>(returnValue: anyArrayOfDictOfStringToArrayOfInt())    
     func funcReturnsArrayOfDictOfArray() -> [[String: [Int]]] {
         return mock_funcReturnsArrayOfDictOfArray.handle(())
     }
@@ -256,9 +256,15 @@ class MockFuncTypes: FuncTypes {
     }
 
     //MARK: - funcReturnsDictOfArrayOfDict
-    lazy var mock_funcReturnsDictOfArrayOfDict = FuncCallHandler<Void, [String: [[String: Int]]]>(returnValue: anyDictOfStringToDictOfDictOfStringToInt())    
+    lazy var mock_funcReturnsDictOfArrayOfDict = FuncCallHandler<Void, [String: [[String: Int]]]>(returnValue: anyDictOfStringToArrayOfDictOfStringToInt())    
     func funcReturnsDictOfArrayOfDict() -> [String: [[String: Int]]] {
         return mock_funcReturnsDictOfArrayOfDict.handle(())
+    }
+
+    //MARK: - funcReturnsMixed
+    lazy var mock_funcReturnsMixed = FuncCallHandler<Void, [[String: [[String: [[Int]]]]]]>(returnValue: anyArrayOfDictOfStringToArrayOfDictOfStringToArrayOfArrayOfInt())    
+    func funcReturnsMixed() -> [[String: [[String: [[Int]]]]]] {
+        return mock_funcReturnsMixed.handle(())
     }
 
     //MARK: - funcMixed

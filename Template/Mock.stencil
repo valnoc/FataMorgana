@@ -12,9 +12,9 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyNameForType type %}{#
-    #}{% if type|contains:":" %}{#
+    #}{% if type.dictionary %}{#
         #}{% call getAnyDictName type %}{#
-    #}{% elif type|contains:"[" %}{#
+    #}{% elif type.array %}{#
         #}{% call getAnyArrayName type %}{#
     #}{% else %}{#
         #}{% call getAnyTypeName type %}{#
@@ -22,19 +22,11 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyDictName type %}{#
-    #}{% if type.dictionary %}{#
-        #}DictOf{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
-    #}{% else %}{#
-        #}{% call getAnyNameForType type|replace:"[","DictOf"|replace:"]",""|replace:":","To"|replace:" ","" %}{#
-    #}{% endif %}{#
+    #}DictOf{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyArrayName type %}{#
-    #}{% if type.array %}{#
-        #}ArrayOf{% call getAnyNameForType type.array.elementTypeName %}{#
-    #}{% else %}{#
-        #}{% call getAnyNameForType type|replace:"[","ArrayOf"|replace:"]","" %}{#
-    #}{% endif %}{#
+    #}ArrayOf{% call getAnyNameForType type.array.elementTypeName %}{#
 #}{% endmacro %}
 
 {% macro getAnyTypeName type %}{#

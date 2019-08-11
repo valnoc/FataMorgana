@@ -94,7 +94,7 @@ class MockFuncTuples: FuncTuples {
     }
 
     //MARK: - funcReturnsNamedTuple
-    lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: any(strToString,valueToInt)())    
+    lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: any(str: String, value: Int)())    
     func funcReturnsNamedTuple() -> (str: String, value: Int) {
         return mock_funcReturnsNamedTuple.handle(())
     }
