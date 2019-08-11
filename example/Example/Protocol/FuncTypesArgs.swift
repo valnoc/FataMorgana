@@ -9,10 +9,9 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol FuncTypes {
+protocol FuncTypesArgs {
     func funcVoid()
     func funcArgVoid(a: Void)
-    func funcReturnsVoid() -> Void
     
     func funcOneArg(arg: String)
     func funcOneArgOptional(arg: String?)
@@ -34,28 +33,8 @@ protocol FuncTypes {
     func funcDictOfArrayArg(_ arg: [String: [Int]])
     func funcDictOfArrayOfDictArg(_ arg: [String: [[String: Int]]])
     
-    func funcReturnsOne() -> String
-    func funcReturnsOneOptional() -> String?
-    
-    func funcReturnsArray() -> [String]
-    func funcReturnsArrayOptional() -> [Int]?
-    func funcReturnsArrayOptionalOfOptional() -> [Int?]?
-    func funcReturnsArrayOfArray() -> [[String]]
-    func funcReturnsArrayOfDict() -> [[String: Int]]
-    func funcReturnsArrayOfDictOfArray() -> [[String: [Int]]]
-    
-    func funcReturnsDict() -> [String: String]
-    func funcReturnsDictOptional() -> [String: Int]?
-    func funcReturnsDictOptionalOfOptional() -> [String: Int?]?
-    func funcReturnsDictOfDict() -> [String: [String: Int]]
-    func funcReturnsDictOfArray() -> [String: [Int]]
-    func funcReturnsDictOfArrayOfArray() -> [String: [[Int]]]
-    func funcReturnsDictOfArrayOfDict() -> [String: [[String: Int]]]
-    
-    func funcReturnsMixed() -> [[String: [[String: [[Int]]]]]]
-    
     func funcMixed(arg1Label arg1: String,
                    _ arg2: Int,
                    arg3: [String],
-                   arg4Label arg4: [String: Int]) -> [Int?]?
+                   arg4Label arg4: [String: Int])
 }

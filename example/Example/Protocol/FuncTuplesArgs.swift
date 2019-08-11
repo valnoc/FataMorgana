@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol FuncTuples {
+protocol FuncTuplesArgs {
     func funcArgTuple(tuple: (String, Int))
     func funcArgTuple2(tuple: (String, Int), tuple2: (String, String))
     func funcArgTupleNamed(tuple: (str: String, value: Int))
@@ -22,17 +22,4 @@ protocol FuncTuples {
     func funcArgTupleWithArrayDictionary(tuple: ([String], [String: Int]))
     func funcArgTupleOfOptionalArrayDictionary(tuple: ([String]?, [String: Int]?))
     func funcArgTupleOfOptionalArrayDictionaryOfOptionals(tuple: ([String?]?, [String: Int?]?))
-    
-    func funcReturnsTuple() -> (String, Int)
-    func funcReturnsTupleOptional() -> (String, Int)?
-    func funcReturnsTupleOfOptional() -> (String?, Int?)
-    func funcReturnsNamedTuple() -> (str: String, value: Int)
-    
-    func funcReturnsTupleWithSequence() -> ([String], [String: Double])
-    func funcReturnsTupleWithNamedSequence() -> (a: [String], b: [String: Double])
-    
-    func funcReturnsTupleWithComplexArray() -> ([[String]], Int)
-    func funcReturnsTupleWithComplexDict() -> (Int, [String: [String: Double]])
-    
-    func funcReturnsTupleMixed() -> (Int, [[String: [String: [Double]]]])
 }

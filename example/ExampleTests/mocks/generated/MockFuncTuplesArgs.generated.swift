@@ -6,7 +6,7 @@ import Mirage
 @testable import Example
 import Foundation
 
-class MockFuncTuples: FuncTuples {
+class MockFuncTuplesArgs: FuncTuplesArgs {
     //MARK: - funcArgTuple
     lazy var mock_funcArgTuple = FuncCallHandler<(String, Int), Void>(returnValue: ())    
     func funcArgTuple(tuple: (String, Int)) {
@@ -73,30 +73,6 @@ class MockFuncTuples: FuncTuples {
     lazy var mock_funcArgTupleOfOptionalArrayDictionaryOfOptionals = FuncCallHandler<([String?]?, [String: Int?]?), Void>(returnValue: ())    
     func funcArgTupleOfOptionalArrayDictionaryOfOptionals(tuple: ([String?]?, [String: Int?]?)) {
         return mock_funcArgTupleOfOptionalArrayDictionaryOfOptionals.handle(tuple)
-    }
-
-    //MARK: - funcReturnsTuple
-    lazy var mock_funcReturnsTuple = FuncCallHandler<Void, (String, Int)>(returnValue: any(String, Int)())    
-    func funcReturnsTuple() -> (String, Int) {
-        return mock_funcReturnsTuple.handle(())
-    }
-
-    //MARK: - funcReturnsTupleOptional
-    lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: any(String, Int)())    
-    func funcReturnsTupleOptional() -> (String, Int)? {
-        return mock_funcReturnsTupleOptional.handle(())
-    }
-
-    //MARK: - funcReturnsTupleOfOptional
-    lazy var mock_funcReturnsTupleOfOptional = FuncCallHandler<Void, (String?, Int?)>(returnValue: any(String, Int)())    
-    func funcReturnsTupleOfOptional() -> (String?, Int?) {
-        return mock_funcReturnsTupleOfOptional.handle(())
-    }
-
-    //MARK: - funcReturnsNamedTuple
-    lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: any(str: String, value: Int)())    
-    func funcReturnsNamedTuple() -> (str: String, value: Int) {
-        return mock_funcReturnsNamedTuple.handle(())
     }
 
 }

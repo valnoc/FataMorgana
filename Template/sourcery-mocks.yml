@@ -3,7 +3,7 @@ sources:
 templates:
   - ./../Template/
 output: 
-  ./../Example/ExampleTests/mocks/
+  ./../Example/ExampleTests/mocks/generated
 args:
   testableModule: "Example"
   imports: "import Foundation"
