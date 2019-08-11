@@ -24,10 +24,11 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyTupleName type %}{#
-    #}{{type}}
-    {% for char in type %}
-        {{char}} = {{type[char]}}
-    {%endfor%}{#
+    #}TupleOf{#
+    #}{% for subtype in type.tuple.elements %}{#
+        #}{% call getAnyNameForType subtype.typeName %}{#
+        #}{% if not forloop.last %}And{% endif %}{#
+    #}{% endfor %}{#
 #}{% endmacro %}
 
 {% macro getAnyDictName type %}{#
@@ -39,7 +40,7 @@ import Mirage
 #}{% endmacro %}
 
 {% macro getAnyTypeName type %}{#
-    #}{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".","" }}{#
+    #}{{ type|replace:"?","Opt"|replace:"<",""|replace:">",""|replace:".","" }}{#
 #}{% endmacro %}
 
 {# === FUNC === #}

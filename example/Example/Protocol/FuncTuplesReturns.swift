@@ -16,6 +16,7 @@ protocol FuncTuplesReturns {
     func funcReturnsNamedTuple() -> (str: String, value: Int)
     
     func funcReturnsTupleWithSequence() -> ([String], [String: Double])
+    func funcReturnsTupleWithOptSequence() -> ([String]?, [String: Double]?)
     func funcReturnsTupleWithNamedSequence() -> (a: [String], b: [String: Double])
     
     func funcReturnsTupleWithComplexArray() -> ([[String]], Int)

@@ -59,3 +59,27 @@ func anyDictOfStringToArrayOfDictOfStringToInt() -> [String: [[String: Int]]]{
 func anyArrayOfDictOfStringToArrayOfDictOfStringToArrayOfArrayOfInt() -> [[String: [[String: [[Int]]]]]] {
     return [["123": [["234": [[456]]]]]]
 }
+
+func anyTupleOfStringAndInt() -> (String, Int) {
+    return ("123", 234)
+}
+
+func anyTupleOfStringOptAndIntOpt() -> (String? , Int?) {
+    return ("123", 345)
+}
+
+func anyTupleOfArrayOfStringAndDictOfStringToDouble() -> ([String], [String: Double]) {
+    return (["123"], ["234": 345.0])
+}
+
+func anyTupleOfArrayOfArrayOfStringAndInt() -> ([[String]], Int) {
+    return ([["123"]], 345)
+}
+
+func anyTupleOfIntAndDictOfStringToDictOfStringToDouble() -> (Int, [String: [String: Double]]) {
+    return (123, ["234": ["456": 567.0]])
+}
+
+func anyTupleOfIntAndArrayOfDictOfStringToDictOfStringToArrayOfDouble() -> (Int, [[String: [String: [Double]]]]) {
+    return (123, [["123": ["345": [12.0, 45.0]]]])
+}
