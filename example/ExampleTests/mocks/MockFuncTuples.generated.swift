@@ -76,25 +76,25 @@ class MockFuncTuples: FuncTuples {
     }
 
     //MARK: - funcReturnsTuple
-    lazy var mock_funcReturnsTuple = FuncCallHandler<Void, (String, Int)>(returnValue: anyTupleString, Int)())    
+    lazy var mock_funcReturnsTuple = FuncCallHandler<Void, (String, Int)>(returnValue: any(String, Int)())    
     func funcReturnsTuple() -> (String, Int) {
         return mock_funcReturnsTuple.handle(())
     }
 
     //MARK: - funcReturnsTupleOptional
-    lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: anyTupleString, Int)?())    
+    lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: any(String, Int)())    
     func funcReturnsTupleOptional() -> (String, Int)? {
         return mock_funcReturnsTupleOptional.handle(())
     }
 
     //MARK: - funcReturnsTupleOfOptional
-    lazy var mock_funcReturnsTupleOfOptional = FuncCallHandler<Void, (String?, Int?)>(returnValue: anyTupleString?, Int?)())    
+    lazy var mock_funcReturnsTupleOfOptional = FuncCallHandler<Void, (String?, Int?)>(returnValue: any(String, Int)())    
     func funcReturnsTupleOfOptional() -> (String?, Int?) {
         return mock_funcReturnsTupleOfOptional.handle(())
     }
 
     //MARK: - funcReturnsNamedTuple
-    lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: any(strString,valueInt)Dict())    
+    lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: anyDictOf(strString,valueInt)())    
     func funcReturnsNamedTuple() -> (str: String, value: Int) {
         return mock_funcReturnsNamedTuple.handle(())
     }

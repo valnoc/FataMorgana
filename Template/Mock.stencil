@@ -7,28 +7,32 @@ import Mirage
 {% endmacro %}
 
 {# === ANY === #}
-{% macro callAny type %}{#
+{% macro callAnyForType type %}{#
+    #}any{% call getAnyNameForType type %}(){#
+#}{% endmacro %}
+
+{% macro getAnyNameForType type %}{#
     #}{% if type|contains:":" %}{#
-        #}{% call callAnyDict type %}{#
+        #}{% call getAnyDictName type %}{#
     #}{% else %}{#
         #}{% if type|contains:"[" %}{#
-            #}{% call callAnyArray type %}{#
+            #}{% call getAnyArrayName type %}{#
         #}{% else %}{#
-            #}{% call callAnyType type %}{#
+            #}{% call getAnyTypeName type %}{#
         #}{% endif %}{#
     #}{% endif %}{#
 #}{% endmacro %}
 
-{% macro callAnyDict type %}{#
-    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}Dict(){#
+{% macro getAnyDictName type %}{#
+    #}DictOf{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" }}{#
 #}{% endmacro %}
 
-{% macro callAnyArray type %}{#
-    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]","" }}Array(){#
+{% macro getAnyArrayName type %}{#
+    #}ArrayOf{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".",""|replace:"[",""|replace:"]","" }}{#
 #}{% endmacro %}
 
-{% macro callAnyType type %}{#
-    #}any{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".","" }}(){#
+{% macro getAnyTypeName type %}{#
+    #}{{ type|replace:"?",""|replace:"<",""|replace:">",""|replace:".","" }}{#
 #}{% endmacro %}
 
 {# === FUNC === #}
@@ -93,7 +97,6 @@ import Mirage
             #}{% endfor %}
         }
     }
-
     {% set handleValue %}{#
     #}{{ funcArgsClass }}({#
             #}{% for param in func.parameters %}{#
@@ -115,7 +118,7 @@ import Mirage
 {% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
-    #}{% else %}{% call callAny func.returnTypeName %}{#
+    #}{% else %}{% call callAnyForType func.returnTypeName %}{#
     #}{% endif %}{#
     #})    
     {% call printFuncDeclaration func %} {

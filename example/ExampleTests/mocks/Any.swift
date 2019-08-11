@@ -12,18 +12,18 @@ func anyString() -> String {
     return ""
 }
 
-func anyStringArray() -> [String] {
+func anyArrayOfString() -> [String] {
     return ["123", "qwe"]
 }
 
-func anyIntArray() -> [Int] {
+func anyArrayOfInt() -> [Int] {
     return [0, 1, 2]
 }
 
-func anyStringStringDict() -> [String: String] {
+func anyDictOfStringString() -> [String: String] {
     return ["123": "qwe"]
 }
 
-func anyStringIntDict() -> [String: Int] {
+func anyDictOfStringInt() -> [String: Int] {
     return ["123": 1]
 }

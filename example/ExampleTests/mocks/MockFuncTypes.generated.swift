@@ -132,31 +132,31 @@ class MockFuncTypes: FuncTypes {
     }
 
     //MARK: - funcReturnsArray
-    lazy var mock_funcReturnsArray = FuncCallHandler<Void, [String]>(returnValue: anyStringArray())    
+    lazy var mock_funcReturnsArray = FuncCallHandler<Void, [String]>(returnValue: anyArrayOfString())    
     func funcReturnsArray() -> [String] {
         return mock_funcReturnsArray.handle(())
     }
 
     //MARK: - funcReturnsArrayOptional
-    lazy var mock_funcReturnsArrayOptional = FuncCallHandler<Void, [Int]?>(returnValue: anyIntArray())    
+    lazy var mock_funcReturnsArrayOptional = FuncCallHandler<Void, [Int]?>(returnValue: anyArrayOfInt())    
     func funcReturnsArrayOptional() -> [Int]? {
         return mock_funcReturnsArrayOptional.handle(())
     }
 
     //MARK: - funcReturnsArrayOptionalOfOptional
-    lazy var mock_funcReturnsArrayOptionalOfOptional = FuncCallHandler<Void, [Int?]?>(returnValue: anyIntArray())    
+    lazy var mock_funcReturnsArrayOptionalOfOptional = FuncCallHandler<Void, [Int?]?>(returnValue: anyArrayOfInt())    
     func funcReturnsArrayOptionalOfOptional() -> [Int?]? {
         return mock_funcReturnsArrayOptionalOfOptional.handle(())
     }
 
     //MARK: - funcReturnsDictionary
-    lazy var mock_funcReturnsDictionary = FuncCallHandler<Void, [String: String]>(returnValue: anyStringStringDict())    
+    lazy var mock_funcReturnsDictionary = FuncCallHandler<Void, [String: String]>(returnValue: anyDictOfStringString())    
     func funcReturnsDictionary() -> [String: String] {
         return mock_funcReturnsDictionary.handle(())
     }
 
     //MARK: - funcReturnsDictionaryOptional
-    lazy var mock_funcReturnsDictionaryOptional = FuncCallHandler<Void, [String: Int]?>(returnValue: anyStringIntDict())    
+    lazy var mock_funcReturnsDictionaryOptional = FuncCallHandler<Void, [String: Int]?>(returnValue: anyDictOfStringInt())    
     func funcReturnsDictionaryOptional() -> [String: Int]? {
         return mock_funcReturnsDictionaryOptional.handle(())
     }
@@ -174,7 +174,7 @@ class MockFuncTypes: FuncTypes {
             self.arg4 = arg4
         }
     }
-    lazy var mock_funcMixed = FuncCallHandler<FuncMixedArgs, [Int?]?>(returnValue: anyIntArray())    
+    lazy var mock_funcMixed = FuncCallHandler<FuncMixedArgs, [Int?]?>(returnValue: anyArrayOfInt())    
     func funcMixed(arg1Label arg1: String,                   _ arg2: Int,                   arg3: [String],                   arg4Label arg4: [String: Int]) -> [Int?]? {
         return mock_funcMixed.handle(FuncMixedArgs(arg1, arg2, arg3, arg4))
     }
