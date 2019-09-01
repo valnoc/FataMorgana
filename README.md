@@ -24,13 +24,17 @@ Needs **Sourcery 0.16.1** and **Mirage 2.0+**.
 ---
 ## Installation
 1. Install [Sourcery](https://github.com/krzysztofzablocki/Sourcery). (I use homebrew variant)
-2. Install templates
+2. Download Mirage and template
+3. Create sourcery.yml
+4. Add build phase for mocks generation
 
 #### Carthage
 Add this line into your Cartfile, run `carthage update --platform iOS` and link binary to the target as you always do it)
 ```ruby
-github "valnoc/FataMorgana" ~> 2.0
+github "valnoc/Mirage" ~> 2.0
 ```
+Download *FataMorgana* release find *Mock.stencil* in Templates folder and put it inside projects' dir.
+
 
 #### Cocoapods
 Add this line into your Podfile under a test target and run `pod update`
@@ -51,6 +55,7 @@ end
 
 #### Source files
 Copy /FataMoragana/Template folder into your project dir.
+Copy Mirage sources into your project dir.
 
 ---
 ## Usage (Short info)
