@@ -1,19 +1,31 @@
 # FataMorgana
-[![](https://img.shields.io/cocoapods/v/FataMorgana.svg)]()
+[![License](https://img.shields.io/github/license/valnoc/FataMorgana.svg)](https://github.com/valnoc/FataMorgana/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues-raw/valnoc/FataMorgana.svg)](https://github.com/valnoc/FataMorgana/issues) 
+
+[![Cocoapods release](https://img.shields.io/cocoapods/v/FataMorgana.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![GitHub release](https://img.shields.io/github/release/valnoc/FataMorgana.svg)](https://github.com/valnoc/FataMorgana/releases) 
 
 FataMorgana generates mocks using [Mirage](https://github.com/valnoc/Mirage) library.
 
-It uses [Sourcery](https://github.com/krzysztofzablocki/Sourcery) as a code generator and provides several templates and annotations.
+It uses [Sourcery](https://github.com/krzysztofzablocki/Sourcery) as a code generator and provides its own template.
+
+## Features
+Using FataMorgana you can generate class and protocol mocks.
+Needs **Sourcery 0.16.1** and **Mirage 2.0+**.
 
 ---
 ## Installation
-1. Install [Sourcery](https://github.com/krzysztofzablocki/Sourcery). (I use homebrew variant).
+1. Install [Sourcery](https://github.com/krzysztofzablocki/Sourcery). (I use homebrew variant)
 2. Install templates
+
+#### Carthage
+Add this line into your Cartfile, run `carthage update --platform iOS` and link binary to the target as you always do it)
+```ruby
+github "valnoc/FataMorgana" ~> 2.0
+```
 
 #### Cocoapods
 Add this line into your Podfile under a test target and run `pod update`
 ```ruby
-pod 'FataMorgana'
+pod 'FataMorgana' ~> 2.0
 ```
 
 Podfile example
@@ -26,6 +38,7 @@ target 'MainTarget' do
   end
 end
 ```
+
 #### Source files
 Copy /FataMoragana/Template folder into your project dir.
 
@@ -40,13 +53,15 @@ Copy /FataMoragana/Template folder into your project dir.
 
 **mirageMock** - generate mock
 
-**miragePartial** - generate partial mock
+**miragePartialMock** - generate partial mock
 
 ### Annotations for a method
 
-**mirageSel** - set alternative name
+**mirageSel** - set alternative name. *mirageSel=myBestFunction*
 
 **mirageSkip** - skip this method while generating a class mock
+
+**mirageReturn** - name for return function. *mirageReturn=anyString()*
 
 ---
 ## Usage (Full info)
@@ -54,17 +69,17 @@ Copy /FataMoragana/Template folder into your project dir.
 ### 1. Set .sourcery.yml
 ```
 sources:
-  - ./FataExample/Services/
-  - ./FataExample/Objects/
+  - ./../Example
 templates:
   - ./../Template/
 output: 
-  ./FataExampleTests/mocks/
+  ./../Example/ExampleTests/mocks/generated
 args:
-  testableModule: "FataExample"
-  imports: "import CoreLocation\nimport CoreData"
-  returnEmptyArray: false
-  returnEmptyDict: true
+  imports: 
+    - framework: Example
+      testable: true
+    - Foundation
+  returnOptionalAsNil: false
 ```
 1. sources
 
@@ -80,10 +95,8 @@ Set output folder for generated files. Each mock is generated into separate file
 
 4. args
 
-- *testableModule* - name of module you test. Usually, it is main module of your app.
-- *imports* - enumerate additional imports of modules
-- *returnEmptyArray* - return [] for an array by default
-- *returnEmptyDict* - return [:] for a dictionary by default
+**imports** - enumerate additional imports of modules. Use *testable: true* if this module needs *@testable* prefix
+**returnOptionalAsNil** - return nil if return type is optional
 
 ### 2. Add a build phase script to Tests target
 ```
@@ -106,77 +119,27 @@ class FirstService {
 ```
 ### 4. Add Any.swift file
 All methods return a default value calling any<Return_Type>() functions.
-
-For example, method 
-```swift
-protocol SecondService {
-...
-  func makeRandomPositiveInt() -> Int
-...
-```
-will become 
-```swift
-class MockSecondService: SecondService, Mock {
-...
-  let sel_makeRandomPositiveInt = "sel_makeRandomPositiveInt"
-  func makeRandomPositiveInt() -> Int {
-      return mockManager.handle(sel_makeRandomPositiveInt, withDefaultReturnValue: anyInt(), withArgs: nil) as! Int
-  }
-...
-}
-```
-
-Pay attention to ```withDefaultReturnValue: anyInt()```
-You have to implement such functions somewhere in your project. For example, in Any.swift file.
-```swift
-func anyString() -> String {
-    return "any"
-}
-
-func anyInt() -> Int {
-    return 4
-}
-
-func anyDouble() -> Double {
-    return 1.0
-}
-
-func anyStringArray() -> [String] {
-    return ["any_array"]
-}
-```
+Implement such functions in **Any.swift** file.
 
 ## Special cases
 ### Same methods' names
-Annotation **mirageSel**
+Use annotation **mirageSel**
 ```swift
     func foo3(number: NSNumber, closure: @escaping Closure1)
-
     func foo3(string: String, closure: @escaping Closure1)
 ```
-These methods will have same string selector generated for mirage.
+These methods will have same string selector generated for Mirage.
 In such cases you can provide an alternative name for a method using annotation
 ```swift
     func foo3(number: NSNumber, closure: @escaping Closure1)
     //sourcery: mirageSel=foo3str
     func foo3(string: String, closure: @escaping Closure1)
 ```
-Generated.
-```swift
-    let sel_foo3 = "sel_foo3"
-    func foo3(number: NSNumber, closure: @escaping Closure1) {
-        mockManager.handle(sel_foo3, withDefaultReturnValue: nil, withArgs: number, closure)
-    }
-    let sel_foo3str = "sel_foo3str"
-    func foo3(string: String, closure: @escaping Closure1) {
-        mockManager.handle(sel_foo3str, withDefaultReturnValue: nil, withArgs: string, closure)
-    }
-```
 
 ### Skip methods
-Annotation **mirageSkip**
+Use annotation **mirageSkip**
 
-Mark a method with this annotation if you don't want to have it in mock.
+Mark a method with this annotation if you don't want it to appear in mock.
 ```swift
     //sourcery: mirageSkip
     func skipMe() {
