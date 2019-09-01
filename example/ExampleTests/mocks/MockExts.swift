@@ -18,3 +18,15 @@ extension MockFuncGenerics {
 extension MockFuncSpecial {
     func funcToSkip() {  }
 }
+
+
+extension MockPropertiesSpecial {
+    var varToSkip: Int {
+        get {
+            return 4
+        }
+        set {
+            //
+        }
+    }
+}

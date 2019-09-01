@@ -27,5 +27,3 @@ extension FuncSpecial {
     
     func funcWithDefault() { }
 }
-
-// protocol with associated
