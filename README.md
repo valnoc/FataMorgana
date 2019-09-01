@@ -125,15 +125,15 @@ Implement such functions in **Any.swift** file.
 ### Same methods' names
 Use annotation **mirageSel**
 ```swift
-    func foo3(number: NSNumber, closure: @escaping Closure1)
-    func foo3(string: String, closure: @escaping Closure1)
+func foo3(number: NSNumber, closure: @escaping Closure1)
+func foo3(string: String, closure: @escaping Closure1)
 ```
 These methods will have same string selector generated for Mirage.
 In such cases you can provide an alternative name for a method using annotation
 ```swift
-    func foo3(number: NSNumber, closure: @escaping Closure1)
-    //sourcery: mirageSel=foo3str
-    func foo3(string: String, closure: @escaping Closure1)
+func foo3(number: NSNumber, closure: @escaping Closure1)
+//sourcery: mirageSel=foo3str
+func foo3(string: String, closure: @escaping Closure1)
 ```
 
 ### Skip methods
@@ -141,9 +141,9 @@ Use annotation **mirageSkip**
 
 Mark a method with this annotation if you don't want it to appear in mock.
 ```swift
-    //sourcery: mirageSkip
-    func skipMe() {
-    }
+//sourcery: mirageSkip
+func skipMe() {
+}
 ```
 
 ## License
