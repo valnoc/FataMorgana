@@ -15,6 +15,8 @@
 		5B0788C9231BF14800F7EFB3 /* MyMyProtocolledSubclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0788C7231BF14800F7EFB3 /* MyMyProtocolledSubclass.swift */; };
 		5B0788CC231BF1C600F7EFB3 /* MockMyProtocolledSubclass.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0788CA231BF1C600F7EFB3 /* MockMyProtocolledSubclass.generated.swift */; };
 		5B0788CD231BF1C600F7EFB3 /* MockMyProtocolledClass.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0788CB231BF1C600F7EFB3 /* MockMyProtocolledClass.generated.swift */; };
+		5B0788CF231C011300F7EFB3 /* MyClassForPartial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0788CE231C011300F7EFB3 /* MyClassForPartial.swift */; };
+		5B0788D1231C027600F7EFB3 /* MockMyClassForPartial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0788D0231C027600F7EFB3 /* MockMyClassForPartial.generated.swift */; };
 		5B4B93DD231BBB2B00E64F17 /* FuncTuplesArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */; };
 		5B4B93DE231BBB2B00E64F17 /* FuncClosuresArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D0231BBB2B00E64F17 /* FuncClosuresArgs.swift */; };
 		5B4B93DF231BBB2B00E64F17 /* FuncTuplesReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D1231BBB2B00E64F17 /* FuncTuplesReturns.swift */; };
@@ -71,6 +73,8 @@
 		5B0788C7231BF14800F7EFB3 /* MyMyProtocolledSubclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMyProtocolledSubclass.swift; sourceTree = "<group>"; };
 		5B0788CA231BF1C600F7EFB3 /* MockMyProtocolledSubclass.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMyProtocolledSubclass.generated.swift; sourceTree = "<group>"; };
 		5B0788CB231BF1C600F7EFB3 /* MockMyProtocolledClass.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMyProtocolledClass.generated.swift; sourceTree = "<group>"; };
+		5B0788CE231C011300F7EFB3 /* MyClassForPartial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassForPartial.swift; sourceTree = "<group>"; };
+		5B0788D0231C027600F7EFB3 /* MockMyClassForPartial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMyClassForPartial.generated.swift; sourceTree = "<group>"; };
 		5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesArgs.swift; sourceTree = "<group>"; };
 		5B4B93D0231BBB2B00E64F17 /* FuncClosuresArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncClosuresArgs.swift; sourceTree = "<group>"; };
 		5B4B93D1231BBB2B00E64F17 /* FuncTuplesReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesReturns.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				5B0788C0231BEA0100F7EFB3 /* MyClassSubclass.swift */,
 				5B0788C6231BF14700F7EFB3 /* MyProtocolledClass.swift */,
 				5B0788C7231BF14800F7EFB3 /* MyMyProtocolledSubclass.swift */,
+				5B0788CE231C011300F7EFB3 /* MyClassForPartial.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				5B0788C3231BF0A400F7EFB3 /* MockMyClassSubclass.generated.swift */,
 				5B0788CB231BF1C600F7EFB3 /* MockMyProtocolledClass.generated.swift */,
 				5B0788CA231BF1C600F7EFB3 /* MockMyProtocolledSubclass.generated.swift */,
+				5B0788D0231C027600F7EFB3 /* MockMyClassForPartial.generated.swift */,
 				5B4B93F2231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift */,
 				5B4B93ED231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift */,
 				5B4B93EB231BBB9500E64F17 /* MockFuncGenerics.generated.swift */,
@@ -401,6 +407,7 @@
 				5B4B93DF231BBB2B00E64F17 /* FuncTuplesReturns.swift in Sources */,
 				5B4B93E6231BBB2B00E64F17 /* Vars.swift in Sources */,
 				5B4B93E4231BBB2B00E64F17 /* FuncTypesReturns.swift in Sources */,
+				5B0788CF231C011300F7EFB3 /* MyClassForPartial.swift in Sources */,
 				5B0788BF231BE8CE00F7EFB3 /* MyClass.swift in Sources */,
 				5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */,
 				5B4B93E0231BBB2B00E64F17 /* FuncGenerics.swift in Sources */,
@@ -430,6 +437,7 @@
 				5B4B93FD231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
 				5B4B9403231BBD4000E64F17 /* MockVarsGenerics.generated.swift in Sources */,
+				5B0788D1231C027600F7EFB3 /* MockMyClassForPartial.generated.swift in Sources */,
 				5B4B93FA231BBB9500E64F17 /* MockVarsSpecial.generated.swift in Sources */,
 				5B4B93F9231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift in Sources */,
 				5B4B9400231BBB9600E64F17 /* MockFuncTypesArgs.generated.swift in Sources */,

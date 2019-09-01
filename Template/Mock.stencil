@@ -141,19 +141,19 @@ import Mirage {#
     #}{% else %}{{ func.callName }}{% endif %}{#
 #}{% endmacro %}
 
-{% macro generateFuncMock func isClass %}
+{% macro generateFuncMock func isClass isPartial %}
     {% set funcSel %}{% call getFuncSel func %}{% endset %}
     //MARK: {{ funcSel }}
     {% if func.parameters.count > 1 %}
-        {% call generateFuncMockWithManyArgs func isClass %}
+        {% call generateFuncMockWithManyArgs func isClass isPartial %}
     {% elif func.parameters.count > 0 %}
-        {% call generateFuncMockWithOneArg func isClass %}
+        {% call generateFuncMockWithOneArg func isClass isPartial %}
     {% else %}
-        {% call generateFuncMockWithZeroArgs func isClass %}
+        {% call generateFuncMockWithZeroArgs func isClass isPartial %}
     {% endif %}
 {% endmacro %}
 
-{% macro generateFuncMockWithManyArgs func isClass %}
+{% macro generateFuncMockWithManyArgs func isClass isPartial %}
     {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
     class {{ funcArgsClass }} {
         {% for param in func.parameters %}{#
@@ -180,24 +180,29 @@ import Mirage {#
                 #}{% if not forloop.last %}, {% endif %}{#
             #}{% endfor %}{#
     #}){% endset %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue isClass %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue isClass isPartial %}
 {% endmacro %}
 
-{% macro generateFuncMockWithOneArg func isClass %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name isClass %}
+{% macro generateFuncMockWithOneArg func isClass isPartial %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name isClass isPartial %}
 {% endmacro %}
 
-{% macro generateFuncMockWithZeroArgs func isClass %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" isClass %}
+{% macro generateFuncMockWithZeroArgs func isClass isPartial %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" isClass isPartial %}
 {% endmacro %}
 
-{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue isClass %}
+{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue isClass isPartial %}
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType|replace:"@escaping ","" }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
     #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
     #}{% elif func|annotated:"mirageReturn" %}{{ func.annotations.mirageReturn }}{#
     #}{% else %}{% call callAnyForType func.returnTypeName %}{#
     #}{% endif %}{#
+    #}{#
+    #}{% if isPartial %}{#
+    #}, isPartial: true{#
+    #}{% endif %}{#
+    #}{#
     #}{% if isClass %}{#
     #}, callRealFunc: { [weak self] (args) -> Void in
         guard let __self = self else { return () }
@@ -237,13 +242,13 @@ class Mock{{ type.name }}: {{ type.name }} {
     //MARK: - FUNCTIONS
     {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
-            {% call generateFuncMock func false %}
+            {% call generateFuncMock func false false %}
         {% endif %}
     {% endfor %}    
 }
 {% endmacro %}
 
-{% macro generateMockClass type %}
+{% macro generateMockClass type isPartial %}
 class Mock{{ type.name }}: {{ type.name }} {
     //MARK: - VARIABLES
     {% for var in type.variables|!definedInExtension|!annotated:"mirageSkip" %}
@@ -253,17 +258,17 @@ class Mock{{ type.name }}: {{ type.name }} {
     //MARK: - FUNCTIONS
     {% for func in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
-            {% call generateFuncMock func true %}
+            {% call generateFuncMock func true isPartial %}
         {% endif %}
     {% endfor %}    
 }
 {% endmacro %}
 
-{% macro generateMockType type %}
+{% macro generateMockType type isPartial %}
 {% if type.kind == "protocol" %}
     {% call generateMockProtocol type %}
 {% else %}
-    {% call generateMockClass type %}
+    {% call generateMockClass type isPartial %}
 {% endif %}
 {% endmacro %}
 
@@ -272,14 +277,26 @@ class Mock{{ type.name }}: {{ type.name }} {
 // sourcery:file:Mock{{ type.name }}
 {% call generateImports %}
 
-{% call generateMockType type %}
+{% call generateMockType type false %}
 // sourcery:end
 {% endfor %}
+
+{##}
 
 {% for type in types.classes|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
 {% call generateImports %}
 
-{% call generateMockType type %}
+{% call generateMockType type false %}
+// sourcery:end
+{% endfor %}
+
+{##}
+
+{% for type in types.classes|annotated:"miragePartialMock" %}
+// sourcery:file:Mock{{ type.name }}
+{% call generateImports %}
+
+{% call generateMockType type true %}
 // sourcery:end
 {% endfor %}
