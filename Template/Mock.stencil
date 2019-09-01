@@ -141,19 +141,19 @@ import Mirage {#
     #}{% else %}{{ func.callName }}{% endif %}{#
 #}{% endmacro %}
 
-{% macro generateFuncMock func %}
+{% macro generateFuncMock func isClass %}
     {% set funcSel %}{% call getFuncSel func %}{% endset %}
     //MARK: {{ funcSel }}
     {% if func.parameters.count > 1 %}
-        {% call generateFuncMockWithManyArgs func %}
+        {% call generateFuncMockWithManyArgs func isClass %}
     {% elif func.parameters.count > 0 %}
-        {% call generateFuncMockWithOneArg func %}
+        {% call generateFuncMockWithOneArg func isClass %}
     {% else %}
-        {% call generateFuncMockWithZeroArgs func %}
+        {% call generateFuncMockWithZeroArgs func isClass %}
     {% endif %}
 {% endmacro %}
 
-{% macro generateFuncMockWithManyArgs func %}
+{% macro generateFuncMockWithManyArgs func isClass %}
     {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
     class {{ funcArgsClass }} {
         {% for param in func.parameters %}{#
@@ -180,25 +180,47 @@ import Mirage {#
                 #}{% if not forloop.last %}, {% endif %}{#
             #}{% endfor %}{#
     #}){% endset %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue isClass %}
 {% endmacro %}
 
-{% macro generateFuncMockWithOneArg func %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name %}
+{% macro generateFuncMockWithOneArg func isClass %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name isClass %}
 {% endmacro %}
 
-{% macro generateFuncMockWithZeroArgs func %}
-    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" %}
+{% macro generateFuncMockWithZeroArgs func isClass %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" isClass %}
 {% endmacro %}
 
-{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
+{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue isClass %}
     lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType|replace:"@escaping ","" }}, {{ func.returnTypeName }}>(returnValue: {#
     #}{% if func.returnTypeName.isVoid %}(){#
     #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
     #}{% elif func|annotated:"mirageReturn" %}{{ func.annotations.mirageReturn }}{#
     #}{% else %}{% call callAnyForType func.returnTypeName %}{#
     #}{% endif %}{#
+    #}{% if isClass %}{#
+    #}, callRealFunc: { [weak self] (args) -> Void in
+        guard let __self = self else { return () }
+        return __self.super_{{ funcSel }}(args)
+    }{#
+    #}{% endif %}{#
     #})    
+    {% if isClass %}
+    func super_{{ funcSel }}(_ args: {{ argType }}) -> {{ func.returnTypeName }} {
+        return super.{{ func.callName }}({#
+        #}{% for param in func.parameters %}{#
+            #}{{ param.argumentLabel }}{#
+            #}{% if param.argumentLabel.count > 0 %}: {% endif %}{#
+            #}{% if func.parameters.count == 1 %}{#
+            #}args{#
+            #}{% else %}{#
+            #}args.{{ param.name }}{#
+            #}{% endif %}{#
+            #}{% if not forloop.last %}, {% endif %}{#
+        #}{% endfor %}{#
+        #})
+    }
+    {% endif %}
     {% call printFuncDeclaration func %} {
         return mock_{{ funcSel }}.handle({{ handleValue }})
     }
@@ -215,7 +237,23 @@ class Mock{{ type.name }}: {{ type.name }} {
     //MARK: - FUNCTIONS
     {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
-            {% call generateFuncMock func %}
+            {% call generateFuncMock func false %}
+        {% endif %}
+    {% endfor %}    
+}
+{% endmacro %}
+
+{% macro generateMockClass type %}
+class Mock{{ type.name }}: {{ type.name }} {
+    //MARK: - VARIABLES
+    {% for var in type.variables|!definedInExtension|!annotated:"mirageSkip" %}
+        {% call generateVarMock var %}
+    {% endfor %}
+    {##}
+    //MARK: - FUNCTIONS
+    {% for func in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
+        {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
+            {% call generateFuncMock func true %}
         {% endif %}
     {% endfor %}    
 }
@@ -225,12 +263,20 @@ class Mock{{ type.name }}: {{ type.name }} {
 {% if type.kind == "protocol" %}
     {% call generateMockProtocol type %}
 {% else %}
-    {#{% call generateMockClass type %}#}    
+    {% call generateMockClass type %}
 {% endif %}
 {% endmacro %}
 
 {# === SCRIPT === #}
 {% for type in types.protocols|annotated:"mirageMock" %}
+// sourcery:file:Mock{{ type.name }}
+{% call generateImports %}
+
+{% call generateMockType type %}
+// sourcery:end
+{% endfor %}
+
+{% for type in types.classes|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
 {% call generateImports %}
 
