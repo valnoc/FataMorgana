@@ -144,3 +144,11 @@ func anyClosureGettingStringReturningInt() -> (String) -> Int {
 func anyClosureOptGettingStringReturningInt() -> ((String) -> Int)? {
     return anyClosureGettingStringReturningInt()
 }
+
+func anyClosureGettingVoidReturningVoid() -> () -> Void {
+    return {}
+}
+
+func anyClosureOptGettingVoidReturningVoid() -> () -> () {
+    return {}
+}

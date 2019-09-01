@@ -41,10 +41,15 @@ import Mirage {#
 #}{% endmacro %}
 
 {% macro getAnyClosureName type %}{#
-    #}Closure{% if type.isOptional %}Opt{% endif %}Getting{#
+    #}Closure{#
+    #}{% if type.isOptional %}Opt{% endif %}{#
+    #}{% if type.closure.parameters.count > 0 %}{#
+    #}Getting{#
     #}{% for argtype in type.closure.parameters %}{#
         #}{% call getAnyNameForType argtype.typeName %}{#
     #}{% endfor %}{#
+    #}{% else %}GettingVoid{#
+    #}{% endif %}{#    
     #}Returning{% call getAnyNameForType type.closure.returnTypeName %}{#
 #}{% endmacro %}
 
@@ -88,7 +93,7 @@ import Mirage {#
 {% macro generateVarMock var %}
     {% set varSel %}{% call getVarSel var %}{% endset %}
     //MARK: {{ varSel }}
-    lazy var mock_{{ varSel }}_get = FuncCallHandler<(), ({{ var.typeName }})>(returnValue: {#
+    lazy var mock_{{ varSel }}_get = FuncCallHandler<Void, ({{ var.typeName }})>(returnValue: {#
     #}{% if var.typeName.isVoid %}(){#
     #}{% elif var.typeName.isOptional and argument.returnOptionalAsNil %}nil{#
     #}{% elif var|annotated:"mirageReturn" %}{{ var.annotations.mirageReturn }}{#
@@ -96,7 +101,9 @@ import Mirage {#
     #}{% endif %}{#
     #})
     {##}
-    lazy var mock_{{ varSel }}_set = FuncCallHandler<{{ var.typeName }}, ()>(returnValue: ())
+    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}{#
+        #}lazy var mock_{{ varSel }}_set = FuncCallHandler<{{ var.typeName }}, Void>(returnValue: ()){#
+    #}{% endif %}
     {##}
     {% call printOverride var %}var {{ var.name}}: {{ var.typeName }} {
         get { return mock_{{ varSel }}_get.handle(()) }
