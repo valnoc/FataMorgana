@@ -126,20 +126,28 @@ func anyTupleOfIntAndArrayOfDictOfStringToDictOfStringToArrayOfDouble() -> (Int,
 
 //MARK: - generics
 @testable import Example
-func anyTemplateOfString() -> Template<String> {
-    return Template<String>()
+func anyGenericOfString() -> Generic<String> {
+    return Generic<String>()
 }
 
-func anyTemplateOfArrayOfString() -> Template<[String]> {
-    return Template<[String]>()
+func anyGenericOfArrayOfString() -> Generic<[String]> {
+    return Generic<[String]>()
 }
 
-func anyTemplateOfDictOfStringToInt() -> Template<[String: Int]> {
-    return Template<[String: Int]>()
+func anyGenericOfDictOfStringToInt() -> Generic<[String: Int]> {
+    return Generic<[String: Int]>()
 }
 
-func anyTemplateOfArrayOfDictOfStringToInt() -> Template<[[String: Int]]> {
-    return Template<[[String: Int]]>()
+func anyGenericOfDictOptOfStringToInt() -> Generic<[String: Int]?> {
+    return Generic<[String: Int]?>()
+}
+
+func anyGenericOfArrayOfDictOfStringToInt() -> Generic<[[String: Int]]> {
+    return Generic<[[String: Int]]>()
+}
+
+func anyGenericOfArrayOptOfDictOfStringToInt() -> Generic<[[String: Int]]?> {
+    return Generic<[[String: Int]]?>()
 }
 
 //MARK: - closures

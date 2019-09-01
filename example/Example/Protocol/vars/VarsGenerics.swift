@@ -8,16 +8,18 @@
 
 import Foundation
 
+//sourcery: mirageMock
 protocol VarsGenerics {
-    var varOne: Template<String> {get set}
-    var varOneOptional: Template<String>? {get set}
-    var varOneOfOptional: Template<String?> {get set}
-    var varArray: [Template<Int>] {get set}
-    var varArrayOptional: [Template<Int>]? {get set}
-    var varDictionary: [String: Template<Double>] {get set}
-    var varDictOptional: [String: Template<Double>]? {get set}
+    associatedtype TTType
+    var varAssociated: TTType {get set}
+    //sourcery: mirageReturn=anyGenericOfString()
+    var varGenericAssociated: Generic<TTType> {get set}
     
-    var varGetter: Template<String> { get }
-    var varGetterOptional: Template<Int>? { get }
-    var varGetterOfOptional: Template<Int?> { get }
+    var varGenericString: Generic<String> {get set}
+    var varGenericArray: Generic<[String]> {get set}
+    var varGenericArrayOptional: Generic<[String]?> {get set}
+    var varGenericDictionary: Generic<[String: Int]> {get set}
+    var varGenericDictionaryOptional: Generic<[String: Int]?> {get set}
+    var varGenericArrayOfDictionary: Generic<[[String: Int]]> {get set}
+    var varGenericArrayOfDictionaryOptional: Generic<[[String: Int]]?> {get set}
 }

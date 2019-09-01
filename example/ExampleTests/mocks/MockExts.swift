@@ -30,3 +30,10 @@ extension MockVarsSpecial {
         }
     }
 }
+
+extension MockVarsGenerics {
+    typealias TTType = String
+    func anyTTType() -> String {
+        return anyString()
+    }
+}

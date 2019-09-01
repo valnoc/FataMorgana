@@ -32,6 +32,7 @@
 		5B4B93FF231BBB9600E64F17 /* MockFuncTuplesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F3231BBB9500E64F17 /* MockFuncTuplesReturns.generated.swift */; };
 		5B4B9400231BBB9600E64F17 /* MockFuncTypesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F4231BBB9500E64F17 /* MockFuncTypesArgs.generated.swift */; };
 		5B4B9401231BBB9600E64F17 /* MockVars.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F5231BBB9500E64F17 /* MockVars.generated.swift */; };
+		5B4B9403231BBD4000E64F17 /* MockVarsGenerics.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B9402231BBD4000E64F17 /* MockVarsGenerics.generated.swift */; };
 		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
@@ -83,6 +84,7 @@
 		5B4B93F3231BBB9500E64F17 /* MockFuncTuplesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesReturns.generated.swift; sourceTree = "<group>"; };
 		5B4B93F4231BBB9500E64F17 /* MockFuncTypesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesArgs.generated.swift; sourceTree = "<group>"; };
 		5B4B93F5231BBB9500E64F17 /* MockVars.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVars.generated.swift; sourceTree = "<group>"; };
+		5B4B9402231BBD4000E64F17 /* MockVarsGenerics.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVarsGenerics.generated.swift; sourceTree = "<group>"; };
 		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				5B4B93EA231BBB9500E64F17 /* MockVarsClosures.generated.swift */,
 				5B4B93EE231BBB9500E64F17 /* MockVarsSpecial.generated.swift */,
 				5B4B93EF231BBB9500E64F17 /* MockVarsTuples.generated.swift */,
+				5B4B9402231BBD4000E64F17 /* MockVarsGenerics.generated.swift */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5B4B93FE231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift in Sources */,
 				5B4B93FD231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
+				5B4B9403231BBD4000E64F17 /* MockVarsGenerics.generated.swift in Sources */,
 				5B4B93FA231BBB9500E64F17 /* MockVarsSpecial.generated.swift in Sources */,
 				5B4B93F9231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift in Sources */,
 				5B4B9400231BBB9600E64F17 /* MockFuncTypesArgs.generated.swift in Sources */,

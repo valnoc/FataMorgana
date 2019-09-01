@@ -13,29 +13,29 @@ class MockFuncGenerics: FuncGenerics {
     func funcWithTTType(_ a: TTType) -> TTType {
         return mock_funcWithTTType.handle(a)
     }
-    //MARK: funcTemplateTTType
-    lazy var mock_funcTemplateTTType = FuncCallHandler<Template<TTType>, Template<TTType>>(returnValue: anyTemplateOfString())    
-    func funcTemplateTTType(_ a: Template<TTType>) -> Template<TTType> {
-        return mock_funcTemplateTTType.handle(a)
+    //MARK: funcGenericTTType
+    lazy var mock_funcGenericTTType = FuncCallHandler<Generic<TTType>, Generic<TTType>>(returnValue: anyGenericOfString())    
+    func funcGenericTTType(_ a: Generic<TTType>) -> Generic<TTType> {
+        return mock_funcGenericTTType.handle(a)
     }
-    //MARK: funcTemplateString
-    lazy var mock_funcTemplateString = FuncCallHandler<Template<String>, Template<String>>(returnValue: anyTemplateOfString())    
-    func funcTemplateString(qwe a: Template<String>) -> Template<String> {
-        return mock_funcTemplateString.handle(a)
+    //MARK: funcGenericString
+    lazy var mock_funcGenericString = FuncCallHandler<Generic<String>, Generic<String>>(returnValue: anyGenericOfString())    
+    func funcGenericString(qwe a: Generic<String>) -> Generic<String> {
+        return mock_funcGenericString.handle(a)
     }
-    //MARK: funcTemplateArray
-    lazy var mock_funcTemplateArray = FuncCallHandler<Template<[String]>, Template<[String]>>(returnValue: anyTemplateOfArrayOfString())    
-    func funcTemplateArray(a: Template<[String]>) -> Template<[String]> {
-        return mock_funcTemplateArray.handle(a)
+    //MARK: funcGenericArray
+    lazy var mock_funcGenericArray = FuncCallHandler<Generic<[String]>, Generic<[String]>>(returnValue: anyGenericOfArrayOfString())    
+    func funcGenericArray(a: Generic<[String]>) -> Generic<[String]> {
+        return mock_funcGenericArray.handle(a)
     }
-    //MARK: funcTemplateDict
-    lazy var mock_funcTemplateDict = FuncCallHandler<Template<[String: Int]>, Template<[String: Int]>>(returnValue: anyTemplateOfDictOfStringToInt())    
-    func funcTemplateDict(a: Template<[String: Int]>) -> Template<[String: Int]> {
-        return mock_funcTemplateDict.handle(a)
+    //MARK: funcGenericDict
+    lazy var mock_funcGenericDict = FuncCallHandler<Generic<[String: Int]>, Generic<[String: Int]>>(returnValue: anyGenericOfDictOfStringToInt())    
+    func funcGenericDict(a: Generic<[String: Int]>) -> Generic<[String: Int]> {
+        return mock_funcGenericDict.handle(a)
     }
-    //MARK: funcTemplateArrayOfDict
-    lazy var mock_funcTemplateArrayOfDict = FuncCallHandler<Template<[[String: Int]]>, Template<[[String: Int]]>>(returnValue: anyTemplateOfArrayOfDictOfStringToInt())    
-    func funcTemplateArrayOfDict(a: Template<[[String: Int]]>) -> Template<[[String: Int]]> {
-        return mock_funcTemplateArrayOfDict.handle(a)
+    //MARK: funcGenericArrayOfDict
+    lazy var mock_funcGenericArrayOfDict = FuncCallHandler<Generic<[[String: Int]]>, Generic<[[String: Int]]>>(returnValue: anyGenericOfArrayOfDictOfStringToInt())    
+    func funcGenericArrayOfDict(a: Generic<[[String: Int]]>) -> Generic<[[String: Int]]> {
+        return mock_funcGenericArrayOfDict.handle(a)
     }
 }
