@@ -9,5 +9,3 @@ args:
     - framework: Example
       testable: true
     - Foundation
-  returnEmptyArray: false
-  returnEmptyDict: false
