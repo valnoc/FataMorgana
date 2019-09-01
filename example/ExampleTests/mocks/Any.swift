@@ -134,6 +134,10 @@ func anyGenericOfArrayOfString() -> Generic<[String]> {
     return Generic<[String]>()
 }
 
+func anyGenericOfArrayOptOfString() -> Generic<[String]?> {
+    return Generic<[String]?>()
+}
+
 func anyGenericOfDictOfStringToInt() -> Generic<[String: Int]> {
     return Generic<[String: Int]>()
 }
