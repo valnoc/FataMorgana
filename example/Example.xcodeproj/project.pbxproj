@@ -126,14 +126,14 @@
 		5B4B93CE231BBB2B00E64F17 /* funcs */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */,
+				5B4B93D3231BBB2B00E64F17 /* FuncTypesArgs.swift */,
+				5B4B93D6231BBB2B00E64F17 /* FuncTypesReturns.swift */,
+				5B4B93D4231BBB2B00E64F17 /* FuncSpecial.swift */,
 				5B4B93D0231BBB2B00E64F17 /* FuncClosuresArgs.swift */,
+				5B4B93D5231BBB2B00E64F17 /* FuncClosuresReturns.swift */,
+				5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */,
 				5B4B93D1231BBB2B00E64F17 /* FuncTuplesReturns.swift */,
 				5B4B93D2231BBB2B00E64F17 /* FuncGenerics.swift */,
-				5B4B93D3231BBB2B00E64F17 /* FuncTypesArgs.swift */,
-				5B4B93D4231BBB2B00E64F17 /* FuncSpecial.swift */,
-				5B4B93D5231BBB2B00E64F17 /* FuncClosuresReturns.swift */,
-				5B4B93D6231BBB2B00E64F17 /* FuncTypesReturns.swift */,
 			);
 			path = funcs;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 		5B4B93D7231BBB2B00E64F17 /* vars */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B93D8231BBB2B00E64F17 /* VarsSpecial.swift */,
 				5B4B93D9231BBB2B00E64F17 /* Vars.swift */,
+				5B4B93D8231BBB2B00E64F17 /* VarsSpecial.swift */,
 				5B4B93DA231BBB2B00E64F17 /* VarsTuples.swift */,
 				5B4B93DB231BBB2B00E64F17 /* VarsClosures.swift */,
 				5B4B93DC231BBB2B00E64F17 /* VarsGenerics.swift */,
