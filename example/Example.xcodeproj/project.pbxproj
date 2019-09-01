@@ -11,6 +11,8 @@
 		5B4B93C5231BA2E800E64F17 /* PropertiesClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */; };
 		5B4B93C7231BB4D200E64F17 /* MockPropertiesClosures.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */; };
 		5B4B93C9231BB80100E64F17 /* MockPropertiesSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */; };
+		5B4B93CB231BB8C900E64F17 /* PropertiesTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93CA231BB8C900E64F17 /* PropertiesTuples.swift */; };
+		5B4B93CD231BBA0500E64F17 /* MockPropertiesTuples.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */; };
 		5B6DE03C22FEC96E00FCB1CC /* FuncGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */; };
 		5B6DE03D22FEC96E00FCB1CC /* FuncTuplesArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03B22FEC96D00FCB1CC /* FuncTuplesArgs.swift */; };
 		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
@@ -60,6 +62,8 @@
 		5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesClosures.swift; sourceTree = "<group>"; };
 		5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesClosures.generated.swift; sourceTree = "<group>"; };
 		5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesSpecial.generated.swift; sourceTree = "<group>"; };
+		5B4B93CA231BB8C900E64F17 /* PropertiesTuples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesTuples.swift; sourceTree = "<group>"; };
+		5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesTuples.generated.swift; sourceTree = "<group>"; };
 		5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGenerics.swift; sourceTree = "<group>"; };
 		5B6DE03B22FEC96D00FCB1CC /* FuncTuplesArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesArgs.swift; sourceTree = "<group>"; };
 		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				5B9E429122E3B49600A6FACE /* Properties.swift */,
 				5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */,
 				5B9E429222E3B49600A6FACE /* PropertiesSpecial.swift */,
+				5B4B93CA231BB8C900E64F17 /* PropertiesTuples.swift */,
 				5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */,
 				5B9E429322E3B49600A6FACE /* FuncTypesArgs.swift */,
 				5BFED21323002ECE0014B452 /* FuncTypesReturns.swift */,
@@ -215,6 +220,7 @@
 				5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */,
 				5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */,
 				5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */,
+				5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */,
 				5BFED21A23002F740014B452 /* MockFuncTypesArgs.generated.swift */,
 				5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */,
 				5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */,
@@ -359,6 +365,7 @@
 				5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */,
 				5B9E429F22E3B49600A6FACE /* FuncClosuresArgs.swift in Sources */,
 				5BA6E4A2230087970023F0B1 /* FuncClosuresReturns.swift in Sources */,
+				5B4B93CB231BB8C900E64F17 /* PropertiesTuples.swift in Sources */,
 				5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */,
 				5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */,
 				5BFED21523002ECF0014B452 /* FuncTypesReturns.swift in Sources */,
@@ -379,6 +386,7 @@
 				5BFED22523002F740014B452 /* Any.swift in Sources */,
 				5BA6E4A4230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift in Sources */,
 				5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */,
+				5B4B93CD231BBA0500E64F17 /* MockPropertiesTuples.generated.swift in Sources */,
 				5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */,
 				5B4B93C3231BA27E00E64F17 /* MockProperties.generated.swift in Sources */,
 				5BFED22623002F740014B452 /* MockExts.swift in Sources */,

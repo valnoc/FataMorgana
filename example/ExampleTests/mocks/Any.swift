@@ -108,6 +108,10 @@ func anyTupleOfArrayOptOfStringAndDictOptOfStringToDouble() -> ([String]?, [Stri
     return (["123"], ["234": 345.0])
 }
 
+func anyTupleOfArrayOptOfStringOptAndDictOptOfStringToDoubleOpt() -> ([String?]?, [String: Double?]?) {
+    return (["123"], ["234": 345.0])
+}
+
 func anyTupleOfArrayOfArrayOfStringAndInt() -> ([[String]], Int) {
     return ([["123"]], 345)
 }
@@ -156,3 +160,4 @@ func anyClosureGettingVoidReturningVoid() -> () -> Void {
 func anyClosureOptGettingVoidReturningVoid() -> () -> () {
     return {}
 }
+
