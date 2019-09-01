@@ -5,7 +5,9 @@ templates:
 output: 
   ./../Example/ExampleTests/mocks/generated
 args:
-  testableModule: "Example"
-  imports: "import Foundation"
+  imports: 
+    - framework: Example
+      testable: true
+    - Foundation
   returnEmptyArray: false
   returnEmptyDict: false

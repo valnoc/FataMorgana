@@ -1,9 +1,14 @@
 {# === IMPORTS === #}
 {% macro generateImports %}
-import Foundation
-import Mirage
-@testable import {{ argument.testableModule }}
-{{ argument.imports }}
+import Mirage {#
+#}{% for item in argument.imports %}
+{#  #}{% if item.framework.count > 0 %}{#
+        #}{% if item.testable == true %}@testable {% endif %}{#
+        #}import {{ item.framework }}{#
+    #}{% else %}{#
+        #}import {{ item }}{#
+    #}{% endif %}{#
+#}{% endfor %}
 {% endmacro %}
 
 {% macro printType type %}
