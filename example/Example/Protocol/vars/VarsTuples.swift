@@ -1,5 +1,5 @@
 //
-//  PropertiesTuples.swift
+//  VarsTuples.swift
 //  Example
 //
 //  Created by Valeriy Bezuglyy on 01/09/2019.
@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol PropertiesTuples {
+protocol VarsTuples {
     var varTuple: (String, Int) {get set}
     var varTupleNamed: (str: String, value: Int) {get set}
 

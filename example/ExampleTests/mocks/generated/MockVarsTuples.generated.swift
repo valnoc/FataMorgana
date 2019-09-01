@@ -5,7 +5,7 @@ import Mirage
 @testable import Example
 import Foundation
 
-class MockPropertiesTuples: PropertiesTuples {
+class MockVarsTuples: VarsTuples {
     //MARK: - VARIABLES
     //MARK: varTuple
     lazy var mock_varTuple_get = FuncCallHandler<Void, ((String, Int))>(returnValue: anyTupleOfStringAndInt())

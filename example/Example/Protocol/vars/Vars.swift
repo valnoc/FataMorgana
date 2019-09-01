@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol Properties {
+protocol Vars {
     var varType: String {get set}
     var varTypeOptional: String? {get set}
     

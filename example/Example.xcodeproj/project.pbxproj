@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B4B93C3231BA27E00E64F17 /* MockProperties.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */; };
-		5B4B93C7231BB4D200E64F17 /* MockPropertiesClosures.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */; };
-		5B4B93C9231BB80100E64F17 /* MockPropertiesSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */; };
-		5B4B93CD231BBA0500E64F17 /* MockPropertiesTuples.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */; };
 		5B4B93DD231BBB2B00E64F17 /* FuncTuplesArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */; };
 		5B4B93DE231BBB2B00E64F17 /* FuncClosuresArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D0231BBB2B00E64F17 /* FuncClosuresArgs.swift */; };
 		5B4B93DF231BBB2B00E64F17 /* FuncTuplesReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D1231BBB2B00E64F17 /* FuncTuplesReturns.swift */; };
@@ -19,11 +15,23 @@
 		5B4B93E2231BBB2B00E64F17 /* FuncSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D4231BBB2B00E64F17 /* FuncSpecial.swift */; };
 		5B4B93E3231BBB2B00E64F17 /* FuncClosuresReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D5231BBB2B00E64F17 /* FuncClosuresReturns.swift */; };
 		5B4B93E4231BBB2B00E64F17 /* FuncTypesReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D6231BBB2B00E64F17 /* FuncTypesReturns.swift */; };
-		5B4B93E5231BBB2B00E64F17 /* PropertiesSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D8231BBB2B00E64F17 /* PropertiesSpecial.swift */; };
-		5B4B93E6231BBB2B00E64F17 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D9231BBB2B00E64F17 /* Properties.swift */; };
-		5B4B93E7231BBB2B00E64F17 /* PropertiesTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DA231BBB2B00E64F17 /* PropertiesTuples.swift */; };
-		5B4B93E8231BBB2B00E64F17 /* PropertiesClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DB231BBB2B00E64F17 /* PropertiesClosures.swift */; };
-		5B4B93E9231BBB2B00E64F17 /* PropertiesGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DC231BBB2B00E64F17 /* PropertiesGenerics.swift */; };
+		5B4B93E5231BBB2B00E64F17 /* VarsSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D8231BBB2B00E64F17 /* VarsSpecial.swift */; };
+		5B4B93E6231BBB2B00E64F17 /* Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93D9231BBB2B00E64F17 /* Vars.swift */; };
+		5B4B93E7231BBB2B00E64F17 /* VarsTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DA231BBB2B00E64F17 /* VarsTuples.swift */; };
+		5B4B93E8231BBB2B00E64F17 /* VarsClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DB231BBB2B00E64F17 /* VarsClosures.swift */; };
+		5B4B93E9231BBB2B00E64F17 /* VarsGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93DC231BBB2B00E64F17 /* VarsGenerics.swift */; };
+		5B4B93F6231BBB9500E64F17 /* MockVarsClosures.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93EA231BBB9500E64F17 /* MockVarsClosures.generated.swift */; };
+		5B4B93F7231BBB9500E64F17 /* MockFuncGenerics.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93EB231BBB9500E64F17 /* MockFuncGenerics.generated.swift */; };
+		5B4B93F8231BBB9500E64F17 /* MockFuncTuplesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93EC231BBB9500E64F17 /* MockFuncTuplesArgs.generated.swift */; };
+		5B4B93F9231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93ED231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift */; };
+		5B4B93FA231BBB9500E64F17 /* MockVarsSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93EE231BBB9500E64F17 /* MockVarsSpecial.generated.swift */; };
+		5B4B93FB231BBB9500E64F17 /* MockVarsTuples.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93EF231BBB9500E64F17 /* MockVarsTuples.generated.swift */; };
+		5B4B93FC231BBB9500E64F17 /* MockFuncSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F0231BBB9500E64F17 /* MockFuncSpecial.generated.swift */; };
+		5B4B93FD231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F1231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift */; };
+		5B4B93FE231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F2231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift */; };
+		5B4B93FF231BBB9600E64F17 /* MockFuncTuplesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F3231BBB9500E64F17 /* MockFuncTuplesReturns.generated.swift */; };
+		5B4B9400231BBB9600E64F17 /* MockFuncTypesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F4231BBB9500E64F17 /* MockFuncTypesArgs.generated.swift */; };
+		5B4B9401231BBB9600E64F17 /* MockVars.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93F5231BBB9500E64F17 /* MockVars.generated.swift */; };
 		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
 		5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424722E3A20E00A6FACE /* AppDelegate.swift */; };
 		5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E424922E3A20E00A6FACE /* ViewController.swift */; };
@@ -35,14 +43,6 @@
 		5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */; };
 		5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B722E3C01300A6FACE /* Service2Impl.swift */; };
 		5B9E42BC22E3C01300A6FACE /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */; };
-		5BA6E49C230084170023F0B1 /* MockFuncSpecial.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */; };
-		5BA6E4A0230086EF0023F0B1 /* MockFuncClosuresArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6E49F230086EF0023F0B1 /* MockFuncClosuresArgs.generated.swift */; };
-		5BA6E4A4230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6E4A3230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift */; };
-		5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */; };
-		5BFED22123002F740014B452 /* MockFuncTypesArgs.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21A23002F740014B452 /* MockFuncTypesArgs.generated.swift */; };
-		5BFED22223002F740014B452 /* MockFuncTuplesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21B23002F740014B452 /* MockFuncTuplesReturns.generated.swift */; };
-		5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */; };
-		5BFED22423002F740014B452 /* MockFuncTypesReturns.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */; };
 		5BFED22523002F740014B452 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21E23002F740014B452 /* Any.swift */; };
 		5BFED22623002F740014B452 /* MockExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFED21F23002F740014B452 /* MockExts.swift */; };
 /* End PBXBuildFile section */
@@ -58,10 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProperties.generated.swift; sourceTree = "<group>"; };
-		5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesClosures.generated.swift; sourceTree = "<group>"; };
-		5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesSpecial.generated.swift; sourceTree = "<group>"; };
-		5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPropertiesTuples.generated.swift; sourceTree = "<group>"; };
 		5B4B93CF231BBB2B00E64F17 /* FuncTuplesArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesArgs.swift; sourceTree = "<group>"; };
 		5B4B93D0231BBB2B00E64F17 /* FuncClosuresArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncClosuresArgs.swift; sourceTree = "<group>"; };
 		5B4B93D1231BBB2B00E64F17 /* FuncTuplesReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesReturns.swift; sourceTree = "<group>"; };
@@ -70,11 +66,23 @@
 		5B4B93D4231BBB2B00E64F17 /* FuncSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSpecial.swift; sourceTree = "<group>"; };
 		5B4B93D5231BBB2B00E64F17 /* FuncClosuresReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncClosuresReturns.swift; sourceTree = "<group>"; };
 		5B4B93D6231BBB2B00E64F17 /* FuncTypesReturns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTypesReturns.swift; sourceTree = "<group>"; };
-		5B4B93D8231BBB2B00E64F17 /* PropertiesSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesSpecial.swift; sourceTree = "<group>"; };
-		5B4B93D9231BBB2B00E64F17 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
-		5B4B93DA231BBB2B00E64F17 /* PropertiesTuples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesTuples.swift; sourceTree = "<group>"; };
-		5B4B93DB231BBB2B00E64F17 /* PropertiesClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesClosures.swift; sourceTree = "<group>"; };
-		5B4B93DC231BBB2B00E64F17 /* PropertiesGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesGenerics.swift; sourceTree = "<group>"; };
+		5B4B93D8231BBB2B00E64F17 /* VarsSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarsSpecial.swift; sourceTree = "<group>"; };
+		5B4B93D9231BBB2B00E64F17 /* Vars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vars.swift; sourceTree = "<group>"; };
+		5B4B93DA231BBB2B00E64F17 /* VarsTuples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarsTuples.swift; sourceTree = "<group>"; };
+		5B4B93DB231BBB2B00E64F17 /* VarsClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarsClosures.swift; sourceTree = "<group>"; };
+		5B4B93DC231BBB2B00E64F17 /* VarsGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarsGenerics.swift; sourceTree = "<group>"; };
+		5B4B93EA231BBB9500E64F17 /* MockVarsClosures.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVarsClosures.generated.swift; sourceTree = "<group>"; };
+		5B4B93EB231BBB9500E64F17 /* MockFuncGenerics.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncGenerics.generated.swift; sourceTree = "<group>"; };
+		5B4B93EC231BBB9500E64F17 /* MockFuncTuplesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesArgs.generated.swift; sourceTree = "<group>"; };
+		5B4B93ED231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncClosuresReturns.generated.swift; sourceTree = "<group>"; };
+		5B4B93EE231BBB9500E64F17 /* MockVarsSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVarsSpecial.generated.swift; sourceTree = "<group>"; };
+		5B4B93EF231BBB9500E64F17 /* MockVarsTuples.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVarsTuples.generated.swift; sourceTree = "<group>"; };
+		5B4B93F0231BBB9500E64F17 /* MockFuncSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncSpecial.generated.swift; sourceTree = "<group>"; };
+		5B4B93F1231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesReturns.generated.swift; sourceTree = "<group>"; };
+		5B4B93F2231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncClosuresArgs.generated.swift; sourceTree = "<group>"; };
+		5B4B93F3231BBB9500E64F17 /* MockFuncTuplesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesReturns.generated.swift; sourceTree = "<group>"; };
+		5B4B93F4231BBB9500E64F17 /* MockFuncTypesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesArgs.generated.swift; sourceTree = "<group>"; };
+		5B4B93F5231BBB9500E64F17 /* MockVars.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVars.generated.swift; sourceTree = "<group>"; };
 		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
 		5B9E424422E3A20E00A6FACE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9E424722E3A20E00A6FACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,14 +98,6 @@
 		5B9E42B622E3C01300A6FACE /* ServiceInheritedImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInheritedImpl.swift; sourceTree = "<group>"; };
 		5B9E42B722E3C01300A6FACE /* Service2Impl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service2Impl.swift; sourceTree = "<group>"; };
 		5B9E42B822E3C01300A6FACE /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
-		5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncSpecial.generated.swift; sourceTree = "<group>"; };
-		5BA6E49F230086EF0023F0B1 /* MockFuncClosuresArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncClosuresArgs.generated.swift; sourceTree = "<group>"; };
-		5BA6E4A3230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncClosuresReturns.generated.swift; sourceTree = "<group>"; };
-		5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesArgs.generated.swift; sourceTree = "<group>"; };
-		5BFED21A23002F740014B452 /* MockFuncTypesArgs.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesArgs.generated.swift; sourceTree = "<group>"; };
-		5BFED21B23002F740014B452 /* MockFuncTuplesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTuplesReturns.generated.swift; sourceTree = "<group>"; };
-		5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncGenerics.generated.swift; sourceTree = "<group>"; };
-		5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuncTypesReturns.generated.swift; sourceTree = "<group>"; };
 		5BFED21E23002F740014B452 /* Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		5BFED21F23002F740014B452 /* MockExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,11 +139,11 @@
 		5B4B93D7231BBB2B00E64F17 /* vars */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B93D8231BBB2B00E64F17 /* PropertiesSpecial.swift */,
-				5B4B93D9231BBB2B00E64F17 /* Properties.swift */,
-				5B4B93DA231BBB2B00E64F17 /* PropertiesTuples.swift */,
-				5B4B93DB231BBB2B00E64F17 /* PropertiesClosures.swift */,
-				5B4B93DC231BBB2B00E64F17 /* PropertiesGenerics.swift */,
+				5B4B93D8231BBB2B00E64F17 /* VarsSpecial.swift */,
+				5B4B93D9231BBB2B00E64F17 /* Vars.swift */,
+				5B4B93DA231BBB2B00E64F17 /* VarsTuples.swift */,
+				5B4B93DB231BBB2B00E64F17 /* VarsClosures.swift */,
+				5B4B93DC231BBB2B00E64F17 /* VarsGenerics.swift */,
 			);
 			path = vars;
 			sourceTree = "<group>";
@@ -233,18 +233,18 @@
 		5BFED21823002F740014B452 /* generated */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */,
-				5B4B93C6231BB4D200E64F17 /* MockPropertiesClosures.generated.swift */,
-				5B4B93C8231BB80100E64F17 /* MockPropertiesSpecial.generated.swift */,
-				5B4B93CC231BBA0500E64F17 /* MockPropertiesTuples.generated.swift */,
-				5BFED21A23002F740014B452 /* MockFuncTypesArgs.generated.swift */,
-				5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */,
-				5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */,
-				5BFED21B23002F740014B452 /* MockFuncTuplesReturns.generated.swift */,
-				5BFED21C23002F740014B452 /* MockFuncGenerics.generated.swift */,
-				5BA6E49B230084170023F0B1 /* MockFuncSpecial.generated.swift */,
-				5BA6E49F230086EF0023F0B1 /* MockFuncClosuresArgs.generated.swift */,
-				5BA6E4A3230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift */,
+				5B4B93F2231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift */,
+				5B4B93ED231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift */,
+				5B4B93EB231BBB9500E64F17 /* MockFuncGenerics.generated.swift */,
+				5B4B93F0231BBB9500E64F17 /* MockFuncSpecial.generated.swift */,
+				5B4B93EC231BBB9500E64F17 /* MockFuncTuplesArgs.generated.swift */,
+				5B4B93F3231BBB9500E64F17 /* MockFuncTuplesReturns.generated.swift */,
+				5B4B93F4231BBB9500E64F17 /* MockFuncTypesArgs.generated.swift */,
+				5B4B93F1231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift */,
+				5B4B93F5231BBB9500E64F17 /* MockVars.generated.swift */,
+				5B4B93EA231BBB9500E64F17 /* MockVarsClosures.generated.swift */,
+				5B4B93EE231BBB9500E64F17 /* MockVarsSpecial.generated.swift */,
+				5B4B93EF231BBB9500E64F17 /* MockVarsTuples.generated.swift */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -372,23 +372,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B4B93E8231BBB2B00E64F17 /* PropertiesClosures.swift in Sources */,
+				5B4B93E8231BBB2B00E64F17 /* VarsClosures.swift in Sources */,
 				5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */,
 				5B4B93E1231BBB2B00E64F17 /* FuncTypesArgs.swift in Sources */,
-				5B4B93E7231BBB2B00E64F17 /* PropertiesTuples.swift in Sources */,
+				5B4B93E7231BBB2B00E64F17 /* VarsTuples.swift in Sources */,
 				5B4B93DD231BBB2B00E64F17 /* FuncTuplesArgs.swift in Sources */,
 				5B4B93E3231BBB2B00E64F17 /* FuncClosuresReturns.swift in Sources */,
-				5B4B93E5231BBB2B00E64F17 /* PropertiesSpecial.swift in Sources */,
+				5B4B93E5231BBB2B00E64F17 /* VarsSpecial.swift in Sources */,
 				5B4B93DE231BBB2B00E64F17 /* FuncClosuresArgs.swift in Sources */,
 				5B9E424A22E3A20E00A6FACE /* ViewController.swift in Sources */,
 				5B4B93DF231BBB2B00E64F17 /* FuncTuplesReturns.swift in Sources */,
-				5B4B93E6231BBB2B00E64F17 /* Properties.swift in Sources */,
+				5B4B93E6231BBB2B00E64F17 /* Vars.swift in Sources */,
 				5B4B93E4231BBB2B00E64F17 /* FuncTypesReturns.swift in Sources */,
 				5B9E42BB22E3C01300A6FACE /* Service2Impl.swift in Sources */,
 				5B9E424822E3A20E00A6FACE /* AppDelegate.swift in Sources */,
 				5B4B93E0231BBB2B00E64F17 /* FuncGenerics.swift in Sources */,
 				5B4B93E2231BBB2B00E64F17 /* FuncSpecial.swift in Sources */,
-				5B4B93E9231BBB2B00E64F17 /* PropertiesGenerics.swift in Sources */,
+				5B4B93E9231BBB2B00E64F17 /* VarsGenerics.swift in Sources */,
 				5B9E42BC22E3C01300A6FACE /* ServiceImpl.swift in Sources */,
 				5B9E42B922E3C01300A6FACE /* Service2.swift in Sources */,
 			);
@@ -398,21 +398,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA6E49C230084170023F0B1 /* MockFuncSpecial.generated.swift in Sources */,
+				5B4B93FC231BBB9500E64F17 /* MockFuncSpecial.generated.swift in Sources */,
+				5B4B93FF231BBB9600E64F17 /* MockFuncTuplesReturns.generated.swift in Sources */,
+				5B4B9401231BBB9600E64F17 /* MockVars.generated.swift in Sources */,
+				5B4B93F8231BBB9500E64F17 /* MockFuncTuplesArgs.generated.swift in Sources */,
+				5B4B93F7231BBB9500E64F17 /* MockFuncGenerics.generated.swift in Sources */,
+				5B4B93FB231BBB9500E64F17 /* MockVarsTuples.generated.swift in Sources */,
+				5B4B93F6231BBB9500E64F17 /* MockVarsClosures.generated.swift in Sources */,
 				5BFED22523002F740014B452 /* Any.swift in Sources */,
-				5BA6E4A4230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift in Sources */,
-				5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */,
-				5B4B93CD231BBA0500E64F17 /* MockPropertiesTuples.generated.swift in Sources */,
-				5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */,
-				5B4B93C3231BA27E00E64F17 /* MockProperties.generated.swift in Sources */,
 				5BFED22623002F740014B452 /* MockExts.swift in Sources */,
-				5B4B93C9231BB80100E64F17 /* MockPropertiesSpecial.generated.swift in Sources */,
-				5BFED22423002F740014B452 /* MockFuncTypesReturns.generated.swift in Sources */,
-				5BFED22123002F740014B452 /* MockFuncTypesArgs.generated.swift in Sources */,
-				5B4B93C7231BB4D200E64F17 /* MockPropertiesClosures.generated.swift in Sources */,
+				5B4B93FE231BBB9500E64F17 /* MockFuncClosuresArgs.generated.swift in Sources */,
+				5B4B93FD231BBB9500E64F17 /* MockFuncTypesReturns.generated.swift in Sources */,
 				5B9E425D22E3A20F00A6FACE /* ExampleTests.swift in Sources */,
-				5BA6E4A0230086EF0023F0B1 /* MockFuncClosuresArgs.generated.swift in Sources */,
-				5BFED22223002F740014B452 /* MockFuncTuplesReturns.generated.swift in Sources */,
+				5B4B93FA231BBB9500E64F17 /* MockVarsSpecial.generated.swift in Sources */,
+				5B4B93F9231BBB9500E64F17 /* MockFuncClosuresReturns.generated.swift in Sources */,
+				5B4B9400231BBB9600E64F17 /* MockFuncTypesArgs.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

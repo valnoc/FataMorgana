@@ -5,7 +5,7 @@ import Mirage
 @testable import Example
 import Foundation
 
-class MockPropertiesClosures: PropertiesClosures {
+class MockVarsClosures: VarsClosures {
     //MARK: - VARIABLES
     //MARK: varClosure
     lazy var mock_varClosure_get = FuncCallHandler<Void, ((String) -> Int)>(returnValue: anyClosureGettingStringReturningInt())

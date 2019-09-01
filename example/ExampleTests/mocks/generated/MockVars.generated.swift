@@ -5,7 +5,7 @@ import Mirage
 @testable import Example
 import Foundation
 
-class MockProperties: Properties {
+class MockVars: Vars {
     //MARK: - VARIABLES
     //MARK: varType
     lazy var mock_varType_get = FuncCallHandler<Void, (String)>(returnValue: anyString())

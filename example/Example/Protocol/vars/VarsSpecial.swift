@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol PropertiesSpecial {
+protocol VarsSpecial {
     //sourcery: mirageSkip
     var varToSkip: Int {get set}
 
@@ -19,7 +19,7 @@ protocol PropertiesSpecial {
     var varExt: Int {get set}
 }
 
-extension PropertiesSpecial {
+extension VarsSpecial {
     var varExtGet: Int {
         get {
             return 0

@@ -5,7 +5,7 @@ import Mirage
 @testable import Example
 import Foundation
 
-class MockPropertiesSpecial: PropertiesSpecial {
+class MockVarsSpecial: VarsSpecial {
     //MARK: - VARIABLES
     //MARK: varNamed
     lazy var mock_varNamed_get = FuncCallHandler<Void, (Int)>(returnValue: anyInt())

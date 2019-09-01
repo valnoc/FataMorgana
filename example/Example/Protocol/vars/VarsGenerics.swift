@@ -1,5 +1,5 @@
 //
-//  PropertiesGenerics.swift
+//  VarsGenerics.swift
 //  Example
 //
 //  Created by Valeriy Bezuglyy on 20/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PropertiesGenerics {
+protocol VarsGenerics {
     var varOne: Template<String> {get set}
     var varOneOptional: Template<String>? {get set}
     var varOneOfOptional: Template<String?> {get set}

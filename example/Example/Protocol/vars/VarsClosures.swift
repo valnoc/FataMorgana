@@ -9,7 +9,7 @@
 import Foundation
 
 //sourcery: mirageMock
-protocol PropertiesClosures {
+protocol VarsClosures {
     var varClosure: (String) -> Int {get set}
     var varClosureOptional: ((String) -> Int)? {get set}
     var varClosureOptionalGet: ((String) -> Int)? {get}

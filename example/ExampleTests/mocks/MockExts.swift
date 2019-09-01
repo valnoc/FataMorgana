@@ -20,7 +20,7 @@ extension MockFuncSpecial {
 }
 
 
-extension MockPropertiesSpecial {
+extension MockVarsSpecial {
     var varToSkip: Int {
         get {
             return 4
