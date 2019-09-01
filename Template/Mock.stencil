@@ -1,60 +1,132 @@
-
 {# === IMPORTS === #}
 {% macro generateImports %}
-import Foundation
-import Mirage
+import Mirage {#
+#}{% for item in argument.imports %}
+{#  #}{% if item.framework.count > 0 %}{#
+        #}{% if item.testable == true %}@testable {% endif %}{#
+        #}import {{ item.framework }}{#
+    #}{% else %}{#
+        #}import {{ item }}{#
+    #}{% endif %}{#
+#}{% endfor %}
+{% endmacro %}
 
-@testable import {{ argument.testableModule }}
-{{ argument.imports }}
+{% macro printType type %}
+    {{ type }}
+    {% for key in type %}
+        {{key}} = {{type[key]}}
+    {% endfor %}
 {% endmacro %}
 
 {# === ANY === #}
-{% macro callAnyOther type %}any{{ type|replace:"?",""|replace:"<",""|replace:">","" |replace:".","" }}(){% endmacro %}
+{% macro callAnyForType type %}{#
+    #}any{% call getAnyNameForType type %}(){#
+#}{% endmacro %}
 
-{% macro callAnyArray type %}{#
-    #}{% if argument.returnEmptyArray %}{#
-        #}[]{#
+{% macro getAnyNameForType type %}{#
+    {% call printType type %}
+    #}{% if type.dictionary %}{#
+        #}{% call getAnyDictName type %}{#
+    #}{% elif type.array %}{#
+        #}{% call getAnyArrayName type %}{#
+    #}{% elif type.tuple %}{#
+        #}{% call getAnyTupleName type %}{#
+    #}{% elif type.isGeneric and type|contains:"<" %}{#
+        #}{% call getAnyGenericName type %}{#
+    #}{% elif type.closure %}{#
+        #}{% call getAnyClosureName type %}{#        
     #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:"<",""|replace:">","" |replace:".","" }}Array(){#
+        #}{% call getAnyTypeName type %}{#
     #}{% endif %}{#
 #}{% endmacro %}
 
-{% macro callAnyDict type %}{#
-    #}{% if argument.returnEmptyDict %}{#
-        #}[:]{#
-    #}{% else %}{#
-        #}any{{ type|replace:"?",""|replace:"[",""|replace:"]",""|replace:":",""|replace:" ","" |replace:"<",""|replace:">","" |replace:".","" }}Dict(){#
+{% macro getAnyClosureName type %}{#
+    #}Closure{#
+    #}{% if type.isOptional %}Opt{% endif %}{#
+    #}{% if type.closure.parameters.count > 0 %}{#
+    #}Getting{#
+    #}{% for argtype in type.closure.parameters %}{#
+        #}{% call getAnyNameForType argtype.typeName %}{#
+    #}{% endfor %}{#
+    #}{% else %}GettingVoid{#
+    #}{% endif %}{#    
+    #}Returning{% call getAnyNameForType type.closure.returnTypeName %}{#
+#}{% endmacro %}
+
+{% macro getAnyGenericName type %}{#
+    #}{{ type.generic.name }}Of{#
+    #}{% call getAnyNameForType type.generic.typeParameters.first.typeName %}{#
+#}{% endmacro %}
+
+{% macro getAnyTupleName type %}{#
+    #}Tuple{% if type.isOptional %}Opt{% endif %}Of{#
+    #}{% for subtype in type.tuple.elements %}{#
+        #}{% call getAnyNameForType subtype.typeName %}{#
+        #}{% if not forloop.last %}And{% endif %}{#
+    #}{% endfor %}{#
+#}{% endmacro %}
+
+{% macro getAnyDictName type %}{#
+    #}Dict{% if type.isOptional %}Opt{% endif %}Of{#
+    #}{% call getAnyNameForType type.dictionary.keyTypeName %}To{% call getAnyNameForType type.dictionary.valueTypeName %}{#
+#}{% endmacro %}
+
+{% macro getAnyArrayName type %}{#
+    #}Array{% if type.isOptional %}Opt{% endif %}Of{#
+    #}{% call getAnyNameForType type.array.elementTypeName %}{#
+#}{% endmacro %}
+
+{% macro getAnyTypeName type %}{#
+    #}{{ type|replace:"?","Opt"|replace:"<",""|replace:">",""|replace:".","" }}{#
+#}{% endmacro %}
+
+{# === VAR + FUNC === #}
+{% macro printOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+
+{# === VAR === #}
+{## VAR MOCK ##}
+{% macro getVarSel var %}{#
+    #}{% if var|annotated:"mirageSel" %}{{ var.annotations.mirageSel }}{#
+    #}{% else %}{{ var.name }}{% endif %}{#
+#}{% endmacro %}
+
+{% macro generateVarMock var %}
+    {% set varSel %}{% call getVarSel var %}{% endset %}
+    //MARK: {{ varSel }}
+    lazy var mock_{{ varSel }}_get = FuncCallHandler<Void, ({{ var.typeName }})>(returnValue: {#
+    #}{% if var.typeName.isVoid %}(){#
+    #}{% elif var.typeName.isOptional and argument.returnOptionalAsNil %}nil{#
+    #}{% elif var|annotated:"mirageReturn" %}{{ var.annotations.mirageReturn }}{#
+    #}{% else %}{% call callAnyForType var.typeName %}{#
     #}{% endif %}{#
+    #})
+    {##}
+    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}{#
+        #}lazy var mock_{{ varSel }}_set = FuncCallHandler<{{ var.typeName }}, Void>(returnValue: ()){#
+    #}{% endif %}
+    {##}
+    {% call printOverride var %}var {{ var.name}}: {{ var.typeName }} {
+        get { return mock_{{ varSel }}_get.handle(()) }
+    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}
+        set(value) { mock_{{ varSel }}_set.handle(value) }
+    {% endif %}
+    }
+
+{% endmacro %}
+
+{# === FUNC === #}
+{## FUNC DECLARATION ##}
+{% macro printFuncDeclaration func %}{#
+    #}{% call printOverride func %}func {{ func.name }}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
 #}{% endmacro %}
 
-{% macro callAny type %}{#
-    #}{% if type|contains:":" %}{#
-        #}{% call callAnyDict type %}{#
-    #}{% else %}{#
-        #}{% if type|contains:"[" %}{#
-            #}{% call callAnyArray type %}{#
-        #}{% else %}{#
-            #}{% call callAnyOther type %}{#
-        #}{% endif %}{#
-    #}{% endif %}{#
-#}{% endmacro %}
+{% macro printFuncReturnType func %}{% if not func.returnTypeName.isVoid %} -> {{ func.returnTypeName }}{% endif %}{% endmacro %}
+{% macro printFuncThrows func %}{% if func.throws %} throws {% endif %}{% endmacro %}
 
-{# === METHOD === #}
-{# declaration #}
-{% macro getMethodSel method %}{% if method|annotated:"mirageSel" %}sel_{{ method.annotations.mirageSel }}{% else %}sel_{{ method.callName }}{% endif %}{% endmacro %}
-
-{% macro printOverride method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
-{% macro printMethodName method %}{{ method.name|replace:"  ","" }}{% endmacro %}
-{% macro printMethodReturnType method %}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %}{% endmacro %}
-
-{% macro printMethodDeclaration method %}{#
-    #}{% call printOverride method %}func {% call printMethodName method %}{% if method.throws %} throws {% endif %}{% call printMethodReturnType method %}{#
-#}{% endmacro %}
-
-{# args #}
-{% macro printMethodArgs method %}{#
-    #}{% if method.parameters.count > 0 %}{#
-        #}{% for param in method.parameters %}{#
+{## FUNC ARGS ##}
+{% macro printFuncArgs func %}{#
+    #}{% if func.parameters.count > 0 %}{#
+        #}{% for param in func.parameters %}{#
             #} {{ param.name }}{#
             #}{% if not forloop.last %},{% endif %}{#
         #}{% endfor %}{#
@@ -63,166 +135,105 @@ import Mirage
     #}{% endif %}{#
 #}{% endmacro %}
 
-{# handler #}
-{% macro printMockManagerHandle method methodSel %}{#
-    #}mockManager.handle({{ methodSel }}, withDefaultReturnValue: {#
-    #}{% if method.returnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.returnTypeName %}{#
-    #}{% endif %}{#   
-    #}, withArgs:{% call printMethodArgs method %}){#
+{## FUNC MOCK ##}
+{% macro getFuncSel func %}{#
+    #}{% if func|annotated:"mirageSel" %}{{ func.annotations.mirageSel }}{#
+    #}{% else %}{{ func.callName }}{% endif %}{#
 #}{% endmacro %}
 
-{# mock #}
-{% macro generateMockMethod method %}
-    {% set methodSel %}{% call getMethodSel method %}{% endset %}
-    {##}
-    let {{ methodSel }} = "{{ methodSel }}"
-    {% call printMethodDeclaration method %} {
-        {% if method.returnTypeName.isVoid %}
-        {% call printMockManagerHandle method methodSel %}
-        {% else %}
-        return {% call printMockManagerHandle method methodSel %} as{%if method.returnTypeName.isOptional%}?{%else%}!{%endif%} {{ method.returnTypeName|replace:"?","" }}
-        {% endif %}
-    }
-{% endmacro %}
-
-{# === VAR === #}
-{% macro getVarSelGet var %}{% if var|annotated:"mirageSel" %}sel_get_{{ var.annotations.mirageSel }}{% else %}sel_get_{{ var.name }}{% endif %}{% endmacro %}
-{% macro getVarSelSet var %}{% if var|annotated:"mirageSel" %}sel_set_{{ var.annotations.mirageSel }}{% else %}sel_set_{{ var.name }}{% endif %}{% endmacro %}
-
-{# handler #}
-{% macro printMockVarManagerHandle var varSel %}{#
-    #}mockManager.handle({{ varSel }}{#
-    #}, withDefaultReturnValue: {#
-    #}{% if method.returnTypeName.isVoid %}nil{#
-    #}{% else %}{% call callAny method.returnTypeName %}{#
-    #}{% endif %}{#   
-    #}, withArgs:nil){#
-#}{% endmacro %}
-
-{# mock #}
-{% macro printOverride method %}{% if method.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
-
-{% macro generateMockVar var %}
-    {% set varSelGet %}{% call getVarSelGet var %}{% endset %}
-    {% set varSelSet %}{% call getVarSelSet var %}{% endset %}
-    {##}
-    let {{ varSelGet }} = "{{ varSelGet }}"
-    let {{ varSelSet }} = "{{ varSelSet }}"
-    {% call printOverride var %}var {{ var.name}}: {{ var.typeName }} {
-        get { return mockManager.handle({{ varSelGet }}, withDefaultReturnValue: {% call callAny var.typeName %}, withArgs:nil) as{%if var.isOptional%}?{%else%}!{%endif%} {{ var.typeName|replace:"?","" }}  }
-    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}
-        set(value) { mockManager.handle({{ varSelSet }}, withDefaultReturnValue: nil, withArgs:value) }
+{% macro generateFuncMock func %}
+    {% set funcSel %}{% call getFuncSel func %}{% endset %}
+    //MARK: {{ funcSel }}
+    {% if func.parameters.count > 1 %}
+        {% call generateFuncMockWithManyArgs func %}
+    {% elif func.parameters.count > 0 %}
+        {% call generateFuncMockWithOneArg func %}
+    {% else %}
+        {% call generateFuncMockWithZeroArgs func %}
     {% endif %}
-    }
 {% endmacro %}
 
-{# === TYPE === #}
-{% macro printCallRealMethodArgs method %}{#
-    #}{% for param in method.parameters %}{#
-        #}{{ param.argumentLabel }}{#
-        #}{% if param.argumentLabel.length > 0 %}:{% endif %}{#
-        #} args![{{forloop.counter0}}]{#
-        #} as{% if param.isOptional %}?{% else %}!{% endif %}{#
-        #} {{ param.typeName.unwrappedTypeName }}{#
-        #}{% if not forloop.last %}, {% endif %}{#
-    #}{% endfor %}{#
-#}{% endmacro %}
-
-{% macro printCallRealMethod method %}{#
-    #}{{ method.callName }}({% call printCallRealMethodArgs method %}){#
-#}{% endmacro %}
-
-{% macro generateMockProtocol type %}
-class Mock{{ type.name }}: {{ type.name }}, Mock {
-    
-    lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
-        guard let __self = self else { return nil }
-        return nil
-    })
-    
-    //MARK: - Mock{{ type.name }}
-    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
-            {% call generateMockVar var %}
-
-    {% endfor %}
-
-    {% for method in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
-        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-            {% call generateMockMethod method %}
-
-        {% endif %}
-    {% endfor %}    
-}
-{% endmacro %}
-
-{% macro generateMockClass type %}
-class Mock{{ type.name }}: {{ type.name }}, Mock {
-    
-    lazy var mockManager: MockManager = MockManager(self, callRealFuncClosure: { [weak self] (funcName, args) -> Any? in
-        guard let __self = self else { return nil }
-        return __self.callRealFunc(funcName, args)
-    })
-    fileprivate func callRealFunc(_ funcName:String, _ args:[Any?]?) -> Any? {
-        switch funcName {
-        {% for method in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
-            {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-                {% set methodSel %}{% call getMethodSel method %}{% endset %}
-        case {{ methodSel }}:
-            return {% if method.throws %}try? {% endif %}super.{% call printCallRealMethod method %}
-            {% endif %}
-        {% endfor %}
-        default:
-            return nil
+{% macro generateFuncMockWithManyArgs func %}
+    {% set funcArgsClass %}{{ funcSel|upperFirstLetter }}Args{% endset %}
+    class {{ funcArgsClass }} {
+        {% for param in func.parameters %}{#
+            #}var {{ param.name }}: {{ param.typeName }}
+        {#
+        #}{% endfor %}
+        
+        init({#
+        #}{% for param in func.parameters %}{#
+            #}_ {{ param.name }}: {{ param.typeName }}{#
+            #}{% if not forloop.last %}, {% endif %}{#
+        #}{% endfor %}{#
+        #}) {
+            {% for param in func.parameters %}{#
+                #}self.{{ param.name }} = {{ param.name }}
+            {#
+            #}{% endfor %}
         }
     }
-    
-    //MARK: - Mock{{ type.name }}
-    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
-        {% call generateMockVar var %}
-    {% endfor %}
+    {% set handleValue %}{#
+    #}{{ funcArgsClass }}({#
+            #}{% for param in func.parameters %}{#
+                #}{{ param.name }}{#
+                #}{% if not forloop.last %}, {% endif %}{#
+            #}{% endfor %}{#
+    #}){% endset %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func funcArgsClass handleValue %}
+{% endmacro %}
 
-    {% for method in type.methods|!definedInExtension|!annotated:"mirageSkip" %}
-        {% if not method.isInitializer and not method.isDeinitializer and not method.accessLevel == "fileprivate" %}
-            {% call generateMockMethod method %}
+{% macro generateFuncMockWithOneArg func %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func func.parameters.first.typeName func.parameters.first.name %}
+{% endmacro %}
+
+{% macro generateFuncMockWithZeroArgs func %}
+    {% call generateFuncMockWithArgTypeAndHandleValue func "Void" "()" %}
+{% endmacro %}
+
+{% macro generateFuncMockWithArgTypeAndHandleValue func argType handleValue %}
+    lazy var mock_{{ funcSel }} = FuncCallHandler<{{ argType|replace:"@escaping ","" }}, {{ func.returnTypeName }}>(returnValue: {#
+    #}{% if func.returnTypeName.isVoid %}(){#
+    #}{% elif func.returnTypeName.isOptional and argument.returnOptionalAsNil %}nil{#
+    #}{% elif func|annotated:"mirageReturn" %}{{ func.annotations.mirageReturn }}{#
+    #}{% else %}{% call callAnyForType func.returnTypeName %}{#
+    #}{% endif %}{#
+    #})    
+    {% call printFuncDeclaration func %} {
+        return mock_{{ funcSel }}.handle({{ handleValue }})
+    }
+{% endmacro %}
+
+{# === GENERATE MOCKS === #}
+{% macro generateMockProtocol type %}
+class Mock{{ type.name }}: {{ type.name }} {
+    //MARK: - VARIABLES
+    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
+        {% call generateVarMock var %}
+    {% endfor %}
+    {##}
+    //MARK: - FUNCTIONS
+    {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
+        {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
+            {% call generateFuncMock func %}
         {% endif %}
     {% endfor %}    
 }
 {% endmacro %}
 
 {% macro generateMockType type %}
-{% if type.kind == "class" %}
-    {% call generateMockClass type %}
-{% else %}
+{% if type.kind == "protocol" %}
     {% call generateMockProtocol type %}
+{% else %}
+    {#{% call generateMockClass type %}#}    
 {% endif %}
 {% endmacro %}
 
-{# === GENERATE MOCKS === #}
-{% for type in types.classes|annotated:"mirageMock" %}
-// sourcery:file:Mock{{ type.name }}
-{% call generateImports %}
-
-{% call generateMockType type %}
-// sourcery:end
-{% endfor %}
-
+{# === SCRIPT === #}
 {% for type in types.protocols|annotated:"mirageMock" %}
 // sourcery:file:Mock{{ type.name }}
 {% call generateImports %}
 
 {% call generateMockType type %}
 // sourcery:end
-{% endfor %}
-
-{% for type in types.classes|annotated:"miragePartial" %}
-
-// sourcery:file:Mock{{ type.name }}
-{% call generateImports %}
-
-class PartialMock{{ type.name }}: Mock{{ type.name }}, PartialMock { }
-
-{% call generateMockType type %}
-// sourcery:end
-
 {% endfor %}

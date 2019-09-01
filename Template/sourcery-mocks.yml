@@ -1,11 +1,12 @@
 sources:
-  - ./Example
+  - ./../Example
 templates:
   - ./../Template/
 output: 
-  ./ExampleTests/mocks/
+  ./../Example/ExampleTests/mocks/generated
 args:
-  testableModule: "Example"
-  imports: "import Foundation"
-  returnEmptyArray: false
-  returnEmptyDict: false
+  imports: 
+    - framework: Example
+      testable: true
+    - Foundation
+  returnOptionalAsNil: false
