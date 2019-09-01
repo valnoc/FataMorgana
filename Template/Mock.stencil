@@ -75,13 +75,44 @@ import Mirage {#
     #}{{ type|replace:"?","Opt"|replace:"<",""|replace:">",""|replace:".","" }}{#
 #}{% endmacro %}
 
+{# === VAR + FUNC === #}
+{% macro printOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
+
+{# === VAR === #}
+{## VAR MOCK ##}
+{% macro getVarSel var %}{#
+    #}{% if var|annotated:"mirageSel" %}{{ var.annotations.mirageSel }}{#
+    #}{% else %}{{ var.name }}{% endif %}{#
+#}{% endmacro %}
+
+{% macro generateVarMock var %}
+    {% set varSel %}{% call getVarSel var %}{% endset %}
+    //MARK: {{ varSel }}
+    lazy var mock_{{ varSel }}_get = FuncCallHandler<(), ({{ var.typeName }})>(returnValue: {#
+    #}{% if var.typeName.isVoid %}(){#
+    #}{% elif var.typeName.isOptional and argument.returnOptionalAsNil %}nil{#
+    #}{% elif var|annotated:"mirageReturn" %}{{ var.annotations.mirageReturn }}{#
+    #}{% else %}{% call callAnyForType var.typeName %}{#
+    #}{% endif %}{#
+    #})
+    {##}
+    lazy var mock_{{ varSel }}_set = FuncCallHandler<{{ var.typeName }}, ()>(returnValue: ())
+    {##}
+    {% call printOverride var %}var {{ var.name}}: {{ var.typeName }} {
+        get { return mock_{{ varSel }}_get.handle(()) }
+    {% if var.writeAccess != "" and var.writeAccess != "fileprivate" %}
+        set(value) { mock_{{ varSel }}_set.handle(value) }
+    {% endif %}
+    }
+
+{% endmacro %}
+
 {# === FUNC === #}
 {## FUNC DECLARATION ##}
 {% macro printFuncDeclaration func %}{#
-    #}{% call printFuncOverride func %}func {{ func.name }}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
+    #}{% call printOverride func %}func {{ func.name }}{% call printFuncThrows func %}{% call printFuncReturnType func %}{#
 #}{% endmacro %}
 
-{% macro printFuncOverride func %}{% if func.definedInType.kind == "class" %}override {% endif %}{% endmacro %}
 {% macro printFuncReturnType func %}{% if not func.returnTypeName.isVoid %} -> {{ func.returnTypeName }}{% endif %}{% endmacro %}
 {% macro printFuncThrows func %}{% if func.throws %} throws {% endif %}{% endmacro %}
 
@@ -105,7 +136,7 @@ import Mirage {#
 
 {% macro generateFuncMock func %}
     {% set funcSel %}{% call getFuncSel func %}{% endset %}
-    //MARK: - {{ funcSel }}
+    //MARK: {{ funcSel }}
     {% if func.parameters.count > 1 %}
         {% call generateFuncMockWithManyArgs func %}
     {% elif func.parameters.count > 0 %}
@@ -169,20 +200,25 @@ import Mirage {#
 {# === GENERATE MOCKS === #}
 {% macro generateMockProtocol type %}
 class Mock{{ type.name }}: {{ type.name }} {
+    //MARK: - VARIABLES
+    {% for var in type.allVariables|!definedInExtension|!annotated:"mirageSkip" %}
+        {% call generateVarMock var %}
+    {% endfor %}
+    {##}
+    //MARK: - FUNCTIONS
     {% for func in type.allMethods|!definedInExtension|!annotated:"mirageSkip" %}
         {% if not func.isInitializer and not func.isDeinitializer and not func.accessLevel == "fileprivate" %}
             {% call generateFuncMock func %}
-
         {% endif %}
     {% endfor %}    
 }
 {% endmacro %}
 
 {% macro generateMockType type %}
-{% if type.kind == "class" %}
-    {#{% call generateMockClass type %}#}
-{% else %}
+{% if type.kind == "protocol" %}
     {% call generateMockProtocol type %}
+{% else %}
+    {#{% call generateMockClass type %}#}    
 {% endif %}
 {% endmacro %}
 

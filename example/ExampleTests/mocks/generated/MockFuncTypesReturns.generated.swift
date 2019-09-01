@@ -6,106 +6,91 @@ import Mirage
 import Foundation
 
 class MockFuncTypesReturns: FuncTypesReturns {
-    //MARK: - funcReturnsVoid
+    //MARK: - VARIABLES
+    //MARK: - FUNCTIONS
+    //MARK: funcReturnsVoid
     lazy var mock_funcReturnsVoid = FuncCallHandler<Void, Void>(returnValue: ())    
     func funcReturnsVoid() {
         return mock_funcReturnsVoid.handle(())
     }
-
-    //MARK: - funcReturnsOne
+    //MARK: funcReturnsOne
     lazy var mock_funcReturnsOne = FuncCallHandler<Void, String>(returnValue: anyString())    
     func funcReturnsOne() -> String {
         return mock_funcReturnsOne.handle(())
     }
-
-    //MARK: - funcReturnsOneOptional
+    //MARK: funcReturnsOneOptional
     lazy var mock_funcReturnsOneOptional = FuncCallHandler<Void, String?>(returnValue: anyStringOpt())    
     func funcReturnsOneOptional() -> String? {
         return mock_funcReturnsOneOptional.handle(())
     }
-
-    //MARK: - funcReturnsArray
+    //MARK: funcReturnsArray
     lazy var mock_funcReturnsArray = FuncCallHandler<Void, [String]>(returnValue: anyArrayOfString())    
     func funcReturnsArray() -> [String] {
         return mock_funcReturnsArray.handle(())
     }
-
-    //MARK: - funcReturnsArrayOptional
+    //MARK: funcReturnsArrayOptional
     lazy var mock_funcReturnsArrayOptional = FuncCallHandler<Void, [Int]?>(returnValue: anyArrayOptOfInt())    
     func funcReturnsArrayOptional() -> [Int]? {
         return mock_funcReturnsArrayOptional.handle(())
     }
-
-    //MARK: - funcReturnsArrayOptionalOfOptional
+    //MARK: funcReturnsArrayOptionalOfOptional
     lazy var mock_funcReturnsArrayOptionalOfOptional = FuncCallHandler<Void, [Int?]?>(returnValue: anyArrayOptOfIntOpt())    
     func funcReturnsArrayOptionalOfOptional() -> [Int?]? {
         return mock_funcReturnsArrayOptionalOfOptional.handle(())
     }
-
-    //MARK: - funcReturnsArrayOfArray
+    //MARK: funcReturnsArrayOfArray
     lazy var mock_funcReturnsArrayOfArray = FuncCallHandler<Void, [[String]]>(returnValue: anyArrayOfArrayOfString())    
     func funcReturnsArrayOfArray() -> [[String]] {
         return mock_funcReturnsArrayOfArray.handle(())
     }
-
-    //MARK: - funcReturnsArrayOfDict
+    //MARK: funcReturnsArrayOfDict
     lazy var mock_funcReturnsArrayOfDict = FuncCallHandler<Void, [[String: Int]]>(returnValue: anyArrayOfDictOfStringToInt())    
     func funcReturnsArrayOfDict() -> [[String: Int]] {
         return mock_funcReturnsArrayOfDict.handle(())
     }
-
-    //MARK: - funcReturnsArrayOfDictOfArray
+    //MARK: funcReturnsArrayOfDictOfArray
     lazy var mock_funcReturnsArrayOfDictOfArray = FuncCallHandler<Void, [[String: [Int]]]>(returnValue: anyArrayOfDictOfStringToArrayOfInt())    
     func funcReturnsArrayOfDictOfArray() -> [[String: [Int]]] {
         return mock_funcReturnsArrayOfDictOfArray.handle(())
     }
-
-    //MARK: - funcReturnsDict
+    //MARK: funcReturnsDict
     lazy var mock_funcReturnsDict = FuncCallHandler<Void, [String: String]>(returnValue: anyDictOfStringToString())    
     func funcReturnsDict() -> [String: String] {
         return mock_funcReturnsDict.handle(())
     }
-
-    //MARK: - funcReturnsDictOptional
+    //MARK: funcReturnsDictOptional
     lazy var mock_funcReturnsDictOptional = FuncCallHandler<Void, [String: Int]?>(returnValue: anyDictOptOfStringToInt())    
     func funcReturnsDictOptional() -> [String: Int]? {
         return mock_funcReturnsDictOptional.handle(())
     }
-
-    //MARK: - funcReturnsDictOptionalOfOptional
+    //MARK: funcReturnsDictOptionalOfOptional
     lazy var mock_funcReturnsDictOptionalOfOptional = FuncCallHandler<Void, [String: Int?]?>(returnValue: anyDictOptOfStringToIntOpt())    
     func funcReturnsDictOptionalOfOptional() -> [String: Int?]? {
         return mock_funcReturnsDictOptionalOfOptional.handle(())
     }
-
-    //MARK: - funcReturnsDictOfDict
+    //MARK: funcReturnsDictOfDict
     lazy var mock_funcReturnsDictOfDict = FuncCallHandler<Void, [String: [String: Int]]>(returnValue: anyDictOfStringToDictOfStringToInt())    
     func funcReturnsDictOfDict() -> [String: [String: Int]] {
         return mock_funcReturnsDictOfDict.handle(())
     }
-
-    //MARK: - funcReturnsDictOfArray
+    //MARK: funcReturnsDictOfArray
     lazy var mock_funcReturnsDictOfArray = FuncCallHandler<Void, [String: [Int]]>(returnValue: anyDictOfStringToArrayOfInt())    
     func funcReturnsDictOfArray() -> [String: [Int]] {
         return mock_funcReturnsDictOfArray.handle(())
     }
-
-    //MARK: - funcReturnsDictOfArrayOfArray
+    //MARK: funcReturnsDictOfArrayOfArray
     lazy var mock_funcReturnsDictOfArrayOfArray = FuncCallHandler<Void, [String: [[Int]]]>(returnValue: anyDictOfStringToArrayOfArrayOfInt())    
     func funcReturnsDictOfArrayOfArray() -> [String: [[Int]]] {
         return mock_funcReturnsDictOfArrayOfArray.handle(())
     }
-
-    //MARK: - funcReturnsDictOfArrayOfDict
+    //MARK: funcReturnsDictOfArrayOfDict
     lazy var mock_funcReturnsDictOfArrayOfDict = FuncCallHandler<Void, [String: [[String: Int]]]>(returnValue: anyDictOfStringToArrayOfDictOfStringToInt())    
     func funcReturnsDictOfArrayOfDict() -> [String: [[String: Int]]] {
         return mock_funcReturnsDictOfArrayOfDict.handle(())
     }
-
-    //MARK: - funcReturnsMixed
+    //MARK: funcReturnsMixed
     lazy var mock_funcReturnsMixed = FuncCallHandler<Void, [[String: [[String: [[Int]]]]]]>(returnValue: anyArrayOfDictOfStringToArrayOfDictOfStringToArrayOfArrayOfInt())    
     func funcReturnsMixed() -> [[String: [[String: [[Int]]]]]] {
         return mock_funcReturnsMixed.handle(())
     }
-
 }

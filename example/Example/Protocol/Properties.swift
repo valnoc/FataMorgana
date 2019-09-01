@@ -8,10 +8,8 @@
 
 import Foundation
 
-typealias ProperitesClosure = () -> Void
-
 //sourcery: mirageMock
-protocol Properites {
+protocol Properties {
     var varType: String {get set}
     var varTypeOptional: String? {get set}
     
@@ -20,17 +18,9 @@ protocol Properites {
     var varArrayOfOptional: [Int] {get set}
     var varArrayOptionalOfOptional: [Int?]? {get set}
     
-    var varDictionary: [String: Double] {get set}
-    var varDictionaryOptional: [String: Double]? {get set}
+    var varDictionary: [String: Int] {get set}
+    var varDictionaryOptional: [String: Int]? {get set}
     
     var varGetter: String { get }
     var varGetterOptional: Int? { get }
-    
-    var varClosure: ProperitesClosure {get set}
-    var varClosureOptional: ProperitesClosure? {get set}
-    var varClosureOptionalGet: ProperitesClosure? {get}
-    
-    var varClosureNested: (Int) -> String {get set}
-    var varClosureNestedOptional: ((Int) -> String)? {get set}
-    var varClosureNestedOptionalGet: ((Int) -> String)? {get}
 }

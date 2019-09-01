@@ -12,6 +12,10 @@ func anyString() -> String {
     return ""
 }
 
+func anyIntOpt() -> Int? {
+    return 0
+}
+
 func anyStringOpt() -> String? {
     return anyString()
 }

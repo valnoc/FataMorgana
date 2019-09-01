@@ -6,16 +6,16 @@ import Mirage
 import Foundation
 
 class MockFuncClosuresReturns: FuncClosuresReturns {
-    //MARK: - funcReturnClosure
+    //MARK: - VARIABLES
+    //MARK: - FUNCTIONS
+    //MARK: funcReturnClosure
     lazy var mock_funcReturnClosure = FuncCallHandler<Void, (String) -> Int>(returnValue: anyClosureGettingStringReturningInt())    
     func funcReturnClosure() -> (String) -> Int {
         return mock_funcReturnClosure.handle(())
     }
-
-    //MARK: - funcReturnClosureOptional
+    //MARK: funcReturnClosureOptional
     lazy var mock_funcReturnClosureOptional = FuncCallHandler<Void, ((String) -> Int)?>(returnValue: anyClosureOptGettingStringReturningInt())    
     func funcReturnClosureOptional() -> ((String) -> Int)? {
         return mock_funcReturnClosureOptional.handle(())
     }
-
 }

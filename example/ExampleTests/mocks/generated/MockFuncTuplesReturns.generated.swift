@@ -6,64 +6,56 @@ import Mirage
 import Foundation
 
 class MockFuncTuplesReturns: FuncTuplesReturns {
-    //MARK: - funcReturnsTuple
+    //MARK: - VARIABLES
+    //MARK: - FUNCTIONS
+    //MARK: funcReturnsTuple
     lazy var mock_funcReturnsTuple = FuncCallHandler<Void, (String, Int)>(returnValue: anyTupleOfStringAndInt())    
     func funcReturnsTuple() -> (String, Int) {
         return mock_funcReturnsTuple.handle(())
     }
-
-    //MARK: - funcReturnsTupleOptional
+    //MARK: funcReturnsTupleOptional
     lazy var mock_funcReturnsTupleOptional = FuncCallHandler<Void, (String, Int)?>(returnValue: anyTupleOptOfStringAndInt())    
     func funcReturnsTupleOptional() -> (String, Int)? {
         return mock_funcReturnsTupleOptional.handle(())
     }
-
-    //MARK: - funcReturnsTupleOfOptional
+    //MARK: funcReturnsTupleOfOptional
     lazy var mock_funcReturnsTupleOfOptional = FuncCallHandler<Void, (String?, Int?)>(returnValue: anyTupleOfStringOptAndIntOpt())    
     func funcReturnsTupleOfOptional() -> (String?, Int?) {
         return mock_funcReturnsTupleOfOptional.handle(())
     }
-
-    //MARK: - funcReturnsNamedTuple
+    //MARK: funcReturnsNamedTuple
     lazy var mock_funcReturnsNamedTuple = FuncCallHandler<Void, (str: String, value: Int)>(returnValue: anyTupleOfStringAndInt())    
     func funcReturnsNamedTuple() -> (str: String, value: Int) {
         return mock_funcReturnsNamedTuple.handle(())
     }
-
-    //MARK: - funcReturnsTupleWithSequence
+    //MARK: funcReturnsTupleWithSequence
     lazy var mock_funcReturnsTupleWithSequence = FuncCallHandler<Void, ([String], [String: Double])>(returnValue: anyTupleOfArrayOfStringAndDictOfStringToDouble())    
     func funcReturnsTupleWithSequence() -> ([String], [String: Double]) {
         return mock_funcReturnsTupleWithSequence.handle(())
     }
-
-    //MARK: - funcReturnsTupleWithOptSequence
+    //MARK: funcReturnsTupleWithOptSequence
     lazy var mock_funcReturnsTupleWithOptSequence = FuncCallHandler<Void, ([String]?, [String: Double]?)>(returnValue: anyTupleOfArrayOptOfStringAndDictOptOfStringToDouble())    
     func funcReturnsTupleWithOptSequence() -> ([String]?, [String: Double]?) {
         return mock_funcReturnsTupleWithOptSequence.handle(())
     }
-
-    //MARK: - funcReturnsTupleWithNamedSequence
+    //MARK: funcReturnsTupleWithNamedSequence
     lazy var mock_funcReturnsTupleWithNamedSequence = FuncCallHandler<Void, (a: [String], b: [String: Double])>(returnValue: anyTupleOfArrayOfStringAndDictOfStringToDouble())    
     func funcReturnsTupleWithNamedSequence() -> (a: [String], b: [String: Double]) {
         return mock_funcReturnsTupleWithNamedSequence.handle(())
     }
-
-    //MARK: - funcReturnsTupleWithComplexArray
+    //MARK: funcReturnsTupleWithComplexArray
     lazy var mock_funcReturnsTupleWithComplexArray = FuncCallHandler<Void, ([[String]], Int)>(returnValue: anyTupleOfArrayOfArrayOfStringAndInt())    
     func funcReturnsTupleWithComplexArray() -> ([[String]], Int) {
         return mock_funcReturnsTupleWithComplexArray.handle(())
     }
-
-    //MARK: - funcReturnsTupleWithComplexDict
+    //MARK: funcReturnsTupleWithComplexDict
     lazy var mock_funcReturnsTupleWithComplexDict = FuncCallHandler<Void, (Int, [String: [String: Double]])>(returnValue: anyTupleOfIntAndDictOfStringToDictOfStringToDouble())    
     func funcReturnsTupleWithComplexDict() -> (Int, [String: [String: Double]]) {
         return mock_funcReturnsTupleWithComplexDict.handle(())
     }
-
-    //MARK: - funcReturnsTupleMixed
+    //MARK: funcReturnsTupleMixed
     lazy var mock_funcReturnsTupleMixed = FuncCallHandler<Void, (Int, [[String: [String: [Double]]]])>(returnValue: anyTupleOfIntAndArrayOfDictOfStringToDictOfStringToArrayOfDouble())    
     func funcReturnsTupleMixed() -> (Int, [[String: [String: [Double]]]]) {
         return mock_funcReturnsTupleMixed.handle(())
     }
-
 }

@@ -6,28 +6,26 @@ import Mirage
 import Foundation
 
 class MockFuncSpecial: FuncSpecial {
-    //MARK: - funcSameName
+    //MARK: - VARIABLES
+    //MARK: - FUNCTIONS
+    //MARK: funcSameName
     lazy var mock_funcSameName = FuncCallHandler<Void, Void>(returnValue: ())    
     func funcSameName() {
         return mock_funcSameName.handle(())
     }
-
-    //MARK: - funcSameNameString
+    //MARK: funcSameNameString
     lazy var mock_funcSameNameString = FuncCallHandler<String, Void>(returnValue: ())    
     func funcSameName(_ value: String) {
         return mock_funcSameNameString.handle(value)
     }
-
-    //MARK: - funcSameNameInt
+    //MARK: funcSameNameInt
     lazy var mock_funcSameNameInt = FuncCallHandler<Int, Void>(returnValue: ())    
     func funcSameName(_ value: Int) {
         return mock_funcSameNameInt.handle(value)
     }
-
-    //MARK: - funcWithDefault
+    //MARK: funcWithDefault
     lazy var mock_funcWithDefault = FuncCallHandler<Void, Void>(returnValue: ())    
     func funcWithDefault() {
         return mock_funcWithDefault.handle(())
     }
-
 }

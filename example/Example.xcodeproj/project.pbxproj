@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B4B93C3231BA27E00E64F17 /* MockProperites.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C2231BA27E00E64F17 /* MockProperites.generated.swift */; };
+		5B4B93C3231BA27E00E64F17 /* MockProperties.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */; };
+		5B4B93C5231BA2E800E64F17 /* PropertiesClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */; };
 		5B6DE03C22FEC96E00FCB1CC /* FuncGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */; };
 		5B6DE03D22FEC96E00FCB1CC /* FuncTuplesArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DE03B22FEC96D00FCB1CC /* FuncTuplesArgs.swift */; };
 		5B6DE04222FEF35800FCB1CC /* Mirage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DE04122FEF35700FCB1CC /* Mirage.framework */; };
@@ -53,7 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B4B93C2231BA27E00E64F17 /* MockProperites.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProperites.generated.swift; sourceTree = "<group>"; };
+		5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProperties.generated.swift; sourceTree = "<group>"; };
+		5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesClosures.swift; sourceTree = "<group>"; };
 		5B6DE03A22FEC96D00FCB1CC /* FuncGenerics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGenerics.swift; sourceTree = "<group>"; };
 		5B6DE03B22FEC96D00FCB1CC /* FuncTuplesArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncTuplesArgs.swift; sourceTree = "<group>"; };
 		5B6DE04122FEF35700FCB1CC /* Mirage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mirage.framework; path = Carthage/Build/iOS/Mirage.framework; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				5B9E429122E3B49600A6FACE /* Properties.swift */,
+				5B4B93C4231BA2E800E64F17 /* PropertiesClosures.swift */,
 				5B9E429222E3B49600A6FACE /* PropertiesAssociated.swift */,
 				5B9E429622E3B49600A6FACE /* PropertiesGenerics.swift */,
 				5B9E429322E3B49600A6FACE /* FuncTypesArgs.swift */,
@@ -205,7 +208,7 @@
 		5BFED21823002F740014B452 /* generated */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B93C2231BA27E00E64F17 /* MockProperites.generated.swift */,
+				5B4B93C2231BA27E00E64F17 /* MockProperties.generated.swift */,
 				5BFED21A23002F740014B452 /* MockFuncTypesArgs.generated.swift */,
 				5BFED21D23002F740014B452 /* MockFuncTypesReturns.generated.swift */,
 				5BFED21923002F740014B452 /* MockFuncTuplesArgs.generated.swift */,
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4B93C5231BA2E800E64F17 /* PropertiesClosures.swift in Sources */,
 				5B9E42BA22E3C01300A6FACE /* ServiceInheritedImpl.swift in Sources */,
 				5B6DE03D22FEC96E00FCB1CC /* FuncTuplesArgs.swift in Sources */,
 				5B6DE03C22FEC96E00FCB1CC /* FuncGenerics.swift in Sources */,
@@ -370,7 +374,7 @@
 				5BA6E4A4230087F30023F0B1 /* MockFuncClosuresReturns.generated.swift in Sources */,
 				5BFED22323002F740014B452 /* MockFuncGenerics.generated.swift in Sources */,
 				5BFED22023002F740014B452 /* MockFuncTuplesArgs.generated.swift in Sources */,
-				5B4B93C3231BA27E00E64F17 /* MockProperites.generated.swift in Sources */,
+				5B4B93C3231BA27E00E64F17 /* MockProperties.generated.swift in Sources */,
 				5BFED22623002F740014B452 /* MockExts.swift in Sources */,
 				5BFED22423002F740014B452 /* MockFuncTypesReturns.generated.swift in Sources */,
 				5BFED22123002F740014B452 /* MockFuncTypesArgs.generated.swift in Sources */,

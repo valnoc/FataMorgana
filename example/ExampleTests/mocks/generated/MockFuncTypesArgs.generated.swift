@@ -6,43 +6,39 @@ import Mirage
 import Foundation
 
 class MockFuncTypesArgs: FuncTypesArgs {
-    //MARK: - funcVoid
+    //MARK: - VARIABLES
+    //MARK: - FUNCTIONS
+    //MARK: funcVoid
     lazy var mock_funcVoid = FuncCallHandler<Void, Void>(returnValue: ())    
     func funcVoid() {
         return mock_funcVoid.handle(())
     }
-
-    //MARK: - funcArgVoid
+    //MARK: funcArgVoid
     lazy var mock_funcArgVoid = FuncCallHandler<Void, Void>(returnValue: ())    
     func funcArgVoid(a: Void) {
         return mock_funcArgVoid.handle(a)
     }
-
-    //MARK: - funcOneArg
+    //MARK: funcOneArg
     lazy var mock_funcOneArg = FuncCallHandler<String, Void>(returnValue: ())    
     func funcOneArg(arg: String) {
         return mock_funcOneArg.handle(arg)
     }
-
-    //MARK: - funcOneArgOptional
+    //MARK: funcOneArgOptional
     lazy var mock_funcOneArgOptional = FuncCallHandler<String?, Void>(returnValue: ())    
     func funcOneArgOptional(arg: String?) {
         return mock_funcOneArgOptional.handle(arg)
     }
-
-    //MARK: - funcOneArgWithLabel
+    //MARK: funcOneArgWithLabel
     lazy var mock_funcOneArgWithLabel = FuncCallHandler<String, Void>(returnValue: ())    
     func funcOneArgWithLabel(argLabel arg: String) {
         return mock_funcOneArgWithLabel.handle(arg)
     }
-
-    //MARK: - funcOneArgNoName
+    //MARK: funcOneArgNoName
     lazy var mock_funcOneArgNoName = FuncCallHandler<String, Void>(returnValue: ())    
     func funcOneArgNoName(_ arg: String) {
         return mock_funcOneArgNoName.handle(arg)
     }
-
-    //MARK: - funcTwoArgs
+    //MARK: funcTwoArgs
     class FuncTwoArgsArgs {
         var arg1: String
         var arg2: String
@@ -55,8 +51,7 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcTwoArgs(arg1: String, arg2: String) {
         return mock_funcTwoArgs.handle(FuncTwoArgsArgs(arg1, arg2))
     }
-
-    //MARK: - funcTwoArgsOptional
+    //MARK: funcTwoArgsOptional
     class FuncTwoArgsOptionalArgs {
         var arg1: String?
         var arg2: String?
@@ -69,8 +64,7 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcTwoArgsOptional(arg1Label arg1: String?, _ arg2: String?) {
         return mock_funcTwoArgsOptional.handle(FuncTwoArgsOptionalArgs(arg1, arg2))
     }
-
-    //MARK: - funcTwoArgsArrayDict
+    //MARK: funcTwoArgsArrayDict
     class FuncTwoArgsArrayDictArgs {
         var arg1: [String]
         var arg2: [String: String]
@@ -83,8 +77,7 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcTwoArgsArrayDict(arg1: [String], arg2: [String: String]) {
         return mock_funcTwoArgsArrayDict.handle(FuncTwoArgsArrayDictArgs(arg1, arg2))
     }
-
-    //MARK: - funcTwoArgsArrayDictOptional
+    //MARK: funcTwoArgsArrayDictOptional
     class FuncTwoArgsArrayDictOptionalArgs {
         var arg1: [String]?
         var arg2: [String: String]?
@@ -97,8 +90,7 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcTwoArgsArrayDictOptional(arg1: [String]?, arg2: [String: String]?) {
         return mock_funcTwoArgsArrayDictOptional.handle(FuncTwoArgsArrayDictOptionalArgs(arg1, arg2))
     }
-
-    //MARK: - funcTwoArgsArrayDictOptionalOfOptional
+    //MARK: funcTwoArgsArrayDictOptionalOfOptional
     class FuncTwoArgsArrayDictOptionalOfOptionalArgs {
         var arg1: [String?]?
         var arg2: [String: String?]?
@@ -111,8 +103,7 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcTwoArgsArrayDictOptionalOfOptional(arg1: [String?]?, arg2: [String: String?]?) {
         return mock_funcTwoArgsArrayDictOptionalOfOptional.handle(FuncTwoArgsArrayDictOptionalOfOptionalArgs(arg1, arg2))
     }
-
-    //MARK: - funcArrayOfArrayArg
+    //MARK: funcArrayOfArrayArg
     class FuncArrayOfArrayArgArgs {
         var arg: [[String]]
         var arg2: [[Int]]
@@ -125,20 +116,17 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcArrayOfArrayArg(_ arg: [[String]], _ arg2: [[Int]]) {
         return mock_funcArrayOfArrayArg.handle(FuncArrayOfArrayArgArgs(arg, arg2))
     }
-
-    //MARK: - funcArrayOfDictArg
+    //MARK: funcArrayOfDictArg
     lazy var mock_funcArrayOfDictArg = FuncCallHandler<[[String: Int]], Void>(returnValue: ())    
     func funcArrayOfDictArg(_ arg: [[String: Int]]) {
         return mock_funcArrayOfDictArg.handle(arg)
     }
-
-    //MARK: - funcArrayOfDictOfArrayArg
+    //MARK: funcArrayOfDictOfArrayArg
     lazy var mock_funcArrayOfDictOfArrayArg = FuncCallHandler<[[String: [Int]]], Void>(returnValue: ())    
     func funcArrayOfDictOfArrayArg(_ arg: [[String: [Int]]]) {
         return mock_funcArrayOfDictOfArrayArg.handle(arg)
     }
-
-    //MARK: - funcDictOfDictArg
+    //MARK: funcDictOfDictArg
     class FuncDictOfDictArgArgs {
         var arg: [String: [String: Int]]
         var arg2: [String: [String: Double]]
@@ -151,20 +139,17 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcDictOfDictArg(_ arg: [String: [String: Int]], _ arg2: [String: [String: Double]]) {
         return mock_funcDictOfDictArg.handle(FuncDictOfDictArgArgs(arg, arg2))
     }
-
-    //MARK: - funcDictOfArrayArg
+    //MARK: funcDictOfArrayArg
     lazy var mock_funcDictOfArrayArg = FuncCallHandler<[String: [Int]], Void>(returnValue: ())    
     func funcDictOfArrayArg(_ arg: [String: [Int]]) {
         return mock_funcDictOfArrayArg.handle(arg)
     }
-
-    //MARK: - funcDictOfArrayOfDictArg
+    //MARK: funcDictOfArrayOfDictArg
     lazy var mock_funcDictOfArrayOfDictArg = FuncCallHandler<[String: [[String: Int]]], Void>(returnValue: ())    
     func funcDictOfArrayOfDictArg(_ arg: [String: [[String: Int]]]) {
         return mock_funcDictOfArrayOfDictArg.handle(arg)
     }
-
-    //MARK: - funcMixed
+    //MARK: funcMixed
     class FuncMixedArgs {
         var arg1: String
         var arg2: Int
@@ -181,5 +166,4 @@ class MockFuncTypesArgs: FuncTypesArgs {
     func funcMixed(arg1Label arg1: String,                   _ arg2: Int,                   arg3: [String],                   arg4Label arg4: [String: Int]) {
         return mock_funcMixed.handle(FuncMixedArgs(arg1, arg2, arg3, arg4))
     }
-
 }
