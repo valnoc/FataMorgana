@@ -7,6 +7,16 @@ FataMorgana generates mocks using [Mirage](https://github.com/valnoc/Mirage) lib
 
 It uses [Sourcery](https://github.com/krzysztofzablocki/Sourcery) as a code generator and provides its own template.
 
+- [Features](#features)
+- [Installation](#installation)
+  - [Carthage](#carthage)
+  - [Cocoapods](#cocoapods)
+  - [Source files](#source-files)
+- [Usage: short variant](#usage-short-info)
+- [Usage: full variant](#usage-full-info)
+- [Special Cases](#special-cases)
+- [License](#license)
+
 ## Features
 Using FataMorgana you can generate class and protocol mocks.
 Needs **Sourcery 0.16.1** and **Mirage 2.0+**.
