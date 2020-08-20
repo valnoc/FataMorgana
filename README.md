@@ -29,8 +29,9 @@ Requires **Sourcery 0.18.0** and **Mirage 2.0+**.
 4. Add build phase for mocks generation
 
 #### Carthage
-Add this line into your Cartfile, run `carthage update --platform iOS` and link binary to the target as you always do it)
+Add this lines into your Cartfile, run `carthage update --platform iOS` and link binary to the target as you always do it)
 ```ruby
+github "valnoc/Mirage" ~> 2.0
 github "valnoc/FataMorgana" ~> 2.0
 ```
 The needed Mock.stencil is located in **Template** folder
