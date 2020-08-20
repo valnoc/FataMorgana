@@ -1,6 +1,6 @@
 {# === IMPORTS === #}
 {% macro generateImports %}
-import Mirage {#
+import Mirage2 {#
 #}{% for item in argument.imports %}
 {#  #}{% if item.framework.count > 0 %}{#
         #}{% if item.testable == true %}@testable {% endif %}{#
@@ -204,8 +204,8 @@ import Mirage {#
     #}{% endif %}{#
     #}{#
     #}{% if isClass %}{#
-    #}, callRealFunc: { [weak self] (args) -> Void in
-        guard let __self = self else { return () }
+    #}, callRealFunc: { [weak self] (args) -> {{ func.returnTypeName }}  in
+        guard let __self = self else { return {% call callAnyForType func.returnTypeName %} }
         return __self.super_{{ funcSel }}(args)
     }{#
     #}{% endif %}{#
