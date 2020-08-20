@@ -19,7 +19,7 @@ It uses [Sourcery](https://github.com/krzysztofzablocki/Sourcery) as a code gene
 
 ## Features
 Using FataMorgana you can generate class and protocol mocks.
-Needs **Sourcery 0.16.1** and **Mirage 2.0+**.
+Requires **Sourcery 0.18.0** and **Mirage 2.0+**.
 
 ---
 ## Installation
@@ -31,9 +31,9 @@ Needs **Sourcery 0.16.1** and **Mirage 2.0+**.
 #### Carthage
 Add this line into your Cartfile, run `carthage update --platform iOS` and link binary to the target as you always do it)
 ```ruby
-github "valnoc/Mirage" ~> 2.0
+github "valnoc/FataMorgana" ~> 2.0
 ```
-Download *FataMorgana* release find *Mock.stencil* in Templates folder and put it inside projects' dir.
+The needed Mock.stencil is located in **Template** folder
 
 
 #### Cocoapods
